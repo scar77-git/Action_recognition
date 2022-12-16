@@ -1,6 +1,7 @@
 # Action_recognition:
 
 Run the folllowing commands to install all the packages:
+
 pip3 install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cu102
 
 pip install 'git+https://github.com/facebookresearch/fvcore'
