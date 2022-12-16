@@ -1,0 +1,12 @@
+Dataset link: https://drive.google.com/drive/folders/1-xlVb4cTb4dbt6ogiDehQ7pnEcMpq79Q?usp=share_link
+colab notebook links: 
+# cycle time:  
+https://colab.research.google.com/drive/1shzxTjCVylMqJ6jB29eaRlmxxxrGmtqQ?usp=share_link
+
+# pyslowfast training:
+https://colab.research.google.com/drive/1aTb9aw-Q3YyAp2BFom7bS5vbmiCD5FMB?usp=share_link
+
+# Yolov5:
+https://colab.research.google.com/drive/15JJr-_L2QT8pBE762ZKvKM4t05cZ_udW?usp=share_link
+
+   
