@@ -36,8 +36,8 @@ _base = getSampleStyleSheet()
 S = {
     "title": ParagraphStyle("title", fontName="DV-B", fontSize=20, leading=25, textColor=INK, spaceAfter=4),
     "sub": ParagraphStyle("sub", fontName="DV", fontSize=10, leading=14, textColor=MUTED, spaceAfter=10),
-    "h1": ParagraphStyle("h1", fontName="DV-B", fontSize=14, leading=18, textColor=ACCENT, spaceBefore=12, spaceAfter=6),
-    "h2": ParagraphStyle("h2", fontName="DV-B", fontSize=11.5, leading=15, textColor=INK, spaceBefore=8, spaceAfter=4),
+    "h1": ParagraphStyle("h1", fontName="DV-B", fontSize=14, leading=18, textColor=ACCENT, spaceBefore=12, spaceAfter=6, keepWithNext=1),
+    "h2": ParagraphStyle("h2", fontName="DV-B", fontSize=11.5, leading=15, textColor=INK, spaceBefore=8, spaceAfter=4, keepWithNext=1),
     "body": ParagraphStyle("body", fontName="DV", fontSize=9.5, leading=13.5, textColor=INK, spaceAfter=5, alignment=TA_LEFT),
     "bullet": ParagraphStyle("bullet", fontName="DV", fontSize=9.5, leading=13.5, textColor=INK, leftIndent=12, bulletIndent=2, spaceAfter=2.5),
     "cell": ParagraphStyle("cell", fontName="DV", fontSize=8.4, leading=11, textColor=INK),
