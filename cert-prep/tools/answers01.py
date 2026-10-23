@@ -154,7 +154,7 @@ for i, (task, _, _) in enumerate(qs, 1):
 score = sum(results.values())
 pct = round(100 * score / len(qs))
 
-n = Note(OUT, "Practice Set 1 — Answers and Review",
+n = Note(OUT, "Practice Set 1 — Final Results and Answers",
          f"Friday 23 Oct 2026 &nbsp;·&nbsp; Score: <b>{score} / {len(qs)} ({pct}%)</b> &nbsp;·&nbsp; "
          "AWS pass mark is 750/1000; aim for 75%+ on practice sets")
 
@@ -191,8 +191,63 @@ n.table(["Rule to remember", ""], [
      "callback task + Catch States.Timeout</b>. <b>Express max = 5 minutes</b>; Standard up to 1 year."],
 ], [0.3, 0.7])
 
+n.h1("3. Why the misses happened — reading traps")
+n.p("Two of the four misses (Q7 and Q29) were <b>concept-right, letter-wrong</b>: the chosen option started with the "
+    "correct idea and ended with the wrong mechanism. Q10 (Standard workflow) was answered correctly, then Q29 picked "
+    "an Express workflow — a sign of fatigue, not a knowledge gap.")
+n.table(["Q", "Trap", "Habit to build"], [
+    ["7", "Option C began 'Run both tools…' (correct) and ended '…in the system prompt' (wrong).",
+     "Read every option to the <b>last word</b>; compare options that share an opening."],
+    ["29", "Express workflow chosen despite knowing its 5-minute limit (Q10 was right).",
+     "Re-check hard limits (time, size, quotas) against the scenario's numbers (48 hours)."],
+    ["2", "DynamoDB assumed to be a vector store.", "Memorise the supported KB vector stores list."],
+    ["17", "Agent chosen where a simple Retrieve + Converse pipeline fits.",
+     "'Custom logic between retrieval and generation' → Retrieve, then build the prompt."],
+], [0.07, 0.5, 0.43])
+n.callout("Exam technique", "Use <b>Flag for review</b> on any question where two options start the same way, and "
+          "revisit flagged questions at the end. Concept score on this set, excluding the two reading errors: "
+          "<b>28/30</b>.")
+
+n.h1("4. Clarification — Q7 and the agent loop")
+n.p("In the Converse API a <b>'user message'</b> means a message with <b>role: \"user\"</b> in the messages array — "
+    "not a message to or from the human. The API only has two roles and they must alternate, so tool results (which "
+    "come from your side) are sent in a role \"user\" message.")
+n.code('''Call 1 -> messages = [
+  { role: "user",      content: [ text: "Status of 1002 and 1003?" ] }       <- the human's question
+]
+<- model: stopReason = tool_use
+
+Call 2 -> messages = [
+  { role: "user",      content: [ text: "Status of 1002 and 1003?" ] },
+  { role: "assistant", content: [ toolUse(id=a, get_order_status 1002),      <- model reply, appended as-is
+                                  toolUse(id=b, get_order_status 1003) ] },
+  { role: "user",      content: [ toolResult(id=a, "PROCESSING"),            <- YOUR tool results:
+                                  toolResult(id=b, "DELIVERED") ] }             role "user", ONE message
+]
+<- model: stopReason = end_turn -> only NOW show the answer to the human''')
+n.bullets([
+    "Until stopReason is not <b>tool_use</b>, nothing goes to the human — keep looping.",
+    "Every call re-sends the <b>whole history</b>: question, every assistant message, every tool-result message.",
+])
+n.table(["", "Who runs the loop", "Who runs the tool", "How results return"], [
+    ["Converse API, your own loop", "<b>You</b>", "You", "toolResult blocks in a role 'user' message"],
+    ["Bedrock Agents, return of control", "<b>Bedrock Agents</b>", "Your app (that one action)",
+     "Next InvokeAgent call, sessionState.returnControlInvocationResults"],
+    ["Bedrock Agents, Lambda action group", "Bedrock Agents", "Lambda", "Handled by Bedrock"],
+], [0.28, 0.2, 0.22, 0.3])
+
+n.h1("5. Readiness on the topics covered so far")
+n.table(["Task", "Confidence", "Evidence and gap"], [
+    ["2.1 Agents and tools", "High (~85%)", "14/16; agent loop well understood; misses were reading errors."],
+    ["1.4 Vector stores", "Medium-high (~75%)", "Chunking, sync, GraphRAG solid. Gap: supported vector stores."],
+    ["1.5 Retrieval", "Medium-high (~75%)", "Hybrid, rerank, filters solid. Gap: Retrieve vs RetrieveAndGenerate."],
+], [0.25, 0.2, 0.55])
+n.p("Overall: about <b>8 out of 10</b> on real exam questions for these tasks. Expect real-exam scores 5–10 points "
+    "below self-made practice sets. To raise it: 10 minutes of mistakes-log review each morning, read every option "
+    "to the end, and Practice Set 2 (31 Oct) will re-test 5 questions from Days 1–3.")
+
 n.page_break()
-n.h1("3. Every question explained")
+n.h1("6. Every question explained")
 for i, (task, stem, opts) in enumerate(qs, 1):
     mark = "✓" if results[i] else "✗"
     n.h2(f"Question {i} &nbsp;·&nbsp; Task {task} &nbsp;·&nbsp; {mark} you answered {', '.join(MY[i])}, "
