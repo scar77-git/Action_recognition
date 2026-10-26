@@ -25,6 +25,8 @@ Repo: `scar77-git/Action_recognition`, branch `claude/aws-ai-cert-prep-rpargp`, 
   with `tools/notelib.py`. Include task numbers, concepts, lab, graded quiz, mistakes, glossary.
 - After every session also update `tools/tracker.py` (DAYS, DOMAINS, ASSESSMENTS, LAB_BACKLOG, OVERALL, LAST_UPDATED)
   and rebuild `notes/Progress_Tracker.pdf` (landscape), then send it.
+- Add one or two lines to `JOURNEY.md` after each session (milestones, obstacles, scores) — raw material for
+  the learner's LinkedIn post and YouTube video.
 - Quiz / warm-up questions only after the whole day's lesson and lab.
 - Practice-set answer keys are never committed before the learner answers (keep the generator out of the repo).
 
@@ -53,26 +55,38 @@ Coverage of exam guide ≈ 45%.
 - Batch inference (managed file job, hours, ~50% cheaper) vs async SQS (user waiting, on-demand price).
 - Habit: read every option to the last word; flag look-alike options.
 
-## Remaining plan (AWS)
-| Date | Day | Tasks |
+## Syllabus and coverage
+- Official skill list: `reference/AWS_AIP-C01_All_Exam_Tasks_and_Skills.pdf` (5 domains, 20 tasks, 98 skills).
+- Plan every lesson from the skill statements, not task titles. Track status in `tools/skills.py`
+  (Y / P / N per skill) and rebuild `notes/Skill_Coverage_Matrix.pdf` after each session.
+- 26 Oct check: 16 covered, 40 partly, 42 not yet → 37%. After gap lesson: 32 / 26 / 40 → 47%.
+
+## Remaining plan (AWS) — revised 26 Oct after the skill check
+| Date | Session | Skills / tasks |
 |---|---|---|
-| Mon 26 | 6 Guardrails, responsible AI | 3.1, 3.4 |
-| Tue 27 | 7 Prompt engineering, design | 1.6, 1.1 |
-| Wed 28 | 8 Data pipelines, integration, dev tools | 1.3, 2.3, 2.5 |
-| Thu 29 | 9 Governance and compliance | 3.3 |
-| Fri 30 | 10 Cost and performance | 4.1, 4.2 |
-| Sat 31 | 11 Monitoring, evaluation, troubleshooting + Practice Set 2 (incl. 5 Q from Days 1–3) | 4.3, 5.1, 5.2 |
-| Sun 1 Nov | Full mock 1 (1:30 PM, 190 min) | all |
-| Mon 2 | Weak areas | |
-| Tue 3 | Full mock 2 | all |
-| Wed 4 | Weak areas + Practice Set 3 | |
-| Thu 5 | Full mock 3 | all |
-| Fri 6 | Final cheat-sheet PDF | |
-| Sat 7 | Buffer: weakest two tasks | |
+| Mon 26 Oct | Routing mini-lesson ✓, **gap lesson ✓** (quiz 12/12) | 1.2.2–1.2.4, 1.4.1–1.4.3, 1.5.2, 1.5.5, 2.1.3–2.1.7, 2.2.2, 2.4.2–2.4.3 |
+| Tue 27 | Day 6 (from Part 1): Guardrails, prompt injection, Responsible AI | 3.1, 3.4 |
+| Wed 28 | Day 7 Prompt engineering + design | 1.6, 1.1, 2.1.2, (5.2.3, 5.2.5) |
+| Thu 29 | Day 8 Data pipelines + enterprise integration | 1.3, 2.3 |
+| Fri 30 | Day 9 App patterns + dev tools + governance | 2.5, 3.3 |
+| Sat 31 | Day 10 Cost + performance | 4.1, 4.2 |
+| Sun 1 Nov | Day 11 Monitoring + troubleshooting | 4.3, 5.2 |
+| Mon 2 | Day 12 Evaluation + Practice Set 2 | 5.1 |
+| Tue 3 | Full mock 1 (1:30 PM, 190 min) | all |
+| Wed 4 | Weak areas | |
+| Thu 5 | Full mock 2 | all |
+| Fri 6 | Weak areas + Practice Set 3 + final cheat sheet | |
+| Sat 7 | Full mock 3 + review | all |
 | Sun 8 | Light review only | |
 | Mon 9 | Skim until 10 AM → exam 1:30 PM | |
 
 Readiness rule: mocks ≥75% ready; 65–75% focus weak tasks; <65% by 3 Nov → discuss rescheduling.
 
 ## Next action
-Start **Day 6, Part 1** (Guardrails, Tasks 3.1 and 3.4) in the new teaching style. Day 5 lab still to do when the learner has console access.
+Teach **Day 6 from Part 1** (Guardrails, prompt injection, Responsible AI; skills 3.1.1–3.1.5, 3.4.1–3.4.3) in the new
+style with pauses. Gap lesson done: quiz 12/12 (Q6 guessed — replicas vs primary shards).
+
+## Quiz rules (learned the hard way)
+- Never bold or otherwise mark correct options; keep all options similar in length.
+- Every wrong option must be a real, plausible AWS approach that fails one stated requirement.
+- Keep answer keys only in the scratchpad until the learner has answered.
