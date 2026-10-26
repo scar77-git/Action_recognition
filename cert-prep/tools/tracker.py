@@ -27,10 +27,10 @@ DAYS = [
      "Studied, not run", "80% — exact names (bedrock-agent-runtime, kms:Decrypt)"),
     ("5. Models and inference", "Sun 25 Oct", "1.2, 2.4, 2.2", "+10%", "35%", "✓ Done", "Quiz <b>8/8</b>",
      "To do later", "85% — new teaching style; lab not yet run"),
-    ("Routing mini-lesson (Skill 2.4.4)", "Mon 26 Oct", "2.4.4", "+1%", "36%", "✓ Read",
+    ("Routing mini-lesson (Skill 2.4.4)", "Mon 26 Oct", "2.4.4", "+2%", "37%", "✓ Read",
      "Checks pending", "—", "—"),
     ("Gap lesson (skills missed in studied tasks)", "Mon 26 Oct", "1.2.2–1.2.4, 1.4.1–1.4.3, 1.5.2, 1.5.5, "
-     "2.1.3–2.1.7, 2.2.2, 2.4.2–2.4.3", "+10%", "46%", "Next", "—", "—", "—"),
+     "2.1.3–2.1.7, 2.2.2, 2.4.2–2.4.3", "+9%", "46%", "Next", "—", "—", "—"),
     ("6. Guardrails + Responsible AI (not started)", "Tue 27 Oct", "3.1, 3.4", "+10%", "56%", "Planned", "—", "—", "—"),
     ("7. Prompt engineering + design", "Wed 28 Oct", "1.6, 1.1, 2.1.2 (+ 5.2.3, 5.2.5)", "+10%", "66%", "Planned",
      "—", "—", "—"),
@@ -70,7 +70,7 @@ LAB_BACKLOG = [
     "Day 5 — Console lab, start with Part B (request the TPM quota increase).",
 ]
 
-OVERALL = ("<b>Overall confidence on topics covered so far: ~83%.</b> Skill-level coverage of the exam guide: <b>36%</b> "
+OVERALL = ("<b>Overall confidence on topics covered so far: ~83%.</b> Skill-level coverage of the exam guide: <b>37%</b> "
            "(16 of 98 skills fully covered, 40 partly — see Skill_Coverage_Matrix.pdf). "
            "Strongest: agents and tools (2.1), models and inference (1.2, 2.2, 2.4). Watch: exact service names and "
            "limits, and reading every option to the end. Biggest risk: no hands-on labs since Day 1.")

@@ -59,7 +59,7 @@ Coverage of exam guide ≈ 45%.
 - Official skill list: `reference/AWS_AIP-C01_All_Exam_Tasks_and_Skills.pdf` (5 domains, 20 tasks, 98 skills).
 - Plan every lesson from the skill statements, not task titles. Track status in `tools/skills.py`
   (Y / P / N per skill) and rebuild `notes/Skill_Coverage_Matrix.pdf` after each session.
-- 26 Oct check: 16 covered, 40 partly, 42 not yet → weighted skill coverage 36%.
+- 26 Oct check: 16 covered, 40 partly, 42 not yet → weighted skill coverage 37%.
 
 ## Remaining plan (AWS) — revised 26 Oct after the skill check
 | Date | Session | Skills / tasks |
