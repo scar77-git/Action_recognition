@@ -100,3 +100,7 @@ The later sets shift: Practice Set 3 (2 Nov, Days 6–12) and Practice Set 4 (6 
   provider is down"), not the solution's name or its signature wording (e.g. not "fallback", "half-open", "adapter").
   Only use a term in the stem when the question genuinely can't be asked without it.
 - Mix difficulty roughly 60% hard / 40% medium, rotated so hard questions aren't clustered; hard ≠ trick questions.
+- Official format: multiple choice = exactly 4 options (1 correct, 3 distractors); multiple response = 5+ options with
+  2 or more correct (include some "Choose THREE"), scored all-or-nothing — grade strictly, no partial credit.
+- Exam: 65 scored questions (plus unscored ones that look identical — the full exam is typically 75); unanswered = wrong,
+  no penalty for guessing → always answer everything. Full mocks use 75 questions in 190 minutes.
