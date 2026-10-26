@@ -86,6 +86,12 @@ Readiness rule: mocks ≥75% ready; 65–75% focus weak tasks; <65% by 3 Nov →
 Teach **Day 6 from Part 1** (Guardrails, prompt injection, Responsible AI; skills 3.1.1–3.1.5, 3.4.1–3.4.3) in the new
 style with pauses. Gap lesson done: quiz 12/12 (Q6 guessed — replicas vs primary shards).
 
+## Pending request
+Learner wants **Practice Set 2: 45 questions on everything covered so far** (Days 1–5 + gap lesson; skills marked Y/P in
+`tools/skills.py`), as revision. **Wait until the learner says to start.** Build as a question PDF (no answers), keep the
+generator and key out of the repo until answered, follow the quiz rules below. Time limit ~105 min (2.3 min/question).
+The later sets shift: Practice Set 3 (2 Nov, Days 6–12) and Practice Set 4 (6 Nov, weakest tasks).
+
 ## Quiz rules (learned the hard way)
 - Never bold or otherwise mark correct options; keep all options similar in length.
 - Every wrong option must be a real, plausible AWS approach that fails one stated requirement.
