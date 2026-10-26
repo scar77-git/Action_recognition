@@ -29,3 +29,4 @@ Story beats recorded as they happen. Add one or two lines after every session.
 | 23 Oct | Practice Set 1: 26/30 (87%) on Days 1–3 |
 | 24 Oct | Exam booked: Mon 9 Nov, 1:30 PM IST |
 | 25 Oct | Day 5 in the new teaching style — quiz 8/8 |
+| 26 Oct | Learner spotted a missing skill (2.4.4 model routing) → checked all 98 official skills; coverage was 37%, not ~42%. Built a Skill Coverage Matrix and a gap lesson; coverage now 47%. |

@@ -12,7 +12,7 @@ from reportlab.lib.styles import ParagraphStyle  # noqa: E402
 from reportlab.platypus import Paragraph  # noqa: E402
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "notes", "Skill_Coverage_Matrix.pdf")
-LAST_UPDATED = "Monday 26 Oct 2026 (after Day 5 + routing mini-lesson; Day 6 not started)"
+LAST_UPDATED = "Monday 26 Oct 2026 (after the gap lesson; Day 6 not started)"
 H1_SPLIT = ParagraphStyle("h1split", parent=S["h1"], keepWithNext=0)
 
 DOMAINS = OrderedDict([
@@ -33,12 +33,9 @@ SKILLS = [
     # ---- Task 1.2 Select and configure FMs
     ("1.2.1", "Assess and choose FMs (benchmarks, capabilities, limitations)", "Y",
      "D5 Part 1 (criteria, model evaluation)", "—"),
-    ("1.2.2", "Switch models/providers without code changes (Lambda, API Gateway, AppConfig)", "P",
-     "D5 Converse API; routing lesson (AppConfig map)", "Gap lesson: config-driven model switching"),
-    ("1.2.3", "Resilience: Step Functions circuit breaker, CRIS, cross-Region, graceful degradation", "P",
-     "D5 cross-region inference, fallbacks", "Gap lesson: circuit breaker, graceful degradation"),
-    ("1.2.4", "Customisation lifecycle: SageMaker deploy, LoRA/adapters, Model Registry, pipelines, rollback, retire", "P",
-     "D5 Part 3 (fine-tuning, CPT, distillation, Custom Model Import)", "Gap lesson: LoRA, Model Registry, rollback, retirement"),
+    ("1.2.2", "Switch models/providers without code changes (Lambda, API Gateway, AppConfig)", "Y", "D5 Converse API; routing lesson (AppConfig map); Gap lesson 26 Oct", "—"),
+    ("1.2.3", "Resilience: Step Functions circuit breaker, CRIS, cross-Region, graceful degradation", "Y", "D5 cross-region inference, fallbacks; Gap lesson 26 Oct", "—"),
+    ("1.2.4", "Customisation lifecycle: SageMaker deploy, LoRA/adapters, Model Registry, pipelines, rollback, retire", "Y", "D5 Part 3 (fine-tuning, CPT, distillation, Custom Model Import); Gap lesson 26 Oct", "—"),
     # ---- Task 1.3 Data validation and processing pipelines
     ("1.3.1", "Data validation (Glue Data Quality, Data Wrangler, Lambda, CloudWatch metrics)", "N", "—", "Day 8"),
     ("1.3.2", "Multimodal processing (Bedrock multimodal, SageMaker Processing, Transcribe)", "P",
@@ -47,23 +44,18 @@ SKILLS = [
      "D2 Converse messages; D5 InvokeModel vs Converse, batch JSONL", "Day 8"),
     ("1.3.4", "Improve input quality (Bedrock reformatting, Comprehend entities, Lambda normalisation)", "N", "—", "Day 8"),
     # ---- Task 1.4 Vector stores
-    ("1.4.1", "Vector architectures (KB hierarchical, OpenSearch Neural plugin, RDS+S3, DynamoDB for metadata)", "P",
-     "D1 KB + vector stores", "Gap lesson: OpenSearch Neural plugin, DynamoDB metadata pattern"),
-    ("1.4.2", "Metadata frameworks (S3 metadata timestamps, authorship attributes, domain tags)", "P",
-     "D1 metadata filtering; PS1 Q3", "Gap lesson: .metadata.json attributes"),
-    ("1.4.3", "Performance at scale (OpenSearch sharding, multi-index, hierarchical indexing)", "N", "—",
-     "Gap lesson"),
+    ("1.4.1", "Vector architectures (KB hierarchical, OpenSearch Neural plugin, RDS+S3, DynamoDB for metadata)", "Y", "D1 KB + vector stores; Gap lesson 26 Oct", "—"),
+    ("1.4.2", "Metadata frameworks (S3 metadata timestamps, authorship attributes, domain tags)", "Y", "D1 metadata filtering; PS1 Q3; Gap lesson 26 Oct", "—"),
+    ("1.4.3", "Performance at scale (OpenSearch sharding, multi-index, hierarchical indexing)", "Y", "Gap lesson 26 Oct", "—"),
     ("1.4.4", "Integration with document systems, wikis (connectors)", "Y", "D1 KB data source connectors", "—"),
     ("1.4.5", "Keep vector stores current (incremental, change detection, sync, scheduled refresh)", "Y",
      "D1 sync jobs; PS1 Q5", "—"),
     # ---- Task 1.5 Retrieval mechanisms
     ("1.5.1", "Document segmentation (Bedrock chunking, Lambda fixed-size, hierarchical)", "Y", "D1; PS1 Q16", "—"),
-    ("1.5.2", "Embedding choice (Titan dimensions, domain fit, Lambda batch embeddings)", "P",
-     "D1 embeddings; PS1 Q20", "Gap lesson: dimension trade-offs, batch embedding"),
+    ("1.5.2", "Embedding choice (Titan dimensions, domain fit, Lambda batch embeddings)", "Y", "D1 embeddings; PS1 Q20; Gap lesson 26 Oct", "—"),
     ("1.5.3", "Vector search (OpenSearch, Aurora pgvector, KB managed store)", "Y", "D1; PS1 Q2", "—"),
     ("1.5.4", "Advanced search (hybrid, rerankers)", "Y", "D1; PS1 Q1", "—"),
-    ("1.5.5", "Query handling (expansion, decomposition, Step Functions transformation)", "P",
-     "D1 query decomposition", "Gap lesson: query expansion/transformation"),
+    ("1.5.5", "Query handling (expansion, decomposition, Step Functions transformation)", "Y", "D1 query decomposition; Gap lesson 26 Oct", "—"),
     ("1.5.6", "Consistent access (function calling for vector search, MCP clients, standard APIs)", "Y",
      "D2 tools; D3 MCP; PS1 Q17", "—"),
     # ---- Task 1.6 Prompt engineering and governance
@@ -78,19 +70,14 @@ SKILLS = [
     ("2.1.1", "Autonomous systems with memory/state (Strands, Agent Squad, MCP)", "Y", "D2, D3; PS1", "—"),
     ("2.1.2", "Structured reasoning (Step Functions ReAct, chain-of-thought)", "P", "D2 ReAct; D3 Step Functions",
      "Day 7 (chain-of-thought)"),
-    ("2.1.3", "Safeguarded workflows (stopping conditions, Lambda timeouts, IAM boundaries, circuit breakers)", "P",
-     "D3 Step Functions; PS1 Q29", "Gap lesson"),
-    ("2.1.4", "Model coordination (specialised FMs, ensembles, selection frameworks)", "P",
-     "D3 supervisor/router; routing lesson", "Gap lesson: ensembles + aggregation"),
-    ("2.1.5", "Human collaboration (Step Functions approvals, API Gateway feedback)", "P",
-     "D3 waitForTaskToken; PS1 Q10, Q29", "Gap lesson: feedback collection"),
-    ("2.1.6", "Reliable tools (Strands custom behaviours, function definitions, Lambda validation)", "P",
-     "D2 tool schemas, toolResult errors; PS1 Q21", "Gap lesson: parameter validation"),
-    ("2.1.7", "MCP servers: Lambda (stateless, light) vs ECS (complex); client libraries", "P", "D3 MCP",
-     "Gap lesson"),
+    ("2.1.3", "Safeguarded workflows (stopping conditions, Lambda timeouts, IAM boundaries, circuit breakers)", "Y", "D3 Step Functions; PS1 Q29; Gap lesson 26 Oct", "—"),
+    ("2.1.4", "Model coordination (specialised FMs, ensembles, selection frameworks)", "Y", "D3 supervisor/router; routing lesson; Gap lesson 26 Oct", "—"),
+    ("2.1.5", "Human collaboration (Step Functions approvals, API Gateway feedback)", "Y", "D3 waitForTaskToken; PS1 Q10, Q29; Gap lesson 26 Oct", "—"),
+    ("2.1.6", "Reliable tools (Strands custom behaviours, function definitions, Lambda validation)", "Y", "D2 tool schemas, toolResult errors; PS1 Q21; Gap lesson 26 Oct", "—"),
+    ("2.1.7", "MCP servers: Lambda (stateless, light) vs ECS (complex); client libraries", "Y", "D3 MCP; Gap lesson 26 Oct", "—"),
     # ---- Task 2.2 Deployment
     ("2.2.1", "Deploy per need (Lambda on-demand, Provisioned Throughput, SageMaker hybrid)", "Y", "D5 Part 3", "—"),
-    ("2.2.2", "LLM-specific deployment (containers, GPU memory, model loading)", "N", "—", "Gap lesson"),
+    ("2.2.2", "LLM-specific deployment (containers, GPU memory, model loading)", "Y", "Gap lesson 26 Oct", "—"),
     ("2.2.3", "Optimised deployment (smaller models, cascading)", "Y", "D5 distillation; routing lesson", "—"),
     # ---- Task 2.3 Enterprise integration
     ("2.3.1", "Enterprise connectivity (legacy APIs, event-driven, data sync)", "N", "—", "Day 8"),
@@ -100,10 +87,8 @@ SKILLS = [
     ("2.3.5", "CI/CD + GenAI gateway (CodePipeline, CodeBuild, tests, rollback, central layer)", "N", "—", "Day 8"),
     # ---- Task 2.4 FM API integrations
     ("2.4.1", "Sync/async interaction (Bedrock APIs, SDKs + SQS, API Gateway validation)", "Y", "D5 Part 2", "—"),
-    ("2.4.2", "Real-time (streaming APIs, WebSockets / server-sent events, chunked transfer)", "P",
-     "D5 streaming", "Gap lesson: WebSockets, SSE"),
-    ("2.4.3", "Resilience (SDK backoff, API Gateway rate limiting, fallback, X-Ray)", "P",
-     "D5 backoff, fallback", "Gap lesson: API Gateway throttling, X-Ray"),
+    ("2.4.2", "Real-time (streaming APIs, WebSockets / server-sent events, chunked transfer)", "Y", "D5 streaming; Gap lesson 26 Oct", "—"),
+    ("2.4.3", "Resilience (SDK backoff, API Gateway rate limiting, fallback, X-Ray)", "Y", "D5 backoff, fallback; Gap lesson 26 Oct", "—"),
     ("2.4.4", "Model routing (static, Step Functions content-based, metrics, API Gateway)", "Y",
      "Routing mini-lesson (26 Oct)", "—"),
     # ---- Task 2.5 App integration and dev tools

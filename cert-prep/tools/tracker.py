@@ -11,7 +11,7 @@ from reportlab.platypus import Paragraph  # noqa: E402
 H1_SPLIT = ParagraphStyle("h1split", parent=S["h1"], keepWithNext=0)
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "notes", "Progress_Tracker.pdf")
-LAST_UPDATED = "Monday 26 Oct 2026 (after skill-level coverage check)"
+LAST_UPDATED = "Monday 26 Oct 2026 (after the gap lesson)"
 
 # day, date, official tasks, added %, total %, status, score, lab, confidence (topic mastery for that day)
 DAYS = [
@@ -30,7 +30,7 @@ DAYS = [
     ("Routing mini-lesson (Skill 2.4.4)", "Mon 26 Oct", "2.4.4", "+2%", "37%", "✓ Read",
      "Checks pending", "—", "—"),
     ("Gap lesson (skills missed in studied tasks)", "Mon 26 Oct", "1.2.2–1.2.4, 1.4.1–1.4.3, 1.5.2, 1.5.5, "
-     "2.1.3–2.1.7, 2.2.2, 2.4.2–2.4.3", "+9%", "46%", "Next", "—", "—", "—"),
+     "2.1.3–2.1.7, 2.2.2, 2.4.2–2.4.3", "+10%", "47%", "✓ Done", "Checks 8/9; quiz pending", "—", "80% — new topics, checks strong; shards misconception fixed"),
     ("6. Guardrails + Responsible AI (not started)", "Tue 27 Oct", "3.1, 3.4", "+10%", "56%", "Planned", "—", "—", "—"),
     ("7. Prompt engineering + design", "Wed 28 Oct", "1.6, 1.1, 2.1.2 (+ 5.2.3, 5.2.5)", "+10%", "66%", "Planned",
      "—", "—", "—"),
@@ -44,10 +44,9 @@ DAYS = [
 
 # domain, weight, coverage so far, confidence on what's covered, note
 DOMAINS = [
-    ("1. FM integration, data management, compliance", "31%", "45% (7 ✓ 11 ½ 10 ✗ of 28 skills)", "80%",
-     "Gaps in 1.2/1.4/1.5 → gap lesson; 1.1, 1.6 Day 7; 1.3 Day 8"),
-    ("2. Implementation and integration", "26%", "42% (5 ✓ 11 ½ 9 ✗ of 25)", "85%",
-     "Gaps in 2.1/2.2/2.4 → gap lesson; 2.3 Day 8; 2.5 Day 9"),
+    ("1. FM integration, data management, compliance", "31%", "61% (15 ✓ 4 ½ 9 ✗ of 28 skills)", "80%",
+     "1.1, 1.6 Day 7; 1.3 Day 8"),
+    ("2. Implementation and integration", "26%", "60% (13 ✓ 4 ½ 8 ✗ of 25)", "83%", "2.3 Day 8; 2.5 Day 9"),
     ("3. AI safety, security, governance", "20%", "27% (3 ✓ 2 ½ 10 ✗ of 15)", "80%", "3.1, 3.4 Day 6; 3.3 Day 9"),
     ("4. Operational efficiency and optimisation", "12%", "34% (1 ✓ 9 ½ 6 ✗ of 16)", "—", "Days 10–11"),
     ("5. Testing, validation, troubleshooting", "11%", "25% (0 ✓ 7 ½ 7 ✗ of 14)", "75%", "Days 11–12"),
@@ -70,8 +69,8 @@ LAB_BACKLOG = [
     "Day 5 — Console lab, start with Part B (request the TPM quota increase).",
 ]
 
-OVERALL = ("<b>Overall confidence on topics covered so far: ~83%.</b> Skill-level coverage of the exam guide: <b>37%</b> "
-           "(16 of 98 skills fully covered, 40 partly — see Skill_Coverage_Matrix.pdf). "
+OVERALL = ("<b>Overall confidence on topics covered so far: ~83%.</b> Skill-level coverage of the exam guide: <b>47%</b> "
+           "(32 of 98 skills fully covered, 26 partly — see Skill_Coverage_Matrix.pdf). "
            "Strongest: agents and tools (2.1), models and inference (1.2, 2.2, 2.4). Watch: exact service names and "
            "limits, and reading every option to the end. Biggest risk: no hands-on labs since Day 1.")
 
@@ -100,8 +99,8 @@ n.h1("4. Lab backlog")
 n.bullets(LAB_BACKLOG)
 
 n.h1("5. Next session")
-n.p("<b>Gap lesson</b> — skills missed inside already-studied tasks (1.2, 1.4, 1.5, 2.1, 2.2, 2.4), in parts with pauses. "
-    "Then Day 6 from Part 1 (Guardrails and Responsible AI).")
+n.p("<b>Gap-lesson quiz</b> (fresh questions, after revising the Gap Lesson PDF), then <b>Day 6 from Part 1</b> "
+    "(Guardrails and Responsible AI).")
 
 n.build()
 print(os.path.abspath(OUT))
