@@ -87,10 +87,12 @@ Teach **Day 6 from Part 1** (Guardrails, prompt injection, Responsible AI; skill
 style with pauses. Gap lesson done: quiz 12/12 (Q6 guessed — replicas vs primary shards).
 
 ## Pending request
-Learner wants **Practice Set 2: 45 questions on everything covered so far** (Days 1–5 + gap lesson; skills marked Y/P in
-`tools/skills.py`), as revision. **Wait until the learner says to start.** Build as a question PDF (no answers), keep the
-generator and key out of the repo until answered, follow the quiz rules below. Time limit ~105 min (2.3 min/question).
-The later sets shift: Practice Set 3 (2 Nov, Days 6–12) and Practice Set 4 (6 Nov, weakest tasks).
+**Practice Set 2 sent (26 Oct)**: `notes/Practice_Set_2_2026-10-26_Days_1-5_and_Gap_Questions.pdf`, 45 questions
+(36 MC, 4 Select TWO, 2 Select THREE, 3 Select ALL; 27 hard). Waiting for the learner's answers. The generator and key
+(with per-option explanations) are in this session's scratchpad (`practice02.py`, `practice02_key.json`) — not committed.
+After grading: build the answers PDF, then commit the generator to `tools/`. If the key is ever lost (new session),
+re-solve the questions from the PDF to grade them.
+Later sets: Practice Set 3 (2 Nov, Days 6–12), Practice Set 4 (6 Nov, weakest tasks).
 
 ## Quiz rules (learned the hard way)
 - Never bold or otherwise mark correct options; keep all options similar in length.
