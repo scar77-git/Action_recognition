@@ -30,3 +30,4 @@ Story beats recorded as they happen. Add one or two lines after every session.
 | 24 Oct | Exam booked: Mon 9 Nov, 1:30 PM IST |
 | 25 Oct | Day 5 in the new teaching style — quiz 8/8 |
 | 26 Oct | Learner spotted a missing skill (2.4.4 model routing) → checked all 98 official skills; coverage was 37%, not ~42%. Built a Skill Coverage Matrix and a gap lesson; coverage now 47%. |
+| 26 Oct | Gap-lesson quiz 12/12 after two quiz versions were withdrawn (answers leaked via input suggestions, then via bold formatting) — learner insisted on harder, plausible options. |

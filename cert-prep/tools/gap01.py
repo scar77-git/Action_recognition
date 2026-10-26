@@ -361,6 +361,99 @@ n.table(["Term", "Meaning"], [
     ["AWS X-Ray / service map", "Distributed tracing with per-step timings; diagram of services."],
 ], [0.36, 0.64])
 
-n.callout("Next", "Gap-lesson quiz (new questions), then Day 6 — Guardrails and Responsible AI — from Part 1.")
+# ---------------------------------------------------------------- quiz (inserted)
+QUIZ = [
+    ("1", "1.2.2", "Change the model during an incident without redeploying; gradual rollout; automatic rollback.", "C", "C", False,
+     [("A", "Parameter Store read at runtime avoids redeploys but has no gradual rollout or automatic rollback."),
+      ("B", "A new Lambda version is a redeploy; weighted aliases shift traffic, but the change still ships as code/config release."),
+      ("C", "✓ AppConfig: runtime read, linear deployment strategy, CloudWatch alarm monitor → automatic rollback."),
+      ("D", "Cross-region inference routes the same model across Regions; it never switches provider.")]),
+    ("2", "1.2.3", "Stop 30-second timeouts during a long outage; immediate fallback; periodic recovery checks.", "B", "B", False,
+     [("A", "Retries keep hitting the failing model and users still wait — the opposite of failing fast."),
+      ("B", "✓ A circuit breaker described without its name: failure count in DynamoDB, open → fallback, half-open test request."),
+      ("C", "Throttling reduces traffic but gives users no answer from a fallback."),
+      ("D", "A shorter timeout fails faster but returns errors instead of fallback answers.")]),
+    ("3", "1.2.4", "Twelve tone-specific variants of one 8B model; minimise hosting cost and training time.", "D", "D", False,
+     [("A", "Twelve full fine-tunes are slow to train and twelve full copies need far more GPU memory."),
+      ("B", "One combined model loses the per-team variants the requirement asks for."),
+      ("C", "Distillation trains twelve new models and still needs twelve endpoints."),
+      ("D", "✓ LoRA: small per-team adapters, one shared base model, one endpoint.")]),
+    ("4", "2.2.2", "GPU memory for a 13B model at 16-bit (weights only).", "A", "A", False,
+     [("A", "✓ 13 billion × 2 bytes = 26 GB."), ("B", "That is 8-bit (1 byte per parameter)."),
+      ("C", "That is 4-bit (0.5 byte)."), ("D", "That is 32-bit (4 bytes).")]),
+    ("5", "1.4.2", "Outdated versions retrieved; filters should come from the question automatically.", "B, E", "B, E", False,
+     [("A", "A reranker scores relevance, not recency; old and new versions look equally relevant."),
+      ("B", "✓ An effective-date attribute + filter excludes superseded versions."),
+      ("C", "A daily sync mirrors S3 — if old versions are still in S3, they stay in the index."),
+      ("D", "Decomposition splits multi-part questions; it doesn't create metadata filters."),
+      ("E", "✓ Implicit filtering: the model builds the filter (e.g. year = 2025, department = HR) from the question.")]),
+    ("6", "1.4.3", "Read volume tripled, data unchanged, must survive node failure.", "D", "D (guessed)", False,
+     [("A", "More primary shards spread data, but the data didn't grow and primaries alone add no redundancy."),
+      ("B", "Fewer dimensions make each query cheaper but do nothing for node failure."),
+      ("C", "A cache helps only repeated identical queries; semantic queries rarely repeat exactly, and no availability gain."),
+      ("D", "✓ Replicas serve reads in parallel (throughput) and are copies that survive node loss (availability).")]),
+    ("7", "1.5.5", "Follow-up questions lose context; least effort.", "A", "A", False,
+     [("A", "✓ The KB keeps the conversation when you pass the previous sessionId."),
+      ("B", "Decomposition splits complex questions; it doesn't resolve 'and for premium?' without history."),
+      ("C", "Works, but it's custom code — not the least effort."),
+      ("D", "Hybrid search matches 'premium' but still lacks what the question is about (refund window).")]),
+    ("8", "1.4.1", "Semantic search over a DynamoDB catalogue; DynamoDB stays source of truth; minimal pipeline code.", "C", "C", False,
+     [("A", "DynamoDB can store vectors as attributes but cannot run similarity search over them."),
+      ("B", "DynamoDB is not a supported Knowledge Base vector store."),
+      ("C", "✓ Zero-ETL keeps OpenSearch in sync without pipeline code; OpenSearch runs the vector search."),
+      ("D", "DAX is a key-value cache; it has no vector similarity search.")]),
+    ("9", "2.1.4", "High-stakes fraud flags; accuracy over cost; disagreements to humans.", "B", "B", False,
+     [("A", "A single model gives no 'disagreement' signal, and LLM confidence scores are poorly calibrated."),
+      ("B", "✓ Ensemble with majority vote; disagreement routes to human review."),
+      ("C", "Prompt routing optimises cost per prompt, not accuracy through agreement."),
+      ("D", "Self-checking with the same model repeats the same blind spots.")]),
+    ("10", "2.1.3", "Agent calls a failing tool for hours; costs spike.", "A, C", "A, C", False,
+     [("A", "✓ Stopping conditions (max iterations, token budget) end runaway loops."),
+      ("B", "More timeout/memory doesn't fix a tool that keeps failing — it makes each failure slower."),
+      ("C", "✓ Circuit breaker skips the failing tool and returns a fallback."),
+      ("D", "More retries multiply calls and cost during a persistent failure."),
+      ("E", "X-Ray helps you find the problem afterwards; it doesn't stop the loop.")]),
+    ("11", "2.4.3", "One partner floods the API; per-partner limits needed.", "D", "D", False,
+     [("A", "X-Ray detects; it doesn't limit anyone."),
+      ("B", "More quota raises the ceiling, but one partner can still consume all of it."),
+      ("C", "Stage throttling caps total traffic — the flooding partner can still starve the others."),
+      ("D", "✓ Usage plans + API keys give each partner its own throttle and quota.")]),
+    ("12", "2.1.7", "Forty stateless tools under 2 seconds; spiky; no idle cost.", "B", "B", False,
+     [("A", "Fargate with a minimum of one task per tool runs (and costs) 24/7."),
+      ("B", "✓ Lambda: stateless, short calls, scales to zero, pay per call."),
+      ("C", "An EC2 Auto Scaling group keeps instances running and needs patching."),
+      ("D", "EKS needs a cluster and nodes — the most operations, and idle cost.")]),
+]
+
+n.page_break()
+n.h1("Gap lesson quiz — 12 / 12")
+n.callout("Result", "<b>12 / 12 (100%)</b>, with harder exam-style options in which every wrong answer is a real AWS approach "
+          "failing one requirement. One correct answer (Q6) was marked as a guess — review replicas vs primary shards "
+          "below.", "ok")
+n.table(["Q", "Skill", "Scenario", "Your answer", "Correct"],
+        [[q, sk, sc, mine, corr] for q, sk, sc, corr, mine, _, _ in QUIZ], [0.05, 0.08, 0.55, 0.16, 0.16])
+for q, sk, sc, corr, mine, _, opts in QUIZ:
+    n.h2(f"Q{q} · Skill {sk} · correct {corr} · you answered {mine}")
+    n.p(sc)
+    n.bullets([f"<b>{letter}.</b> {why}" for letter, why in opts])
+
+n.h1("Feedback")
+n.bullets([
+    "Your strongest area today: <b>design patterns described without their names</b> (Q2 circuit breaker, Q7 sessionId) — "
+    "you recognised the mechanism, which is what the real exam tests.",
+    "<b>Q6 (guessed)</b>: remember the split — <b>primary shards</b> spread <i>data</i>; <b>replicas</b> add <i>read "
+    "throughput</i> and <i>availability</i>. 'More queries, same data, survive node failure' → replicas.",
+    "Watch-outs that caught nobody today but will appear in the exam: DynamoDB is never the vector store (Q8 B); "
+    "stage-level throttling is not per-client (Q11 C); a reranker doesn't know dates (Q5 A).",
+])
+n.h1("Quiz-process lessons (for the journey log)")
+n.bullets([
+    "First version of this quiz was withdrawn: answer suggestions in the app's input box revealed answers.",
+    "Second version was withdrawn: correct options were formatted in bold.",
+    "Third version kept the questions but rewrote every option to be plausible and of similar length — the format used "
+    "from now on.",
+])
+
+n.callout("Next", "Day 6 — Guardrails and Responsible AI (skills 3.1.x, 3.4.x) — from Part 1.")
 n.build()
 print(os.path.abspath(OUT))

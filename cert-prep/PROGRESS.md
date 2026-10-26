@@ -64,7 +64,7 @@ Coverage of exam guide ≈ 45%.
 ## Remaining plan (AWS) — revised 26 Oct after the skill check
 | Date | Session | Skills / tasks |
 |---|---|---|
-| Mon 26 Oct | Routing mini-lesson ✓, **gap lesson ✓** (PDF sent; quiz pending) | 1.2.2–1.2.4, 1.4.1–1.4.3, 1.5.2, 1.5.5, 2.1.3–2.1.7, 2.2.2, 2.4.2–2.4.3 |
+| Mon 26 Oct | Routing mini-lesson ✓, **gap lesson ✓** (quiz 12/12) | 1.2.2–1.2.4, 1.4.1–1.4.3, 1.5.2, 1.5.5, 2.1.3–2.1.7, 2.2.2, 2.4.2–2.4.3 |
 | Tue 27 | Day 6 (from Part 1): Guardrails, prompt injection, Responsible AI | 3.1, 3.4 |
 | Wed 28 | Day 7 Prompt engineering + design | 1.6, 1.1, 2.1.2, (5.2.3, 5.2.5) |
 | Thu 29 | Day 8 Data pipelines + enterprise integration | 1.3, 2.3 |
@@ -83,6 +83,10 @@ Coverage of exam guide ≈ 45%.
 Readiness rule: mocks ≥75% ready; 65–75% focus weak tasks; <65% by 3 Nov → discuss rescheduling.
 
 ## Next action
-Learner is revising `notes/Gap_Lesson_2026-10-26_Resilience_Scale_Safeguards.pdf`. Then give a **fresh** gap-lesson
-quiz (the 8 questions posted on 26 Oct were seen via input suggestions — don't reuse them). Then teach **Day 6 from
-Part 1** (Guardrails, prompt injection, Responsible AI; skills 3.1.x, 3.4.x).
+Teach **Day 6 from Part 1** (Guardrails, prompt injection, Responsible AI; skills 3.1.1–3.1.5, 3.4.1–3.4.3) in the new
+style with pauses. Gap lesson done: quiz 12/12 (Q6 guessed — replicas vs primary shards).
+
+## Quiz rules (learned the hard way)
+- Never bold or otherwise mark correct options; keep all options similar in length.
+- Every wrong option must be a real, plausible AWS approach that fails one stated requirement.
+- Keep answer keys only in the scratchpad until the learner has answered.

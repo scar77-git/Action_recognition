@@ -11,7 +11,7 @@ from reportlab.platypus import Paragraph  # noqa: E402
 H1_SPLIT = ParagraphStyle("h1split", parent=S["h1"], keepWithNext=0)
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "notes", "Progress_Tracker.pdf")
-LAST_UPDATED = "Monday 26 Oct 2026 (after the gap lesson)"
+LAST_UPDATED = "Monday 26 Oct 2026 (after the gap-lesson quiz)"
 
 # day, date, official tasks, added %, total %, status, score, lab, confidence (topic mastery for that day)
 DAYS = [
@@ -30,7 +30,7 @@ DAYS = [
     ("Routing mini-lesson (Skill 2.4.4)", "Mon 26 Oct", "2.4.4", "+2%", "37%", "✓ Read",
      "Checks pending", "—", "—"),
     ("Gap lesson (skills missed in studied tasks)", "Mon 26 Oct", "1.2.2–1.2.4, 1.4.1–1.4.3, 1.5.2, 1.5.5, "
-     "2.1.3–2.1.7, 2.2.2, 2.4.2–2.4.3", "+10%", "47%", "✓ Done", "Checks 8/9; quiz pending", "—", "80% — new topics, checks strong; shards misconception fixed"),
+     "2.1.3–2.1.7, 2.2.2, 2.4.2–2.4.3", "+10%", "47%", "✓ Done", "Quiz <b>12/12</b> (1 guess)", "—", "85% — strong; review replicas vs primary shards"),
     ("6. Guardrails + Responsible AI (not started)", "Tue 27 Oct", "3.1, 3.4", "+10%", "56%", "Planned", "—", "—", "—"),
     ("7. Prompt engineering + design", "Wed 28 Oct", "1.6, 1.1, 2.1.2 (+ 5.2.3, 5.2.5)", "+10%", "66%", "Planned",
      "—", "—", "—"),
@@ -55,6 +55,7 @@ DOMAINS = [
 # assessment, date, score, target
 ASSESSMENTS = [
     ("Practice Set 1 (Days 1–3, 30 Q)", "23 Oct", "26/30 = 87%", "≥ 75%", "✓ Above target"),
+    ("Gap-lesson quiz (12 Q, exam-style options)", "26 Oct", "12/12 = 100%", "≥ 75%", "✓ Above target"),
     ("Practice Set 2 (Days 4–12 + 5 from Days 1–3)", "2 Nov", "—", "≥ 75%", "Planned"),
     ("Full mock 1 (75 Q, 190 min, 1:30 PM)", "3 Nov", "—", "≥ 75%", "Planned"),
     ("Full mock 2", "5 Nov", "—", "≥ 75%", "Planned"),
@@ -99,8 +100,7 @@ n.h1("4. Lab backlog")
 n.bullets(LAB_BACKLOG)
 
 n.h1("5. Next session")
-n.p("<b>Gap-lesson quiz</b> (fresh questions, after revising the Gap Lesson PDF), then <b>Day 6 from Part 1</b> "
-    "(Guardrails and Responsible AI).")
+n.p("<b>Day 6 from Part 1</b> — Guardrails, prompt injection and Responsible AI (skills 3.1.x, 3.4.x).")
 
 n.build()
 print(os.path.abspath(OUT))
