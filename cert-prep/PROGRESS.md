@@ -96,3 +96,7 @@ The later sets shift: Practice Set 3 (2 Nov, Days 6–12) and Practice Set 4 (6 
 - Never bold or otherwise mark correct options; keep all options similar in length.
 - Every wrong option must be a real, plausible AWS approach that fails one stated requirement.
 - Keep answer keys only in the scratchpad until the learner has answered.
+- Don't leak the answer through the question: describe the requirement or symptom (e.g. "must keep working when the
+  provider is down"), not the solution's name or its signature wording (e.g. not "fallback", "half-open", "adapter").
+  Only use a term in the stem when the question genuinely can't be asked without it.
+- Mix difficulty roughly 60% hard / 40% medium, rotated so hard questions aren't clustered; hard ≠ trick questions.
