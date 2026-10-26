@@ -25,6 +25,8 @@ Repo: `scar77-git/Action_recognition`, branch `claude/aws-ai-cert-prep-rpargp`, 
   with `tools/notelib.py`. Include task numbers, concepts, lab, graded quiz, mistakes, glossary.
 - After every session also update `tools/tracker.py` (DAYS, DOMAINS, ASSESSMENTS, LAB_BACKLOG, OVERALL, LAST_UPDATED)
   and rebuild `notes/Progress_Tracker.pdf` (landscape), then send it.
+- Add one or two lines to `JOURNEY.md` after each session (milestones, obstacles, scores) — raw material for
+  the learner's LinkedIn post and YouTube video.
 - Quiz / warm-up questions only after the whole day's lesson and lab.
 - Practice-set answer keys are never committed before the learner answers (keep the generator out of the repo).
 
