@@ -3,7 +3,7 @@ import os
 
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_LEFT
-from reportlab.lib.pagesizes import A4
+from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
@@ -49,8 +49,10 @@ S = {
 
 
 class Note:
-    def __init__(self, path, title, subtitle):
+    def __init__(self, path, title, subtitle, wide=False):
         self.path = path
+        self.pagesize = landscape(A4) if wide else A4
+        self.width = self.pagesize[0] - 30 * mm  # usable width between the 15 mm margins
         self.title = title
         self.story = [Paragraph(title, S["title"]), Paragraph(subtitle, S["sub"])]
 
@@ -74,7 +76,7 @@ class Note:
     def table(self, header, rows, widths):
         data = [[Paragraph(h, S["cellb"]) for h in header]]
         data += [[Paragraph(c, S["cell"]) for c in r] for r in rows]
-        total = 180 * mm
+        total = self.width
         t = Table(data, colWidths=[w * total for w in widths], repeatRows=1)
         style = [
             ("BACKGROUND", (0, 0), (-1, 0), HEAD_BG),
@@ -94,7 +96,7 @@ class Note:
 
     def callout(self, label, text, kind="warn"):
         bg = {"warn": WARN_BG, "ok": OK_BG}.get(kind, ZEBRA)
-        t = Table([[Paragraph(f"<b>{label}</b><br/>{text}", S["box"])]], colWidths=[180 * mm])
+        t = Table([[Paragraph(f"<b>{label}</b><br/>{text}", S["box"])]], colWidths=[self.width])
         t.setStyle(TableStyle([
             ("BACKGROUND", (0, 0), (-1, -1), bg),
             ("LEFTPADDING", (0, 0), (-1, -1), 8), ("RIGHTPADDING", (0, 0), (-1, -1), 8),
@@ -110,10 +112,10 @@ class Note:
             canvas.setFont("DV", 7.5)
             canvas.setFillColor(MUTED)
             canvas.drawString(15 * mm, 10 * mm, title)
-            canvas.drawRightString(195 * mm, 10 * mm, f"Page {doc.page}")
+            canvas.drawRightString(self.pagesize[0] - 15 * mm, 10 * mm, f"Page {doc.page}")
             canvas.restoreState()
 
-        doc = SimpleDocTemplate(self.path, pagesize=A4, leftMargin=15 * mm, rightMargin=15 * mm,
+        doc = SimpleDocTemplate(self.path, pagesize=self.pagesize, leftMargin=15 * mm, rightMargin=15 * mm,
                                 topMargin=15 * mm, bottomMargin=18 * mm, title=title,
                                 author="AWS GenAI Pro / AI-103 prep")
         doc.build(self.story, onFirstPage=footer, onLaterPages=footer)
