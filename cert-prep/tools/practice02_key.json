@@ -1,0 +1,1669 @@
+{
+ "1": {
+  "answer": [
+   "A"
+  ],
+  "skill": "1.2.1",
+  "type": "MC",
+  "difficulty": "M",
+  "options": [
+   [
+    "A",
+    "Submit the photos to a small multimodal model as one batch inference job each evening",
+    true,
+    "Multimodal input is required; batch inference is ~50% cheaper and finishes overnight."
+   ],
+   [
+    "B",
+    "Send each image's file name and product title to a small text-only model through on-demand inference",
+    false,
+    "A text-only model can't see the photo, so it can only guess from the file name."
+   ],
+   [
+    "C",
+    "Call a large multimodal model on demand with response streaming for each photo as it is uploaded",
+    false,
+    "Works, but a large model on demand is far more expensive than needed; streaming doesn't cut cost."
+   ],
+   [
+    "D",
+    "Use an image-generation model to regenerate each photo and keep the prompt it used as the description",
+    false,
+    "Image generation creates images; it doesn't describe existing ones."
+   ]
+  ],
+  "stem": "A retailer must write short alt-text descriptions for 40,000 product photos every night. Testing showed a small model gives acceptable descriptions. Results are needed by the next morning, and cost is the top priority. Which approach should the team use?"
+ },
+ "2": {
+  "answer": [
+   "B"
+  ],
+  "skill": "1.2.3",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "Use Custom Model Import to bring the selected model's weights into eu-central-1",
+    false,
+    "Custom Model Import is for open-weight models you trained; provider models can't be imported this way."
+   ],
+   [
+    "B",
+    "Call the model through an EU-geography cross-Region inference profile",
+    true,
+    "Routes only to EU Regions where the model is offered; no extra infrastructure."
+   ],
+   [
+    "C",
+    "Move the application to us-east-1, where the model and the most capacity are available",
+    false,
+    "Processing in the US violates the requirement."
+   ],
+   [
+    "D",
+    "Call the model through a global cross-Region inference profile so that capacity is always available",
+    false,
+    "A global profile can route requests outside the EU \u2014 violates the residency rule."
+   ]
+  ],
+  "stem": "A company's application runs in eu-central-1. Customer data must never be processed outside the European Union. The model the team selected is not offered in eu-central-1, but is offered in other EU Regions. What should the team do?"
+ },
+ "3": {
+  "answer": [
+   "C"
+  ],
+  "skill": "1.2.2",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "Ask each service to read the model ID from an environment variable that the central team updates through pull requests",
+    false,
+    "Environment variable changes require each service to be redeployed."
+   ],
+   [
+    "B",
+    "A service control policy that denies every model except the approved one in all accounts",
+    false,
+    "An SCP blocks other models but doesn't tell services which model to use \u2014 they'd simply fail."
+   ],
+   [
+    "C",
+    "A central AWS AppConfig configuration profile with a JSON Schema validator of allowed models, read by every service at runtime",
+    true,
+    "Runtime read = no redeploys; validators reject disallowed values before deployment."
+   ],
+   [
+    "D",
+    "Bedrock Intelligent Prompt Routing configured separately in each of the thirty services",
+    false,
+    "Prompt routing picks between models in a family per prompt; it isn't central approval of one model."
+   ]
+  ],
+  "stem": "Thirty microservices owned by different teams call Amazon Bedrock. The security team must be able to change the approved model used by all services within an hour, without any team redeploying, and any change must be checked against a list of allowed models before it reaches the services. What should the platform team build?"
+ },
+ "4": {
+  "answer": [
+   "A"
+  ],
+  "skill": "1.2.4",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "Update the endpoint with a blue/green deployment that uses canary traffic shifting and CloudWatch alarm auto-rollback",
+    true,
+    "SageMaker deployment guardrails do exactly this: canary slice, bake time, alarm-based rollback."
+   ],
+   [
+    "B",
+    "Create a separate endpoint for version 5 and adjust weighted Amazon Route 53 records by hand during the window",
+    false,
+    "Manual weighting has no automatic revert on the alarm."
+   ],
+   [
+    "C",
+    "Replace the model artefact in the endpoint's existing S3 location and restart the endpoint",
+    false,
+    "All traffic switches at once, with no canary and no automatic rollback."
+   ],
+   [
+    "D",
+    "Mark version 5 as Approved in SageMaker Model Registry so that it becomes the active version",
+    false,
+    "Approval governs which version may deploy; it doesn't shift traffic or roll back."
+   ]
+  ],
+  "stem": "Version 5 of a fine-tuned model must replace version 4 on an Amazon SageMaker AI endpoint. Version 5 should first receive 10% of traffic for 30 minutes and must revert automatically if the endpoint's p99 latency alarm fires; otherwise it should take all traffic. What should the team do?"
+ },
+ "5": {
+  "answer": [
+   "B",
+   "C"
+  ],
+  "skill": "1.2.4",
+  "type": "TWO",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "Fine-tune the current model now so that the custom copy remains callable after the base model retires",
+    false,
+    "A custom copy depends on the base model and doesn't escape its lifecycle."
+   ],
+   [
+    "B",
+    "Compare candidate successors with a model evaluation job on production-like prompts",
+    true,
+    "Proves the replacement's quality before switching."
+   ],
+   [
+    "C",
+    "Switch to the chosen successor through runtime configuration with a gradual rollout and alarm-based rollback",
+    true,
+    "Limits blast radius and can revert automatically."
+   ],
+   [
+    "D",
+    "Keep the current model ID, because Bedrock forwards calls to the successor model after end-of-life",
+    false,
+    "Calls to an end-of-life model fail; there's no automatic forwarding."
+   ],
+   [
+    "E",
+    "Purchase Provisioned Throughput for the current model so that it stays available after end-of-life",
+    false,
+    "Capacity purchases don't extend a model's lifecycle."
+   ]
+  ],
+  "stem": "A Bedrock model used by a production assistant reaches end-of-life in 60 days. The company wants to move to a successor with the least risk to users. Which combination of steps should it take?"
+ },
+ "6": {
+  "answer": [
+   "D"
+  ],
+  "skill": "2.2.2",
+  "type": "MC",
+  "difficulty": "M",
+  "options": [
+   [
+    "A",
+    "Lower the maximum output tokens so that the model needs less memory to load",
+    false,
+    "Output length doesn't change the memory needed for the weights."
+   ],
+   [
+    "B",
+    "Run the model on one GPU and let the container spill the remaining weights to the instance's CPU memory",
+    false,
+    "Offloading to CPU memory makes inference extremely slow and isn't the standard serving approach."
+   ],
+   [
+    "C",
+    "Quantise the model to 4-bit so that it fits on one GPU",
+    false,
+    "Works for memory, but the requirement forbids lowering precision."
+   ],
+   [
+    "D",
+    "Use a Large Model Inference container with tensor parallelism across the four GPUs",
+    true,
+    "34B \u00d7 2 bytes \u2248 68 GB fits across 4 \u00d7 24 GB = 96 GB when split with tensor parallelism."
+   ]
+  ],
+  "stem": "A team self-hosts a 34-billion-parameter model at 16-bit precision on SageMaker AI. Its instance has four GPUs with 24 GB of memory each, so the model does not fit on a single GPU. Precision must not be reduced. How should the team serve the model?"
+ },
+ "7": {
+  "answer": [
+   "A"
+  ],
+  "skill": "2.2.1",
+  "type": "MC",
+  "difficulty": "M",
+  "options": [
+   [
+    "A",
+    "Provisioned Throughput with a commitment term sized to the steady load",
+    true,
+    "Dedicated capacity for steady, predictable volume \u2014 the classic way to serve custom models."
+   ],
+   [
+    "B",
+    "Batch inference jobs submitted every hour",
+    false,
+    "Not interactive; the tool needs responses in real time."
+   ],
+   [
+    "C",
+    "A cross-Region inference profile for the custom model",
+    false,
+    "Cross-Region inference spreads base-model traffic; it doesn't guarantee capacity for a custom model."
+   ],
+   [
+    "D",
+    "On-demand inference with SDK retries and exponential backoff",
+    false,
+    "Still subject to shared-capacity throttling; retries only soften it."
+   ]
+  ],
+  "stem": "A fine-tuned Bedrock model serves an internal fraud-review tool with a constant, predictable load around the clock. The business cannot accept throttled requests. Which deployment option fits best?"
+ },
+ "8": {
+  "answer": [
+   "B"
+  ],
+  "skill": "2.2.3",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "Buy Provisioned Throughput for the large model so that each request costs less",
+    false,
+    "Doesn't remove the expensive model from routine traffic; can cost more at variable volume."
+   ],
+   [
+    "B",
+    "Answer with a small model first and pass the question to a larger model only when the answer fails validation",
+    true,
+    "Cascading: cheap path for routine queries, escalation preserves quality on hard ones."
+   ],
+   [
+    "C",
+    "Distil one small model from the large model and use it for every question",
+    false,
+    "A distilled small model may underperform on the hardest 20%."
+   ],
+   [
+    "D",
+    "Send every question to a small model and instruct it to reply that a human will follow up when unsure",
+    false,
+    "Avoids cost but degrades the complex cases instead of answering them well."
+   ]
+  ],
+  "stem": "In a support assistant, about 80% of questions are routine (order status, opening hours) and 20% are complex disputes. The company wants to cut model costs without lowering answer quality on the complex disputes. Which approach fits best?"
+ },
+ "9": {
+  "answer": [
+   "C",
+   "D"
+  ],
+  "skill": "2.4.4",
+  "type": "TWO",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "A weighted Lambda alias that sends one third of the traffic to each model",
+    false,
+    "Random split ignores the request's content."
+   ],
+   [
+    "B",
+    "Bedrock Intelligent Prompt Routing configured across the three different providers",
+    false,
+    "Prompt routing works within one model family on predicted quality, not on business categories."
+   ],
+   [
+    "C",
+    "An AWS Step Functions Choice state that branches to the matching model call, with execution history retained",
+    true,
+    "Branches per category; execution history records each routing decision."
+   ],
+   [
+    "D",
+    "A first step that labels each request's category using a small, inexpensive model",
+    true,
+    "Determines the category from the request's content."
+   ],
+   [
+    "E",
+    "API Gateway mapping templates that select the model from the request path",
+    false,
+    "Clients don't know the category, so the path can't encode it."
+   ]
+  ],
+  "stem": "Legal questions should reach a large model paired with the legal knowledge base, coding questions should reach a code-specialised model, and everything else should go to a small model. Compliance wants a reviewable record of why each request went where it did. Which combination should the team implement?"
+ },
+ "10": {
+  "answer": [
+   "B"
+  ],
+  "skill": "2.4.1",
+  "type": "MC",
+  "difficulty": "M",
+  "options": [
+   [
+    "A",
+    "Send each report request as its own Bedrock batch inference job",
+    false,
+    "Batch jobs can take hours; users expect minutes."
+   ],
+   [
+    "B",
+    "Accept the request, queue the job in Amazon SQS, generate the report in a worker, store it in S3, and let clients check its status",
+    true,
+    "Asynchronous pattern decouples the long job from the request's timeout."
+   ],
+   [
+    "C",
+    "Switch to a much smaller model so that every report is generated within the timeout",
+    false,
+    "Changes report quality to fit a timeout instead of fixing the architecture."
+   ],
+   [
+    "D",
+    "Raise the Lambda function's timeout to 15 minutes",
+    false,
+    "The API Gateway integration still times out long before the report is ready."
+   ]
+  ],
+  "stem": "A Lambda function behind an API Gateway REST API generates detailed reports that take about three minutes. Clients receive gateway timeout errors. Users are happy to wait a few minutes for the report. What should the developer do?"
+ },
+ "11": {
+  "answer": [
+   "C"
+  ],
+  "skill": "2.4.2",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "The browser polling an S3 object for partial results every second",
+    false,
+    "Polling adds latency and cost and isn't real time."
+   ],
+   [
+    "B",
+    "An Amazon SQS FIFO queue per user that the browser reads from",
+    false,
+    "Browsers don't consume SQS directly, and it isn't a push channel."
+   ],
+   [
+    "C",
+    "An API Gateway WebSocket API, with Lambda posting each generated chunk to the client's connection",
+    true,
+    "Persistent two-way connection fits interactive, bidirectional sessions."
+   ],
+   [
+    "D",
+    "An API Gateway REST API with Lambda response streaming",
+    false,
+    "One-way streaming per request; the user can't send messages on the same channel mid-answer."
+   ]
+  ],
+  "stem": "In an interactive writing assistant, answers must appear word by word, and users can send corrections and follow-up messages while an answer is still arriving, all within the same open session. What should the team use between the browser and the backend?"
+ },
+ "12": {
+  "answer": [
+   "B"
+  ],
+  "skill": "2.4.3",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "AWS CloudTrail events for the Bedrock API calls",
+    false,
+    "Audit records of who called what, not latency breakdowns."
+   ],
+   [
+    "B",
+    "AWS X-Ray tracing on API Gateway and Lambda, with the SDK calls instrumented",
+    true,
+    "Per-request traces with a segment per service call show where the time goes."
+   ],
+   [
+    "C",
+    "The Lambda Duration metric in Amazon CloudWatch",
+    false,
+    "Aggregate timing for Lambda only; no breakdown of downstream calls per request."
+   ],
+   [
+    "D",
+    "Bedrock model invocation logging to Amazon S3",
+    false,
+    "Records prompts and responses; doesn't time API Gateway, Lambda or retrieval."
+   ]
+  ],
+  "stem": "Requests pass through API Gateway, a Lambda function, a knowledge base lookup and a Bedrock model call. After a release, p95 latency rose from 3 to 9 seconds. The team needs a timing breakdown for individual requests across every step. What should it use?"
+ },
+ "13": {
+  "answer": [
+   "C",
+   "D",
+   "F"
+  ],
+  "skill": "2.4.3",
+  "type": "THREE",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "Increase the Lambda function's memory allocation",
+    false,
+    "Lambda memory doesn't change Bedrock's quota."
+   ],
+   [
+    "B",
+    "Also retry ValidationException errors with backoff",
+    false,
+    "Validation errors need the request fixed; retries won't help."
+   ],
+   [
+    "C",
+    "Switch the model ID to a geographic cross-Region inference profile",
+    true,
+    "More capacity across Regions at no extra cost."
+   ],
+   [
+    "D",
+    "Enable SDK retries with exponential backoff and jitter",
+    true,
+    "Absorbs short bursts of throttling."
+   ],
+   [
+    "E",
+    "Raise the Lambda function's reserved concurrency so that more requests run in parallel",
+    false,
+    "More parallel calls hit the quota harder and increase throttling."
+   ],
+   [
+    "F",
+    "Send the non-urgent summarisation requests to an SQS queue processed at a steady rate",
+    true,
+    "Smooths peaks so interactive traffic gets the quota."
+   ]
+  ],
+  "stem": "During daily peaks, users of a chat assistant see errors because Bedrock returns ThrottlingException. About half of the traffic is non-urgent summarisation that can finish within an hour. The team wants fewer user-visible failures without buying dedicated capacity. Which actions should it take?"
+ },
+ "14": {
+  "answer": [
+   "B"
+  ],
+  "skill": "1.4.5",
+  "type": "MC",
+  "difficulty": "M",
+  "options": [
+   [
+    "A",
+    "Delete and re-create the knowledge base every night",
+    false,
+    "Too slow (daily) and wasteful."
+   ],
+   [
+    "B",
+    "Run StartIngestionJob for the Confluence data source every 15 minutes from Amazon EventBridge Scheduler",
+    true,
+    "Scheduled syncs are incremental and serverless."
+   ],
+   [
+    "C",
+    "Increase the number of retrieved results so that newer pages are included",
+    false,
+    "Retrieval settings can't return content that hasn't been ingested."
+   ],
+   [
+    "D",
+    "Export Confluence pages to S3 by hand each week and sync that bucket instead",
+    false,
+    "Manual and weekly."
+   ]
+  ],
+  "stem": "A knowledge base uses a Confluence data source. Pages change throughout the day, and answers must reflect edits within about 15 minutes. The team wants a serverless solution with minimal effort. What should it do?"
+ },
+ "15": {
+  "answer": [
+   "D"
+  ],
+  "skill": "1.4.2",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "Create one guardrail per country with denied topics for every other country's policies",
+    false,
+    "Twelve guardrails with topic lists is fragile and doesn't stop retrieval mixing."
+   ],
+   [
+    "B",
+    "Increase the chunk size so that each chunk contains a full country policy",
+    false,
+    "Bigger chunks still come from several countries."
+   ],
+   [
+    "C",
+    "Add an instruction to the system prompt telling the model to answer using the user's country",
+    false,
+    "Other countries' chunks still reach the prompt; instructions aren't reliable filtering."
+   ],
+   [
+    "D",
+    "Record each document's country as a metadata attribute and filter retrieval using the country from the token",
+    true,
+    "Only the user's country's documents are retrieved."
+   ]
+  ],
+  "stem": "Employees in twelve countries use an HR assistant. Policies differ by country, and answers sometimes mix rules from several countries. Each user's country is available in their sign-in token. What should the team do?"
+ },
+ "16": {
+  "answer": [
+   "B"
+  ],
+  "skill": "1.4.1",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "Migrate the catalogue to Aurora PostgreSQL with pgvector and query it with SQL",
+    false,
+    "A migration away from the existing cluster, and still needs embedding code."
+   ],
+   [
+    "B",
+    "Configure neural search in the existing cluster with an ML connector to Amazon Bedrock",
+    true,
+    "OpenSearch calls Titan itself at ingest and query time; the app sends text."
+   ],
+   [
+    "C",
+    "Create a Bedrock knowledge base with a quick-create OpenSearch Serverless vector store",
+    false,
+    "A new store abandons the existing cluster and its custom analysers and scoring."
+   ],
+   [
+    "D",
+    "Write a Lambda function that embeds every product and writes the vectors into the cluster",
+    false,
+    "This is the embedding pipeline in application code that they want to avoid."
+   ]
+  ],
+  "stem": "A team already runs an Amazon OpenSearch Service cluster with custom analysers and scoring for product search. It wants to add semantic search using an Amazon Titan embedding model, without writing an embedding pipeline in its application code. What should it do?"
+ },
+ "17": {
+  "answer": [
+   "D"
+  ],
+  "skill": "1.4.3",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "Enable hybrid search on the existing index",
+    false,
+    "Changes ranking, not the amount of data searched."
+   ],
+   [
+    "B",
+    "Add replica shards to the existing index",
+    false,
+    "Adds read throughput but each query still searches all units' data."
+   ],
+   [
+    "C",
+    "Increase the embedding dimensions to make matches more precise",
+    false,
+    "Larger vectors make search slower."
+   ],
+   [
+    "D",
+    "Create one index per business unit and send each query to its unit's index",
+    true,
+    "Smaller per-domain indexes are faster and can be refreshed independently."
+   ]
+  ],
+  "stem": "A single vector index holds 400 million vectors for five business units. Each query only ever needs one business unit's data, the units have different freshness requirements, and search latency is too high. What should the team do?"
+ },
+ "18": {
+  "answer": [
+   "A",
+   "C",
+   "D",
+   "E"
+  ],
+  "skill": "1.4.3",
+  "type": "ALL",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "Replica shards can answer search requests, which increases read throughput",
+    true,
+    "Replicas serve reads."
+   ],
+   [
+    "B",
+    "Adding replicas reduces the amount of data each primary shard holds",
+    false,
+    "Replicas copy shards; primary shard size is unchanged."
+   ],
+   [
+    "C",
+    "Replicas let the index keep serving when a node holding a primary shard fails",
+    true,
+    "Copies on other nodes take over."
+   ],
+   [
+    "D",
+    "A query runs on the relevant shards in parallel, and their results are merged",
+    true,
+    "Scatter-gather."
+   ],
+   [
+    "E",
+    "Approximate nearest-neighbour settings trade search recall against latency",
+    true,
+    "e.g. HNSW ef_search."
+   ],
+   [
+    "F",
+    "A search stops at the first shard that returns a matching vector",
+    false,
+    "Every relevant shard is searched for the best matches."
+   ]
+  ],
+  "stem": "Which statements about scaling an Amazon OpenSearch Service vector index are correct?"
+ },
+ "19": {
+  "answer": [
+   "A"
+  ],
+  "skill": "1.5.1",
+  "type": "MC",
+  "difficulty": "M",
+  "options": [
+   [
+    "A",
+    "Use a custom Lambda chunking function that splits the file at each question boundary",
+    true,
+    "Each chunk becomes exactly one Q&A pair."
+   ],
+   [
+    "B",
+    "Increase the fixed-size chunk overlap to 50%",
+    false,
+    "More overlap duplicates text; boundaries still cut across pairs."
+   ],
+   [
+    "C",
+    "Enable hybrid search so that exact question wording is matched",
+    false,
+    "Ranking can't fix chunks that mix answers."
+   ],
+   [
+    "D",
+    "Switch to hierarchical chunking with large parent chunks",
+    false,
+    "Large parents merge even more unrelated pairs."
+   ]
+  ],
+  "stem": "A single file contains 2,000 independent question-and-answer pairs of roughly 100 tokens each. After ingestion with default chunking, retrieved chunks often contain the end of one answer and the start of an unrelated one. What should the team do?"
+ },
+ "20": {
+  "answer": [
+   "A"
+  ],
+  "skill": "1.5.2",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "Choose an embedding model with strong multilingual support, re-embed the documents, and evaluate retrieval for each language",
+    true,
+    "Domain/language fit is the main embedding selection factor; queries and documents must share the model."
+   ],
+   [
+    "B",
+    "Increase the current model's embedding dimensions to 1024",
+    false,
+    "More dimensions don't add language understanding."
+   ],
+   [
+    "C",
+    "Add a rerank model on top of the current retrieval results",
+    false,
+    "Reranks poor candidates; the right chunks may not be retrieved at all."
+   ],
+   [
+    "D",
+    "Translate every document into Portuguese with Lambda and keep the current embedding model",
+    false,
+    "Triples the corpus and still uses an English-centric model."
+   ]
+  ],
+  "stem": "Users ask questions in Spanish and Portuguese. Documents are in English and Spanish. Retrieval is poor for Portuguese questions, and the current embedding model was trained mostly on English. What should the team do?"
+ },
+ "21": {
+  "answer": [
+   "C"
+  ],
+  "skill": "1.5.5",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "Pass the sessionId from the previous RetrieveAndGenerate call",
+    false,
+    "Helps follow-ups, not multi-part questions."
+   ],
+   [
+    "B",
+    "Increase the chunk size so that each chunk covers more regions",
+    false,
+    "Doesn't make retrieval cover each part."
+   ],
+   [
+    "C",
+    "Enable query decomposition on the RetrieveAndGenerate call",
+    true,
+    "Built-in: splits the multi-part question into sub-queries and combines results."
+   ],
+   [
+    "D",
+    "Lower the generation model's temperature",
+    false,
+    "Affects consistency, not retrieval coverage."
+   ]
+  ],
+  "stem": "Analysts ask questions such as \"How did revenue and headcount change in EMEA and APAC compared with last year?\". The knowledge base returns chunks covering only one region or one metric. The team wants the least development effort. What should it do?"
+ },
+ "22": {
+  "answer": [
+   "D"
+  ],
+  "skill": "1.5.5",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "Re-embed the documents with more embedding dimensions",
+    false,
+    "Doesn't address vocabulary mismatch."
+   ],
+   [
+    "B",
+    "Enable implicit metadata filtering on the destination attribute",
+    false,
+    "Filters narrow results; they don't add synonyms."
+   ],
+   [
+    "C",
+    "Split the question into separate sub-questions for flights and destinations",
+    false,
+    "Decomposition doesn't add synonyms."
+   ],
+   [
+    "D",
+    "Have an FM generate alternative phrasings of the question, retrieve for each, and merge the results",
+    true,
+    "Query expansion bridges synonyms and renamed entities."
+   ]
+  ],
+  "stem": "Searches for \"cheap flights to Bombay\" miss documents that say \"low-cost fares to Mumbai\". Hybrid search is already enabled. The team is willing to add a custom step before retrieval. What should it do?"
+ },
+ "23": {
+  "answer": [
+   "B"
+  ],
+  "skill": "1.5.6",
+  "type": "MC",
+  "difficulty": "M",
+  "options": [
+   [
+    "A",
+    "Direct OpenSearch REST access, with each team managing its own credentials and parsing",
+    false,
+    "Inconsistent auth and formats across teams."
+   ],
+   [
+    "B",
+    "A retrieval tool exposed through an MCP server that each team's MCP client calls",
+    true,
+    "One standard interface for every framework."
+   ],
+   [
+    "C",
+    "Instructions in each agent's system prompt describing how to search the store",
+    false,
+    "Prompts can't execute searches."
+   ],
+   [
+    "D",
+    "A separate copy of the index for each team",
+    false,
+    "Triples storage and sync effort; still no common interface."
+   ]
+  ],
+  "stem": "Three agent teams use different frameworks. All of them must query the same vector store with consistent authentication and a consistent response format. What should the platform team provide?"
+ },
+ "24": {
+  "answer": [
+   "D"
+  ],
+  "skill": "1.5.3",
+  "type": "MC",
+  "difficulty": "M",
+  "options": [
+   [
+    "A",
+    "Amazon RDS for PostgreSQL with pgvector and custom ingestion Lambda functions",
+    false,
+    "Custom pipeline to build and run."
+   ],
+   [
+    "B",
+    "A self-managed OpenSearch cluster on Amazon EC2",
+    false,
+    "Most operational effort."
+   ],
+   [
+    "C",
+    "An Amazon DynamoDB table storing vectors as item attributes",
+    false,
+    "DynamoDB has no vector similarity search."
+   ],
+   [
+    "D",
+    "A Bedrock knowledge base with a quick-create vector store",
+    true,
+    "Fully managed ingestion, embedding and storage."
+   ]
+  ],
+  "stem": "A team with no existing database wants managed retrieval-augmented generation over documents in S3, with vectors stored and managed automatically and the least operational effort. What should it use?"
+ },
+ "25": {
+  "answer": [
+   "A"
+  ],
+  "skill": "1.3.3",
+  "type": "MC",
+  "difficulty": "M",
+  "options": [
+   [
+    "A",
+    "Send the full alternating user and assistant message history on each call",
+    true,
+    "The API is stateless; conversation context must be resent."
+   ],
+   [
+    "B",
+    "Switch to a model with a larger context window",
+    false,
+    "Context that isn't sent can't be used, whatever the window."
+   ],
+   [
+    "C",
+    "Raise the temperature so that the model infers missing context",
+    false,
+    "Randomness doesn't restore missing context."
+   ],
+   [
+    "D",
+    "Copy the previous answers into the system prompt on every call",
+    false,
+    "Possible but the wrong structure; history belongs in the messages list."
+   ]
+  ],
+  "stem": "A chatbot uses the Converse API. Each call sends only the user's latest message, and the model keeps losing track of earlier parts of the conversation. What should the developer change?"
+ },
+ "26": {
+  "answer": [
+   "C"
+  ],
+  "skill": "2.1.1",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "The preferences written into the agent's system prompt",
+    false,
+    "One prompt for all users isn't per-user memory."
+   ],
+   [
+    "B",
+    "A DynamoDB table of transcripts with a 7-day time to live, loaded at the start of each session",
+    false,
+    "Preferences vanish after 7 days with the transcripts."
+   ],
+   [
+    "C",
+    "AgentCore Memory with a 7-day expiry for short-term events and a long-term user-preference strategy per user",
+    true,
+    "Raw events expire; extracted preferences persist per user."
+   ],
+   [
+    "D",
+    "A knowledge base that ingests all transcripts nightly",
+    false,
+    "Keeps raw transcripts and isn't per-user memory."
+   ]
+  ],
+  "stem": "An agent must remember each customer's preferred language and seat type across conversations weeks apart. Raw conversation records must be deleted after 7 days. What should the developer implement?"
+ },
+ "27": {
+  "answer": [
+   "D"
+  ],
+  "skill": "2.1.1",
+  "type": "MC",
+  "difficulty": "M",
+  "options": [
+   [
+    "A",
+    "A swarm in which specialists hand messages to each other until one accepts",
+    false,
+    "Unpredictable and extra hand-offs."
+   ],
+   [
+    "B",
+    "A supervisor agent that sends every message to all twelve specialists and merges the replies",
+    false,
+    "Twelve calls per message \u2014 slow and expensive."
+   ],
+   [
+    "C",
+    "One agent that holds all twelve specialists' tools",
+    false,
+    "Too many tools confuses selection."
+   ],
+   [
+    "D",
+    "AWS Agent Squad with its classifier-based routing",
+    true,
+    "Routes each message to one specialist and keeps context."
+   ]
+  ],
+  "stem": "A retailer has twelve specialist agents. Each customer message should reach the single most suitable specialist, and follow-up messages should keep their conversational context, with minimal custom routing code. What should the team use?"
+ },
+ "28": {
+  "answer": [
+   "C"
+  ],
+  "skill": "2.1.2",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "A single Lambda function with a while loop that prints each step to its logs",
+    false,
+    "Logs aren't a visual, structured history."
+   ],
+   [
+    "B",
+    "A prompt flow with fixed nodes for three tool calls",
+    false,
+    "Fixed steps can't adapt the number of tool calls."
+   ],
+   [
+    "C",
+    "An AWS Step Functions state machine that loops through a model call, a choice of tool, and a Lambda task",
+    true,
+    "Each step appears in the execution history and graph."
+   ],
+   [
+    "D",
+    "A Bedrock batch inference job that processes the steps in order",
+    false,
+    "Batch jobs can't run an interactive loop."
+   ]
+  ],
+  "stem": "A team needs an agent loop in which every reasoning step, tool call and tool result is recorded and can be inspected visually afterwards. The tools are Lambda functions. What should the team build?"
+ },
+ "29": {
+  "answer": [
+   "A",
+   "D",
+   "F"
+  ],
+  "skill": "2.1.3",
+  "type": "THREE",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "A workflow-level TimeoutSeconds of 300 on the Step Functions state machine",
+    true,
+    "Hard 5-minute cap."
+   ],
+   [
+    "B",
+    "Response streaming so that users can stop long-running answers",
+    false,
+    "User action isn't an enforced limit."
+   ],
+   [
+    "C",
+    "Storing every tool result in DynamoDB for later review",
+    false,
+    "Audit after the fact; doesn't stop changes."
+   ],
+   [
+    "D",
+    "A loop counter checked by a Choice state that ends the loop after 20 tool calls",
+    true,
+    "Hard cap on tool calls."
+   ],
+   [
+    "E",
+    "AWS X-Ray tracing on every tool call",
+    false,
+    "Observability, not prevention."
+   ],
+   [
+    "F",
+    "Least-privilege roles for the tool functions plus department-scoped authorisation checks in the tool code",
+    true,
+    "Limits damage regardless of what the model asks."
+   ],
+   [
+    "G",
+    "A higher temperature so that the agent explores fewer repeated tool calls",
+    false,
+    "No guarantee of anything."
+   ]
+  ],
+  "stem": "An internal agent can call tools that modify HR records. It must never run longer than 5 minutes, never make more than 20 tool calls per request, and, even if manipulated by a crafted prompt, must not change records outside the requester's department. Which combination of controls meets these requirements?"
+ },
+ "30": {
+  "answer": [
+   "D"
+  ],
+  "skill": "2.1.4",
+  "type": "MC",
+  "difficulty": "M",
+  "options": [
+   [
+    "A",
+    "Always use the label from the model with the highest public benchmark score, and log the others",
+    false,
+    "Ignores disagreement, the most useful uncertainty signal."
+   ],
+   [
+    "B",
+    "Use whichever label arrives first to keep latency low",
+    false,
+    "Optimises speed, not accuracy."
+   ],
+   [
+    "C",
+    "Ask a fourth model to rewrite the three labels as one combined sentence",
+    false,
+    "Merging text doesn't produce a decision."
+   ],
+   [
+    "D",
+    "Take the label most models agree on, and send items without a majority to human review",
+    true,
+    "Majority vote; disagreement signals uncertainty."
+   ]
+  ],
+  "stem": "Three different models sometimes return different labels for the same content-moderation item. The company wants a final decision rule that improves accuracy and surfaces uncertain items. Which rule fits best?"
+ },
+ "31": {
+  "answer": [
+   "C"
+  ],
+  "skill": "2.1.5",
+  "type": "MC",
+  "difficulty": "M",
+  "options": [
+   [
+    "A",
+    "Bedrock model invocation logging alone",
+    false,
+    "Has prompts and answers but no ratings."
+   ],
+   [
+    "B",
+    "A support email address where users send feedback",
+    false,
+    "Unstructured and unlinked to requests."
+   ],
+   [
+    "C",
+    "An API Gateway endpoint and Lambda function that store request ID, prompt, answer, model version and rating in DynamoDB",
+    true,
+    "Captures ratings linked to the exact request and version."
+   ],
+   [
+    "D",
+    "AWS CloudTrail logging of the Bedrock API calls",
+    false,
+    "Records API calls, not user ratings."
+   ]
+  ],
+  "stem": "A team wants users to rate each answer with thumbs up or down, and later analyse ratings by prompt and model version. What should it build?"
+ },
+ "32": {
+  "answer": [
+   "B",
+   "C"
+  ],
+  "skill": "2.1.6",
+  "type": "TWO",
+  "difficulty": "M",
+  "options": [
+   [
+    "A",
+    "Quietly replace any invalid priority with low without telling the model",
+    false,
+    "Hides errors and creates wrong tickets."
+   ],
+   [
+    "B",
+    "Restrict priority to an enum in the tool's input schema and mark customer_id as required",
+    true,
+    "Prevents most bad calls at the schema level."
+   ],
+   [
+    "C",
+    "Validate inputs in the tool's Lambda function and return a descriptive error result the model can act on",
+    true,
+    "Catches what the schema misses and lets the model correct itself."
+   ],
+   [
+    "D",
+    "Remove the priority parameter so that it can never be wrong",
+    false,
+    "Loses required functionality."
+   ],
+   [
+    "E",
+    "Increase the model's max tokens so it writes complete parameters",
+    false,
+    "Output length isn't the problem."
+   ]
+  ],
+  "stem": "A create_ticket tool receives priority values like \"urgent!!\" and requests with no customer ID. Which combination makes the tool reliable?"
+ },
+ "33": {
+  "answer": [
+   "A"
+  ],
+  "skill": "2.1.7",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "Amazon ECS on AWS Fargate",
+    true,
+    "Long-running, stateful, heavy dependencies."
+   ],
+   [
+    "B",
+    "AWS Lambda behind API Gateway",
+    false,
+    "15-minute limit and no warm in-memory cache between calls."
+   ],
+   [
+    "C",
+    "An AWS Step Functions Express workflow",
+    false,
+    "Express workflows run at most 5 minutes."
+   ],
+   [
+    "D",
+    "An API Gateway mock integration",
+    false,
+    "Returns static responses; can't run the tool."
+   ]
+  ],
+  "stem": "A document-conversion tool needs 2 GB of libraries, keeps frequently used templates cached in memory, and some jobs run for 25 minutes. It must be exposed to agents through MCP. Where should the MCP server run?"
+ },
+ "34": {
+  "answer": [
+   "C"
+  ],
+  "skill": "2.1.1",
+  "type": "MC",
+  "difficulty": "M",
+  "options": [
+   [
+    "A",
+    "Configure return of control for every action group",
+    false,
+    "Hands execution to the app; doesn't make the agent ask."
+   ],
+   [
+    "B",
+    "Attach a knowledge base that contains example order numbers",
+    false,
+    "Gives the agent more values to invent from."
+   ],
+   [
+    "C",
+    "Enable the agent's built-in User input capability",
+    true,
+    "Lets the agent ask clarifying questions."
+   ],
+   [
+    "D",
+    "Mark every action parameter as optional so that the agent can proceed without them",
+    false,
+    "Encourages even more guessing."
+   ]
+  ],
+  "stem": "An existing Bedrock agent (Agents Classic) sometimes invents missing values such as order numbers instead of asking the customer. What should the developer configure?"
+ },
+ "35": {
+  "answer": [
+   "A"
+  ],
+  "skill": "2.4.1",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "A message with role user containing toolResult blocks, each referencing the matching toolUseId",
+    true,
+    "Tool results come from the caller's side, as role user with toolResult blocks."
+   ],
+   [
+    "B",
+    "Add the tool output to the system prompt and resend the original messages",
+    false,
+    "Tool results don't belong in the system prompt."
+   ],
+   [
+    "C",
+    "Keep role assistant but wrap the output in a toolUse block",
+    false,
+    "toolUse is the model's request, not your result."
+   ],
+   [
+    "D",
+    "Start a new conversation that contains only the tool output",
+    false,
+    "Loses the conversation and the request ID link."
+   ]
+  ],
+  "stem": "A developer's Converse tool loop fails with a validation error after the model requests a tool. The developer sends the tool's output back as a new message with role assistant containing plain text. What is the correct way to return tool output?"
+ },
+ "36": {
+  "answer": [
+   "C"
+  ],
+  "skill": "3.2.1",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "A gateway endpoint for Amazon S3 and a security group allowing HTTPS",
+    false,
+    "Doesn't reach Bedrock APIs."
+   ],
+   [
+    "B",
+    "A NAT gateway with a security group restricted to AWS IP ranges",
+    false,
+    "Traffic still crosses the public internet."
+   ],
+   [
+    "C",
+    "Interface endpoints for bedrock-runtime and bedrock-agent-runtime, plus an IAM deny when aws:SourceVpce is not one of them",
+    true,
+    "Both runtime APIs over PrivateLink; the condition refuses any other path."
+   ],
+   [
+    "D",
+    "An interface endpoint for the bedrock control-plane service only",
+    false,
+    "Inference and retrieval use bedrock-runtime and bedrock-agent-runtime."
+   ]
+  ],
+  "stem": "Lambda functions in private subnets with no NAT gateway must call a Bedrock knowledge base and invoke models. Security requires that any Bedrock call not arriving through the company's private connections is refused. What should the team configure?"
+ },
+ "37": {
+  "answer": [
+   "B"
+  ],
+  "skill": "3.2.3",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "Apply a guardrail that blocks any prompt containing PII",
+    false,
+    "Blocks the transcripts instead of making them usable."
+   ],
+   [
+    "B",
+    "Detect PII with Amazon Comprehend and replace each entity with a type placeholder such as [NAME] before use",
+    true,
+    "Masking/anonymisation keeps utility while removing identities."
+   ],
+   [
+    "C",
+    "Encrypt the transcripts with a customer managed KMS key",
+    false,
+    "Authorised readers still see the PII."
+   ],
+   [
+    "D",
+    "Add an S3 Lifecycle rule that deletes transcripts after 30 days",
+    false,
+    "Retention, not anonymisation."
+   ]
+  ],
+  "stem": "Analysts must test prompts on real support transcripts. Names and phone numbers must be replaced with consistent placeholders so that conversations remain readable. What should the team do?"
+ },
+ "38": {
+  "answer": [
+   "B"
+  ],
+  "skill": "3.2.1",
+  "type": "MC",
+  "difficulty": "M",
+  "options": [
+   [
+    "A",
+    "An S3 bucket policy denying the agent access to the employees prefix",
+    false,
+    "Blocks the whole table, not one column."
+   ],
+   [
+    "B",
+    "AWS Lake Formation column-level permissions for the agent's role",
+    true,
+    "Fine-grained column access."
+   ],
+   [
+    "C",
+    "A guardrail word filter for the word salary",
+    false,
+    "Filters text, not data access."
+   ],
+   [
+    "D",
+    "A system prompt instruction telling the agent to ignore salaries",
+    false,
+    "Data still reaches the model."
+   ]
+  ],
+  "stem": "An analytics agent queries a data lake through Amazon Athena. It must never see the salary column of the employees table, while HR analysts can. What should the team use?"
+ },
+ "39": {
+  "answer": [
+   "A",
+   "B",
+   "E"
+  ],
+  "skill": "3.2.2",
+  "type": "ALL",
+  "difficulty": "M",
+  "options": [
+   [
+    "A",
+    "Prompts and responses are not used to train the base models",
+    true,
+    "Correct."
+   ],
+   [
+    "B",
+    "A global cross-Region inference profile can process requests outside your geography",
+    true,
+    "Correct."
+   ],
+   [
+    "C",
+    "Requests are always processed in the Region you call, even when using inference profiles",
+    false,
+    "Profiles route to other Regions."
+   ],
+   [
+    "D",
+    "Prompts are shared with the model provider to improve future versions",
+    false,
+    "Not shared with providers."
+   ],
+   [
+    "E",
+    "Prompts and outputs are stored only if you enable model invocation logging",
+    true,
+    "Correct."
+   ]
+  ],
+  "stem": "Which statements about data privacy in Amazon Bedrock are correct?"
+ },
+ "40": {
+  "answer": [
+   "D"
+  ],
+  "skill": "3.2.1",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "Attach a guardrail to every model call",
+    false,
+    "Content safety, not access monitoring."
+   ],
+   [
+    "B",
+    "Enable AWS X-Ray sampling on the application",
+    false,
+    "Traces the app, not other principals."
+   ],
+   [
+    "C",
+    "Enable model invocation logging to S3 and review the logs monthly",
+    false,
+    "Not within minutes."
+   ],
+   [
+    "D",
+    "Capture Bedrock API activity with AWS CloudTrail and alert through an EventBridge rule or metric filter on unapproved principals",
+    true,
+    "CloudTrail records who called; EventBridge/metric filters alert in near real time."
+   ]
+  ],
+  "stem": "The security team wants an alert within minutes whenever any principal other than an approved application role invokes Bedrock models in a production account. What should it implement?"
+ },
+ "41": {
+  "answer": [
+   "A"
+  ],
+  "skill": "3.1.3",
+  "type": "MC",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "A guardrail contextual grounding check with both grounding and relevance thresholds",
+    true,
+    "Grounding catches unsupported claims; relevance catches off-question answers."
+   ],
+   [
+    "B",
+    "Temperature 0 and top-p 0.1 on the generation model",
+    false,
+    "Makes output consistent, not grounded."
+   ],
+   [
+    "C",
+    "A rerank model with twice as many retrieved results",
+    false,
+    "Improves context but doesn't block bad answers."
+   ],
+   [
+    "D",
+    "A metadata filter that limits retrieval to policy documents",
+    false,
+    "Controls retrieval, not answer faithfulness."
+   ]
+  ],
+  "stem": "A policy assistant sometimes states facts that aren't in the retrieved documents and sometimes answers a different question than the user asked. Both kinds of response must be blocked automatically, with minimal custom code. What should the team configure?"
+ },
+ "42": {
+  "answer": [
+   "C"
+  ],
+  "skill": "4.2.4",
+  "type": "MC",
+  "difficulty": "M",
+  "options": [
+   [
+    "A",
+    "Switch to a model with a larger context window",
+    false,
+    "The email already fits."
+   ],
+   [
+    "B",
+    "Add a stop sequence after the invoice number",
+    false,
+    "Controls where output ends, not which value is chosen."
+   ],
+   [
+    "C",
+    "Lower the temperature",
+    true,
+    "Reduces randomness; the fact is present, so consistency is the issue."
+   ],
+   [
+    "D",
+    "Increase the maximum output tokens",
+    false,
+    "Length isn't the problem."
+   ]
+  ],
+  "stem": "An extraction feature returns slightly different invoice numbers for the same email on repeated runs, although the number is clearly present in the text. What should the developer change first?"
+ },
+ "43": {
+  "answer": [
+   "D"
+  ],
+  "skill": "5.2.1",
+  "type": "MC",
+  "difficulty": "M",
+  "options": [
+   [
+    "A",
+    "Add a stop sequence at the end of each paragraph",
+    false,
+    "Would end answers even earlier."
+   ],
+   [
+    "B",
+    "Retry the request with exponential backoff",
+    false,
+    "The same limit applies on retry."
+   ],
+   [
+    "C",
+    "Lower the temperature to make answers shorter",
+    false,
+    "Temperature doesn't control length reliably."
+   ],
+   [
+    "D",
+    "Increase the maximum output tokens for the request",
+    true,
+    "The answer is hitting the max_tokens limit."
+   ]
+  ],
+  "stem": "Generated summaries regularly end mid-sentence. The response metadata shows the model stopped because of a length limit. What should the developer do?"
+ },
+ "44": {
+  "answer": [
+   "B",
+   "C"
+  ],
+  "skill": "5.1.5",
+  "type": "TWO",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "A guardrail word filter on the generated answers",
+    false,
+    "Blocks words; doesn't evaluate."
+   ],
+   [
+    "B",
+    "A Bedrock Evaluations retrieve-only RAG evaluation that scores context relevance and coverage",
+    true,
+    "Measures retrieval quality."
+   ],
+   [
+    "C",
+    "A Bedrock Evaluations retrieve-and-generate RAG evaluation that scores faithfulness and correctness",
+    true,
+    "Measures answer quality against sources."
+   ],
+   [
+    "D",
+    "A CloudWatch dashboard of model invocation latency",
+    false,
+    "Performance, not quality."
+   ],
+   [
+    "E",
+    "AWS X-Ray traces of the retrieval calls",
+    false,
+    "Timing, not relevance."
+   ]
+  ],
+  "stem": "Before rolling out a new chunking strategy, a team must show that retrieved passages are more relevant and that final answers stay faithful to the sources, using managed tooling. Which combination should it run?"
+ },
+ "45": {
+  "answer": [
+   "B",
+   "D"
+  ],
+  "skill": "5.2.2",
+  "type": "ALL",
+  "difficulty": "H",
+  "options": [
+   [
+    "A",
+    "ServiceUnavailableException during a brief service disruption",
+    false,
+    "Retry with backoff."
+   ],
+   [
+    "B",
+    "AccessDeniedException because the role lacks bedrock:InvokeModel",
+    true,
+    "Fix permissions."
+   ],
+   [
+    "C",
+    "ThrottlingException during a traffic peak",
+    false,
+    "Retry with backoff."
+   ],
+   [
+    "D",
+    "ValidationException because the input is longer than the model's context window",
+    true,
+    "Fix the request."
+   ],
+   [
+    "E",
+    "ModelNotReadyException while capacity is being prepared",
+    false,
+    "Retry with backoff."
+   ]
+  ],
+  "stem": "A client calls Bedrock and receives various errors. Which of these errors should the client fix in the request or configuration rather than retry with backoff?"
+ }
+}

@@ -53,6 +53,11 @@ Coverage of exam guide ≈ 45%.
 - KMS AccessDenied on KB sync → key policy must allow the KB role kms:Decrypt.
 - Top-p = cumulative probability threshold (top-k = fixed count). Temperature → consistency; grounding → correctness.
 - Batch inference (managed file job, hours, ~50% cheaper) vs async SQS (user waiting, on-demand price).
+- Cascading (small first, escalate on failed validation) keeps quality on hard queries; distillation alone may not.
+- Intelligent Prompt Routing = within one model family by predicted quality; business-category routing = classify step + Choice state.
+- Different frameworks + consistent auth/format for retrieval → one MCP tool server, not direct per-team access.
+- Fix (don't retry): ValidationException, AccessDeniedException. Retry: Throttling, ServiceUnavailable, ModelNotReady.
+- Habit: list every requirement in the stem and strike options that fail any one.
 - Habit: read every option to the last word; flag look-alike options.
 
 ## Syllabus and coverage
@@ -83,10 +88,26 @@ Coverage of exam guide ≈ 45%.
 Readiness rule: mocks ≥75% ready; 65–75% focus weak tasks; <65% by 3 Nov → discuss rescheduling.
 
 ## Next action
-Teach **Day 6 from Part 1** (Guardrails, prompt injection, Responsible AI; skills 3.1.1–3.1.5, 3.4.1–3.4.3) in the new
+After Practice Set 2 (91%), teach **Day 6 from Part 1** (Guardrails, prompt injection, Responsible AI; skills 3.1.1–3.1.5, 3.4.1–3.4.3) in the new
 style with pauses. Gap lesson done: quiz 12/12 (Q6 guessed — replicas vs primary shards).
+
+## Practice Set 2 — done (26 Oct)
+41/45 (91%): Domain 1 16/17, Domain 2 16/18, Domain 3 6/6, Domain 4 1/1, Domain 5 2/3; hard 24/27.
+Generator `tools/practice02.py`, key `tools/practice02_key.json`, answers `tools/answers02.py` (committed after grading).
+Later sets: Practice Set 3 (2 Nov, Days 6–12), Practice Set 4 (6 Nov, weakest tasks).
 
 ## Quiz rules (learned the hard way)
 - Never bold or otherwise mark correct options; keep all options similar in length.
 - Every wrong option must be a real, plausible AWS approach that fails one stated requirement.
 - Keep answer keys only in the scratchpad until the learner has answered.
+- Don't leak the answer through the question: describe the requirement or symptom (e.g. "must keep working when the
+  provider is down"), not the solution's name or its signature wording (e.g. not "fallback", "half-open", "adapter").
+  Only use a term in the stem when the question genuinely can't be asked without it.
+- Mix difficulty roughly 60% hard / 40% medium, rotated so hard questions aren't clustered; hard ≠ trick questions.
+- Official format: multiple choice = exactly 4 options (1 correct, 3 distractors); multiple response = 5+ options with
+  2 or more correct (include some "Choose THREE"), scored all-or-nothing — grade strictly, no partial credit.
+- Mostly "Select TWO" (5 options) and some "Select THREE" (6 options), occasionally 7 options. Learner's request: a few
+  multiple-response questions say only "(Select ALL that apply.)" with no count (2–4 correct), as extra-hard practice —
+  label them clearly so they aren't confused with the real format.
+- Exam: 65 scored questions (plus unscored ones that look identical — the full exam is typically 75); unanswered = wrong,
+  no penalty for guessing → always answer everything. Full mocks use 75 questions in 190 minutes.
