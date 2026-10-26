@@ -23,6 +23,8 @@ Repo: `scar77-git/Action_recognition`, branch `claude/aws-ai-cert-prep-rpargp`, 
 ## Rules agreed
 - Every day ends with a PDF note in `notes/` named `Day_N_<date>_<Topic>.pdf`, built by `tools/dayNN.py`
   with `tools/notelib.py`. Include task numbers, concepts, lab, graded quiz, mistakes, glossary.
+- After every session also update `tools/tracker.py` (DAYS, DOMAINS, ASSESSMENTS, LAB_BACKLOG, OVERALL, LAST_UPDATED)
+  and rebuild `notes/Progress_Tracker.pdf` (landscape), then send it.
 - Quiz / warm-up questions only after the whole day's lesson and lab.
 - Practice-set answer keys are never committed before the learner answers (keep the generator out of the repo).
 
