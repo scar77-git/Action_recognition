@@ -53,6 +53,11 @@ Coverage of exam guide ≈ 45%.
 - KMS AccessDenied on KB sync → key policy must allow the KB role kms:Decrypt.
 - Top-p = cumulative probability threshold (top-k = fixed count). Temperature → consistency; grounding → correctness.
 - Batch inference (managed file job, hours, ~50% cheaper) vs async SQS (user waiting, on-demand price).
+- Cascading (small first, escalate on failed validation) keeps quality on hard queries; distillation alone may not.
+- Intelligent Prompt Routing = within one model family by predicted quality; business-category routing = classify step + Choice state.
+- Different frameworks + consistent auth/format for retrieval → one MCP tool server, not direct per-team access.
+- Fix (don't retry): ValidationException, AccessDeniedException. Retry: Throttling, ServiceUnavailable, ModelNotReady.
+- Habit: list every requirement in the stem and strike options that fail any one.
 - Habit: read every option to the last word; flag look-alike options.
 
 ## Syllabus and coverage
@@ -83,15 +88,12 @@ Coverage of exam guide ≈ 45%.
 Readiness rule: mocks ≥75% ready; 65–75% focus weak tasks; <65% by 3 Nov → discuss rescheduling.
 
 ## Next action
-Teach **Day 6 from Part 1** (Guardrails, prompt injection, Responsible AI; skills 3.1.1–3.1.5, 3.4.1–3.4.3) in the new
+After Practice Set 2 (91%), teach **Day 6 from Part 1** (Guardrails, prompt injection, Responsible AI; skills 3.1.1–3.1.5, 3.4.1–3.4.3) in the new
 style with pauses. Gap lesson done: quiz 12/12 (Q6 guessed — replicas vs primary shards).
 
-## Pending request
-**Practice Set 2 sent (26 Oct)**: `notes/Practice_Set_2_2026-10-26_Days_1-5_and_Gap_Questions.pdf`, 45 questions
-(36 MC, 4 Select TWO, 2 Select THREE, 3 Select ALL; 27 hard). Waiting for the learner's answers. The generator and key
-(with per-option explanations) are in this session's scratchpad (`practice02.py`, `practice02_key.json`) — not committed.
-After grading: build the answers PDF, then commit the generator to `tools/`. If the key is ever lost (new session),
-re-solve the questions from the PDF to grade them.
+## Practice Set 2 — done (26 Oct)
+41/45 (91%): Domain 1 16/17, Domain 2 16/18, Domain 3 6/6, Domain 4 1/1, Domain 5 2/3; hard 24/27.
+Generator `tools/practice02.py`, key `tools/practice02_key.json`, answers `tools/answers02.py` (committed after grading).
 Later sets: Practice Set 3 (2 Nov, Days 6–12), Practice Set 4 (6 Nov, weakest tasks).
 
 ## Quiz rules (learned the hard way)
