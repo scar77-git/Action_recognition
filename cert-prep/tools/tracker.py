@@ -27,11 +27,11 @@ DAYS = [
      "Studied, not run", "80% — exact names (bedrock-agent-runtime, kms:Decrypt)"),
     ("5. Models and inference", "Sun 25 Oct", "1.2, 2.4, 2.2", "+10%", "35%", "✓ Done", "Quiz <b>8/8</b>",
      "To do later", "85% — new teaching style; lab not yet run"),
-    ("Routing mini-lesson + Day 6 Part 1", "Mon 26 Oct", "2.4.4; 3.1 (guardrail basics)", "+3%", "38%", "✓ Done",
+    ("Routing mini-lesson (Skill 2.4.4)", "Mon 26 Oct", "2.4.4", "+1%", "36%", "✓ Read",
      "Checks pending", "—", "—"),
     ("Gap lesson (skills missed in studied tasks)", "Mon 26 Oct", "1.2.2–1.2.4, 1.4.1–1.4.3, 1.5.2, 1.5.5, "
-     "2.1.3–2.1.7, 2.2.2, 2.4.2–2.4.3", "+10%", "48%", "Next", "—", "—", "—"),
-    ("6. Guardrails + Responsible AI (Parts 2–3)", "Tue 27 Oct", "3.1, 3.4", "+8%", "56%", "Planned", "—", "—", "—"),
+     "2.1.3–2.1.7, 2.2.2, 2.4.2–2.4.3", "+10%", "46%", "Next", "—", "—", "—"),
+    ("6. Guardrails + Responsible AI (not started)", "Tue 27 Oct", "3.1, 3.4", "+10%", "56%", "Planned", "—", "—", "—"),
     ("7. Prompt engineering + design", "Wed 28 Oct", "1.6, 1.1, 2.1.2 (+ 5.2.3, 5.2.5)", "+10%", "66%", "Planned",
      "—", "—", "—"),
     ("8. Data pipelines + enterprise integration", "Thu 29 Oct", "1.3, 2.3", "+8%", "74%", "Planned", "—", "—", "—"),
@@ -48,7 +48,7 @@ DOMAINS = [
      "Gaps in 1.2/1.4/1.5 → gap lesson; 1.1, 1.6 Day 7; 1.3 Day 8"),
     ("2. Implementation and integration", "26%", "42% (5 ✓ 11 ½ 9 ✗ of 25)", "85%",
      "Gaps in 2.1/2.2/2.4 → gap lesson; 2.3 Day 8; 2.5 Day 9"),
-    ("3. AI safety, security, governance", "20%", "33% (3 ✓ 4 ½ 8 ✗ of 15)", "80%", "3.1, 3.4 Day 6; 3.3 Day 9"),
+    ("3. AI safety, security, governance", "20%", "27% (3 ✓ 2 ½ 10 ✗ of 15)", "80%", "3.1, 3.4 Day 6; 3.3 Day 9"),
     ("4. Operational efficiency and optimisation", "12%", "34% (1 ✓ 9 ½ 6 ✗ of 16)", "—", "Days 10–11"),
     ("5. Testing, validation, troubleshooting", "11%", "25% (0 ✓ 7 ½ 7 ✗ of 14)", "75%", "Days 11–12"),
 ]
@@ -70,8 +70,8 @@ LAB_BACKLOG = [
     "Day 5 — Console lab, start with Part B (request the TPM quota increase).",
 ]
 
-OVERALL = ("<b>Overall confidence on topics covered so far: ~83%.</b> Skill-level coverage of the exam guide: <b>38%</b> "
-           "(16 of 98 skills fully covered, 42 partly — see Skill_Coverage_Matrix.pdf). "
+OVERALL = ("<b>Overall confidence on topics covered so far: ~83%.</b> Skill-level coverage of the exam guide: <b>36%</b> "
+           "(16 of 98 skills fully covered, 40 partly — see Skill_Coverage_Matrix.pdf). "
            "Strongest: agents and tools (2.1), models and inference (1.2, 2.2, 2.4). Watch: exact service names and "
            "limits, and reading every option to the end. Biggest risk: no hands-on labs since Day 1.")
 
@@ -101,7 +101,7 @@ n.bullets(LAB_BACKLOG)
 
 n.h1("5. Next session")
 n.p("<b>Gap lesson</b> — skills missed inside already-studied tasks (1.2, 1.4, 1.5, 2.1, 2.2, 2.4), in parts with pauses. "
-    "Then Day 6 Parts 2–3 (Guardrails and Responsible AI).")
+    "Then Day 6 from Part 1 (Guardrails and Responsible AI).")
 
 n.build()
 print(os.path.abspath(OUT))

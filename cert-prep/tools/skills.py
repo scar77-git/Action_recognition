@@ -12,7 +12,7 @@ from reportlab.lib.styles import ParagraphStyle  # noqa: E402
 from reportlab.platypus import Paragraph  # noqa: E402
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "notes", "Skill_Coverage_Matrix.pdf")
-LAST_UPDATED = "Monday 26 Oct 2026 (after Day 5 + routing mini-lesson)"
+LAST_UPDATED = "Monday 26 Oct 2026 (after Day 5 + routing mini-lesson; Day 6 not started)"
 H1_SPLIT = ParagraphStyle("h1split", parent=S["h1"], keepWithNext=0)
 
 DOMAINS = OrderedDict([
@@ -68,7 +68,7 @@ SKILLS = [
      "D2 tools; D3 MCP; PS1 Q17", "—"),
     # ---- Task 1.6 Prompt engineering and governance
     ("1.6.1", "Instruction frameworks (Prompt Management roles, Guardrails, templates)", "P",
-     "D5 system prompts; D6 Part 1 guardrails", "Day 7"),
+     "D5 system prompts", "Day 7"),
     ("1.6.2", "Interactive systems (Step Functions clarification, Comprehend intent, DynamoDB history)", "N", "—", "Day 7"),
     ("1.6.3", "Prompt governance (parameterised templates, approvals, S3 repos, CloudTrail, Logs)", "N", "—", "Day 7"),
     ("1.6.4", "Prompt QA (Lambda output checks, Step Functions edge cases, CloudWatch regression)", "N", "—", "Day 7"),
@@ -114,8 +114,8 @@ SKILLS = [
     ("2.5.5", "Advanced apps (Strands, Agent Squad, Step Functions patterns, prompt chaining)", "P", "D3", "Day 9"),
     ("2.5.6", "Troubleshooting (Logs Insights, X-Ray, Q Developer)", "N", "—", "Day 9 / Day 11"),
     # ---- Task 3.1 Safety controls
-    ("3.1.1", "Input safety (Guardrails, custom moderation with Step Functions/Lambda)", "P", "D6 Part 1", "Day 6"),
-    ("3.1.2", "Output safety (Guardrails, toxicity evaluations, text-to-SQL determinism)", "P", "D6 Part 1", "Day 6"),
+    ("3.1.1", "Input safety (Guardrails, custom moderation with Step Functions/Lambda)", "N", "—", "Day 6"),
+    ("3.1.2", "Output safety (Guardrails, toxicity evaluations, text-to-SQL determinism)", "N", "—", "Day 6"),
     ("3.1.3", "Reduce hallucinations (KB grounding, confidence scoring, JSON Schema outputs)", "P",
      "D1 grounding; D5 Part 1 Q&A", "Day 6"),
     ("3.1.4", "Defence in depth (Comprehend pre-filter, Guardrails, Lambda post-check, API filtering)", "N", "—", "Day 6"),

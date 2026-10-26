@@ -59,13 +59,13 @@ Coverage of exam guide ≈ 45%.
 - Official skill list: `reference/AWS_AIP-C01_All_Exam_Tasks_and_Skills.pdf` (5 domains, 20 tasks, 98 skills).
 - Plan every lesson from the skill statements, not task titles. Track status in `tools/skills.py`
   (Y / P / N per skill) and rebuild `notes/Skill_Coverage_Matrix.pdf` after each session.
-- 26 Oct check: 16 covered, 42 partly, 40 not yet → weighted skill coverage 38%.
+- 26 Oct check: 16 covered, 40 partly, 42 not yet → weighted skill coverage 36%.
 
 ## Remaining plan (AWS) — revised 26 Oct after the skill check
 | Date | Session | Skills / tasks |
 |---|---|---|
-| Mon 26 Oct | Routing mini-lesson ✓, Day 6 Part 1 ✓, then **gap lesson** | 1.2.2–1.2.4, 1.4.1–1.4.3, 1.5.2, 1.5.5, 2.1.3–2.1.7, 2.2.2, 2.4.2–2.4.3 |
-| Tue 27 | Day 6 Parts 2–3: Guardrails, prompt injection, Responsible AI | 3.1, 3.4 |
+| Mon 26 Oct | Routing mini-lesson ✓ (checks pending), then **gap lesson** | 1.2.2–1.2.4, 1.4.1–1.4.3, 1.5.2, 1.5.5, 2.1.3–2.1.7, 2.2.2, 2.4.2–2.4.3 |
+| Tue 27 | Day 6 (from Part 1): Guardrails, prompt injection, Responsible AI | 3.1, 3.4 |
 | Wed 28 | Day 7 Prompt engineering + design | 1.6, 1.1, 2.1.2, (5.2.3, 5.2.5) |
 | Thu 29 | Day 8 Data pipelines + enterprise integration | 1.3, 2.3 |
 | Fri 30 | Day 9 App patterns + dev tools + governance | 2.5, 3.3 |
@@ -83,4 +83,4 @@ Coverage of exam guide ≈ 45%.
 Readiness rule: mocks ≥75% ready; 65–75% focus weak tasks; <65% by 3 Nov → discuss rescheduling.
 
 ## Next action
-Teach the **gap lesson** (skills missed inside tasks 1.2, 1.4, 1.5, 2.1, 2.2, 2.4) in 3 parts with pauses; Day 6 Part 1 (guardrail basics) is done but its 3 check questions are unanswered. Then Day 6 Parts 2–3.
+Teach the **gap lesson** (skills missed inside tasks 1.2, 1.4, 1.5, 2.1, 2.2, 2.4) in 3 parts with pauses; Day 6 has NOT started — teach it from Part 1 (a Part 1 draft was posted on 26 Oct but not studied).
