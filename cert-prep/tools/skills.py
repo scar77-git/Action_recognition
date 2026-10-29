@@ -12,7 +12,7 @@ from reportlab.lib.styles import ParagraphStyle  # noqa: E402
 from reportlab.platypus import Paragraph  # noqa: E402
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "notes", "Skill_Coverage_Matrix.pdf")
-LAST_UPDATED = "Monday 26 Oct 2026 (after the gap lesson; Day 6 not started)"
+LAST_UPDATED = "Monday 26 Oct 2026 (after Day 6)"
 H1_SPLIT = ParagraphStyle("h1split", parent=S["h1"], keepWithNext=0)
 
 DOMAINS = OrderedDict([
@@ -99,12 +99,11 @@ SKILLS = [
     ("2.5.5", "Advanced apps (Strands, Agent Squad, Step Functions patterns, prompt chaining)", "P", "D3", "Day 9"),
     ("2.5.6", "Troubleshooting (Logs Insights, X-Ray, Q Developer)", "N", "—", "Day 9 / Day 11"),
     # ---- Task 3.1 Safety controls
-    ("3.1.1", "Input safety (Guardrails, custom moderation with Step Functions/Lambda)", "N", "—", "Day 6"),
-    ("3.1.2", "Output safety (Guardrails, toxicity evaluations, text-to-SQL determinism)", "N", "—", "Day 6"),
-    ("3.1.3", "Reduce hallucinations (KB grounding, confidence scoring, JSON Schema outputs)", "P",
-     "D1 grounding; D5 Part 1 Q&A", "Day 6"),
-    ("3.1.4", "Defence in depth (Comprehend pre-filter, Guardrails, Lambda post-check, API filtering)", "N", "—", "Day 6"),
-    ("3.1.5", "Threat detection (prompt injection, jailbreaks, sanitisation, adversarial testing)", "N", "—", "Day 6"),
+    ("3.1.1", "Input safety (Guardrails, custom moderation with Step Functions/Lambda)", "Y", "Day 6", "—"),
+    ("3.1.2", "Output safety (Guardrails, toxicity evaluations, text-to-SQL determinism)", "Y", "Day 6", "—"),
+    ("3.1.3", "Reduce hallucinations (KB grounding, confidence scoring, JSON Schema outputs)", "Y", "D1 grounding; D5 Part 1 Q&A; Day 6", "—"),
+    ("3.1.4", "Defence in depth (Comprehend pre-filter, Guardrails, Lambda post-check, API filtering)", "Y", "Day 6", "—"),
+    ("3.1.5", "Threat detection (prompt injection, jailbreaks, sanitisation, adversarial testing)", "Y", "Day 6", "—"),
     # ---- Task 3.2 Data security
     ("3.2.1", "Protected environments (VPC endpoints, IAM, Lake Formation, CloudWatch)", "Y", "D4", "—"),
     ("3.2.2", "Privacy (Comprehend, Macie, Bedrock privacy, Guardrails, S3 Lifecycle)", "Y", "D4", "—"),
@@ -115,10 +114,9 @@ SKILLS = [
     ("3.3.3", "Organisational governance frameworks", "N", "—", "Day 9"),
     ("3.3.4", "Continuous governance (misuse/drift/bias detection, alerting, redaction, logging)", "N", "—", "Day 9"),
     # ---- Task 3.4 Responsible AI
-    ("3.4.1", "Transparency (reasoning displays, confidence metrics, source attribution, agent tracing)", "P",
-     "D1 citations; D2 trace", "Day 6"),
-    ("3.4.2", "Fairness (fairness metrics, Prompt Management A/B, LLM-as-a-judge)", "N", "—", "Day 6"),
-    ("3.4.3", "Policy compliance (Guardrails, model cards, Lambda compliance checks)", "N", "—", "Day 6"),
+    ("3.4.1", "Transparency (reasoning displays, confidence metrics, source attribution, agent tracing)", "Y", "D1 citations; D2 trace; Day 6", "—"),
+    ("3.4.2", "Fairness (fairness metrics, Prompt Management A/B, LLM-as-a-judge)", "Y", "Day 6", "—"),
+    ("3.4.3", "Policy compliance (Guardrails, model cards, Lambda compliance checks)", "Y", "Day 6", "—"),
     # ---- Task 4.1 Cost
     ("4.1.1", "Token efficiency (estimation, context pruning, response limits, compression)", "P",
      "D5 max tokens, RAG to shrink input", "Day 10"),

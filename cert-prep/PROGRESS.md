@@ -88,18 +88,15 @@ Coverage of exam guide ≈ 45%.
 Readiness rule: mocks ≥75% ready; 65–75% focus weak tasks; <65% by 3 Nov → discuss rescheduling.
 
 ## Next action
-After Practice Set 2 (91%), teach **Day 6 from Part 1** (Guardrails, prompt injection, Responsible AI; skills 3.1.1–3.1.5, 3.4.1–3.4.3) in the new
-style with pauses. Gap lesson done: quiz 12/12 (Q6 guessed — replicas vs primary shards).
-
-## Practice Set 2 — done (26 Oct)
-41/45 (91%): Domain 1 16/17, Domain 2 16/18, Domain 3 6/6, Domain 4 1/1, Domain 5 2/3; hard 24/27.
-Generator `tools/practice02.py`, key `tools/practice02_key.json`, answers `tools/answers02.py` (committed after grading).
-Later sets: Practice Set 3 (2 Nov, Days 6–12), Practice Set 4 (6 Nov, weakest tasks).
+Day 6 taught 27–29 Oct (PDF built; skills 3.1.x and 3.4.x marked covered → 56%). Day 6 quiz given in chat on 29 Oct
+(key in scratchpad `day06_quiz_key.txt`). Then Day 7 (1.6, 1.1, 2.1.2) and Day 8 (1.3, 2.3) — both on Thu 29 Oct, as the
+learner took 28 Oct off. Context window is ~75%+: plan a fresh session soon (see handoff prompt in chat history / below).
 
 ## Quiz rules (learned the hard way)
 - Never bold or otherwise mark correct options; keep all options similar in length.
 - Every wrong option must be a real, plausible AWS approach that fails one stated requirement.
 - Keep answer keys only in the scratchpad until the learner has answered.
+- Answer PDFs show each question's difficulty (Hard / Medium) in an at-a-glance table and in every question heading.
 - Don't leak the answer through the question: describe the requirement or symptom (e.g. "must keep working when the
   provider is down"), not the solution's name or its signature wording (e.g. not "fallback", "half-open", "adapter").
   Only use a term in the stem when the question genuinely can't be asked without it.

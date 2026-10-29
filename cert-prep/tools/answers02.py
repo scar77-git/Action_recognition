@@ -51,7 +51,16 @@ n.table(["Question type", "Score", "%"], rows, [0.6, 0.2, 0.2])
 rows = [[k2, f"{a} / {b}", f"{round(100 * a / b)}%"] for k2, (a, b) in by_diff.items()]
 n.table(["Difficulty", "Score", "%"], rows, [0.6, 0.2, 0.2])
 
-n.h1("2. Mistakes log — the four misses")
+n.h1("2. All questions at a glance")
+glance = []
+for i in sorted(key):
+    v = key[i]
+    glance.append([str(i), "Hard" if v["difficulty"] == "H" else "Medium", v["skill"], TYPE[v["type"]],
+                   ", ".join(MY[i]) + (" (G)" if i in GUESSES else ""), ", ".join(v["answer"]), "✓" if res[i] else "✗"])
+n.table(["Q", "Difficulty", "Skill", "Type", "Your answer", "Correct", ""], glance,
+        [0.06, 0.12, 0.1, 0.3, 0.17, 0.17, 0.08])
+
+n.h1("3. Mistakes log — the four misses")
 n.table(["Q", "Skill", "Your answer", "Correct", "Rule to remember"], [
     ["8 (G)", "2.2.3", "C — distil one small model for everything", "B — small model first, escalate on failed validation",
      "When quality on the <b>hard 20%</b> must not drop, keep a path to the large model: <b>cascading</b>. Distillation "
@@ -67,7 +76,7 @@ n.table(["Q", "Skill", "Your answer", "Correct", "Rule to remember"], [
      "<b>Retry with backoff</b>: Throttling, ServiceUnavailable, ModelNotReady — they are temporary."],
 ], [0.07, 0.07, 0.27, 0.27, 0.32])
 
-n.h1("3. Feedback")
+n.h1("4. Feedback")
 n.bullets([
     "<b>Strongest areas</b>: security and privacy (all correct), vector stores at scale, safeguards (Select THREE "
     "fully correct), resilience and model lifecycle — the gap lesson clearly landed.",
@@ -80,13 +89,14 @@ n.bullets([
 ])
 
 n.page_break()
-n.h1("4. Every question explained")
+n.h1("5. Every question explained")
 for i in sorted(key):
     v = key[i]
     mark = "✓" if res[i] else "✗"
     g = " (guess)" if i in GUESSES else ""
-    n.h2(f"Question {i} · Skill {v['skill']} · {TYPE[v['type']]} · {mark} you: {', '.join(MY[i])}{g} · correct: "
-         f"{', '.join(v['answer'])}")
+    diff = "HARD" if v["difficulty"] == "H" else "MEDIUM"
+    n.h2(f"Question {i} · {diff} · Skill {v['skill']} · {TYPE[v['type']]} · {mark} you: {', '.join(MY[i])}{g} · "
+         f"correct: {', '.join(v['answer'])}")
     n.p(v["stem"])
     for letter, text, ok, why in v["options"]:
         tag = "<b>✓ CORRECT</b>" if ok else "✗"
