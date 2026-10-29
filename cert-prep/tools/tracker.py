@@ -11,7 +11,7 @@ from reportlab.platypus import Paragraph  # noqa: E402
 H1_SPLIT = ParagraphStyle("h1split", parent=S["h1"], keepWithNext=0)
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "notes", "Progress_Tracker.pdf")
-LAST_UPDATED = "Monday 26 Oct 2026 (after Practice Set 2)"
+LAST_UPDATED = "Thursday 29 Oct 2026 (after Day 6)"
 
 # day, date, official tasks, added %, total %, status, score, lab, confidence (topic mastery for that day)
 DAYS = [
@@ -33,8 +33,9 @@ DAYS = [
      "2.1.3–2.1.7, 2.2.2, 2.4.2–2.4.3", "+10%", "47%", "✓ Done", "Quiz <b>12/12</b> (1 guess)", "—", "85% — strong; review replicas vs primary shards"),
     ("Practice Set 2 (45 Q)", "Mon 26 Oct", "Days 1–5 + gap", "—", "47%", "✓ Done", "<b>41/45 (91%)</b>", "—",
      "89% on hard questions; misses = partial-requirement options"),
-    ("6. Guardrails + Responsible AI (not started)", "Tue 27 Oct", "3.1, 3.4", "+10%", "56%", "Planned", "—", "—", "—"),
-    ("7. Prompt engineering + design", "Wed 28 Oct", "1.6, 1.1, 2.1.2 (+ 5.2.3, 5.2.5)", "+10%", "66%", "Planned",
+    ("6. Guardrails + Responsible AI", "27–29 Oct", "3.1, 3.4", "+9%", "56%", "✓ Done", "Checks 8.5/9; quiz pending", "—",
+     "85% — indirect prompt injection reasoning refined"),
+    ("7. Prompt engineering + design", "Thu 29 Oct", "1.6, 1.1, 2.1.2 (+ 5.2.3, 5.2.5)", "+10%", "66%", "Planned",
      "—", "—", "—"),
     ("8. Data pipelines + enterprise integration", "Thu 29 Oct", "1.3, 2.3", "+8%", "74%", "Planned", "—", "—", "—"),
     ("9. App patterns + dev tools + governance", "Fri 30 Oct", "2.5, 3.3", "+10%", "84%", "Planned", "—", "—", "—"),
@@ -49,7 +50,7 @@ DOMAINS = [
     ("1. FM integration, data management, compliance", "31%", "61% (15 ✓ 4 ½ 9 ✗ of 28 skills)", "80%",
      "1.1, 1.6 Day 7; 1.3 Day 8"),
     ("2. Implementation and integration", "26%", "60% (13 ✓ 4 ½ 8 ✗ of 25)", "83%", "2.3 Day 8; 2.5 Day 9"),
-    ("3. AI safety, security, governance", "20%", "27% (3 ✓ 2 ½ 10 ✗ of 15)", "80%", "3.1, 3.4 Day 6; 3.3 Day 9"),
+    ("3. AI safety, security, governance", "20%", "73% (11 ✓ 0 ½ 4 ✗ of 15)", "85%", "3.3 Day 9"),
     ("4. Operational efficiency and optimisation", "12%", "34% (1 ✓ 9 ½ 6 ✗ of 16)", "—", "Days 10–11"),
     ("5. Testing, validation, troubleshooting", "11%", "25% (0 ✓ 7 ½ 7 ✗ of 14)", "75%", "Days 11–12"),
 ]
@@ -73,8 +74,8 @@ LAB_BACKLOG = [
     "Day 5 — Console lab, start with Part B (request the TPM quota increase).",
 ]
 
-OVERALL = ("<b>Overall confidence on topics covered so far: ~87%</b> (Practice Set 2: 91%). Skill-level coverage of the exam guide: <b>47%</b> "
-           "(32 of 98 skills fully covered, 26 partly — see Skill_Coverage_Matrix.pdf). "
+OVERALL = ("<b>Overall confidence on topics covered so far: ~87%</b> (Practice Set 2: 91%). Skill-level coverage of the exam guide: <b>56%</b> "
+           "(40 of 98 skills fully covered, 24 partly — see Skill_Coverage_Matrix.pdf). "
            "Strongest: agents and tools (2.1), models and inference (1.2, 2.2, 2.4). Watch: exact service names and "
            "limits, and reading every option to the end. Biggest risk: no hands-on labs since Day 1.")
 
@@ -103,7 +104,8 @@ n.h1("4. Lab backlog")
 n.bullets(LAB_BACKLOG)
 
 n.h1("5. Next session")
-n.p("<b>Day 6 from Part 1</b> — Guardrails, prompt injection and Responsible AI (skills 3.1.x, 3.4.x).")
+n.p("Day 6 quiz, then <b>Day 7</b> (prompt engineering + design) and <b>Day 8</b> (data pipelines + enterprise "
+    "integration) on Thu 29 Oct to get back on schedule.")
 
 n.build()
 print(os.path.abspath(OUT))
