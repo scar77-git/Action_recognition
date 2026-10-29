@@ -32,3 +32,4 @@ Story beats recorded as they happen. Add one or two lines after every session.
 | 26 Oct | Learner spotted a missing skill (2.4.4 model routing) → checked all 98 official skills; coverage was 37%, not ~42%. Built a Skill Coverage Matrix and a gap lesson; coverage now 47%. |
 | 26 Oct | Gap-lesson quiz 12/12 after two quiz versions were withdrawn (answers leaked via input suggestions, then via bold formatting) — learner insisted on harder, plausible options. |
 | 26 Oct | Practice Set 2 (45 questions, 60% hard, official formats incl. Select THREE / Select ALL): **41/45 (91%)**. |
+| 29 Oct | Day 6 (guardrails, prompt injection, responsible AI) after a work break — quiz 12/12; coverage 56%. |

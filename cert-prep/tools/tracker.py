@@ -33,8 +33,8 @@ DAYS = [
      "2.1.3–2.1.7, 2.2.2, 2.4.2–2.4.3", "+10%", "47%", "✓ Done", "Quiz <b>12/12</b> (1 guess)", "—", "85% — strong; review replicas vs primary shards"),
     ("Practice Set 2 (45 Q)", "Mon 26 Oct", "Days 1–5 + gap", "—", "47%", "✓ Done", "<b>41/45 (91%)</b>", "—",
      "89% on hard questions; misses = partial-requirement options"),
-    ("6. Guardrails + Responsible AI", "27–29 Oct", "3.1, 3.4", "+9%", "56%", "✓ Done", "Checks 8.5/9; quiz pending", "—",
-     "85% — indirect prompt injection reasoning refined"),
+    ("6. Guardrails + Responsible AI", "27–29 Oct", "3.1, 3.4", "+9%", "56%", "✓ Done", "Quiz <b>12/12</b>", "—",
+     "90% — all hard questions correct"),
     ("7. Prompt engineering + design", "Thu 29 Oct", "1.6, 1.1, 2.1.2 (+ 5.2.3, 5.2.5)", "+10%", "66%", "Planned",
      "—", "—", "—"),
     ("8. Data pipelines + enterprise integration", "Thu 29 Oct", "1.3, 2.3", "+8%", "74%", "Planned", "—", "—", "—"),
@@ -59,6 +59,7 @@ DOMAINS = [
 ASSESSMENTS = [
     ("Practice Set 1 (Days 1–3, 30 Q)", "23 Oct", "26/30 = 87%", "≥ 75%", "✓ Above target"),
     ("Gap-lesson quiz (12 Q, exam-style options)", "26 Oct", "12/12 = 100%", "≥ 75%", "✓ Above target"),
+    ("Day 6 quiz (12 Q, 7 hard)", "29 Oct", "12/12 = 100%", "≥ 75%", "✓ Above target"),
     ("Practice Set 2 (Days 1–5 + gap, 45 Q, 60% hard)", "26 Oct", "41/45 = 91%", "≥ 75%", "✓ Above target"),
     ("Practice Set 3 (Days 6–12)", "2 Nov", "—", "≥ 75%", "Planned"),
     ("Full mock 1 (75 Q, 190 min, 1:30 PM)", "3 Nov", "—", "≥ 75%", "Planned"),

@@ -200,6 +200,22 @@ n.table(["Part", "Your answers", "Feedback"], [
     ["3", "Why + which documents; name bias; model cards", "✓ ✓ ✓"],
 ], [0.07, 0.38, 0.55])
 
+n.h1("Day 6 quiz — 12 / 12")
+n.table(["Q", "Difficulty", "Skill", "Answer", "Why (and the trap)"], [
+    ["1", "M", "3.1.1", "B ✓", "Lower violence on input only; harassment filters stay high. Word lists block, they don't allow-list."],
+    ["2", "M", "3.1.1", "D ✓", "A subject however worded = denied topic. A word filter misses paraphrases."],
+    ["3", "H", "3.1.3", "A ✓", "Contextual grounding: grounding + relevance thresholds. Temperature doesn't ground."],
+    ["4", "H", "3.1.3", "C ✓", "'Logically consistent with rules' = Automated Reasoning; grounding only checks similarity."],
+    ["5", "H", "3.1.1", "B, E ✓", "ApplyGuardrail for SageMaker; input tagging for user text only. Guardrails can't attach to endpoints."],
+    ["6", "M", "3.1.2", "A ✓", "Text-to-SQL: the database computes exact figures; validate read-only."],
+    ["7", "M", "3.1.3", "D ✓", "Schema in a tool definition + validation in code; prompts and stop sequences aren't guarantees."],
+    ["8", "H", "3.1.5", "C ✓", "Indirect injection via email: check untrusted content + human confirmation for external sends."],
+    ["9", "H", "3.1.4", "A, C, F ✓", "Layers: API Gateway, guardrail in/out, Lambda validation. Logging only detects afterwards."],
+    ["10", "H", "3.4.1", "B ✓", "Reasoning display + citations with metadata + CloudWatch certainty metrics and alarms."],
+    ["11", "M", "3.4.2", "D ✓", "Counterfactual testing; removing names mitigates but doesn't detect."],
+    ["12", "H", "3.4.3", "C ✓", "Lambda per-response compliance check + model card for the limitation."],
+], [0.05, 0.1, 0.08, 0.12, 0.65])
+
 n.h1("Glossary — new terms")
 n.table(["Term", "Meaning"], [
     ["Amazon Bedrock Guardrails", "Managed safety layer checking model input and output against your policies."],
@@ -233,7 +249,7 @@ n.table(["Term", "Meaning"], [
     ["Model card / AI Service Card", "Document of intended use, limitations, evaluation, risks."],
 ], [0.36, 0.64])
 
-n.callout("Next", "Day 6 quiz (in chat), then Day 7 — Prompt engineering and design (1.6, 1.1, 2.1.2) and Day 8 — "
+n.callout("Next", "Next: Day 7 — Prompt engineering and design (1.6, 1.1, 2.1.2) and Day 8 — "
           "Data pipelines and enterprise integration (1.3, 2.3).")
 n.build()
 print(os.path.abspath(OUT))
