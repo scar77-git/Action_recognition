@@ -57,6 +57,11 @@ Coverage of exam guide ≈ 45%.
 - Intelligent Prompt Routing = within one model family by predicted quality; business-category routing = classify step + Choice state.
 - Different frameworks + consistent auth/format for retrieval → one MCP tool server, not direct per-team access.
 - Fix (don't retry): ValidationException, AccessDeniedException. Retry: Throttling, ServiceUnavailable, ModelNotReady.
+- Reworded repeat questions → semantic cache (exact-hash only hits identical text); invalidate on KB sync.
+- Cost per success: cheap model + escalation = price_B + failure_rate × price_A; compare with price_A / success_A.
+- Latency dominated by long generation → cap output length first.
+- Per-answer audit (sources, model + guardrail versions, decision) → decision logs in CloudWatch Logs; model cards =
+  model-level docs; Glue lineage = dataset origins.
 - Habit: list every requirement in the stem and strike options that fail any one.
 - Habit: read every option to the last word; flag look-alike options.
 
@@ -88,7 +93,7 @@ Coverage of exam guide ≈ 45%.
 Readiness rule: mocks ≥75% ready; 65–75% focus weak tasks; <65% by 3 Nov → discuss rescheduling.
 
 ## Next action
-30 Oct: learner went offline; sent `notes/Day_7-8_2026-10-30_Cost_Performance_Governance.pdf` (self-study: 4.1, 4.2,
+30 Oct: Days 7–8 quiz graded 8/12 (self-study; revise caching, cost maths, decision logs) — consider a 20-min recap before Day 9. Earlier: learner went offline; sent `notes/Day_7-8_2026-10-30_Cost_Performance_Governance.pdf` (self-study: 4.1, 4.2,
 3.3 — skills marked covered → 66%). It ends with a 12-question quiz; when the learner sends answers, grade them
 (key in this session's scratchpad `day0708_quiz_key.txt`; if lost, re-solve from the PDF), add an answers section to
 `tools/day07_08.py`, update tracker/journey.

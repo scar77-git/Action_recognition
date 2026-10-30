@@ -324,6 +324,38 @@ for i, (stem, opts) in enumerate(QUIZ, 1):
         n.story.append(Paragraph(f"<b>{'ABCDEF'[j]}.</b> {o}", S["bullet"]))
     n.space(4)
 
+n.page_break()
+n.h1("Results — check questions and quiz (graded 30 Oct)")
+n.table(["Part", "Your answers", "Feedback"], [
+    ["1", "Cost per success; prompt caching order; low semantic threshold", "✓ ✓ ½ — a low threshold returns the SAME "
+     "cached answer to questions that only look similar (wrong answers), not different answers."],
+    ["2", "Output length; parallel calls; concurrency", "✓ ½ ✓ — parallel total time ≈ the SLOWEST call (not the "
+     "shortest), plus merging."],
+    ["3", "Audit trail; programmatic model cards; drift response", "½ ✓ ✓ — per-answer audits need DECISION LOGS (source "
+     "IDs, model and guardrail versions, output, decision) in CloudWatch Logs; Glue lineage explains where datasets came "
+     "from, not a single answer."],
+], [0.07, 0.38, 0.55])
+n.h2("Quiz — 8 / 12 (67%)")
+n.table(["Q", "Skill", "You", "Correct", "Why"], [
+    ["1", "4.1.1", "D ✓", "D", "Prune/summarise old turns; quality is fine, history is the cost."],
+    ["2", "4.1.4", "C ✓", "C", "Prompt caching: static contract first with checkpoint, question last."],
+    ["3", "4.1.4", "A, D ✗", "B, D", "Questions are REWORDED → exact-text hashing rarely hits; semantic cache + invalidate on KB sync."],
+    ["4", "4.1.2", "A ✗", "B", "A: 0.004/0.96 ≈ $0.0042 per success. B: 0.0015 + 0.30 × 0.004 = $0.0027 — cheaper despite failures."],
+    ["5", "4.2.1", "A ✓", "A", "Pre-compute once, serve the stored copy."],
+    ["6", "4.2.1", "D ✓", "D", "Parallel calls; time ≈ slowest call."],
+    ["7", "4.2.3", "C ✓", "C", "SQS + capped workers + backoff with jitter; hours available."],
+    ["8", "4.2.6", "C ✗", "A", "Time is spent generating long answers → cap output length (you stated this rule in Part 2!)."],
+    ["9", "3.3.1", "B ✗", "D", "Per-answer audit = structured decision logs with source IDs and versions; a model card is "
+     "model-level documentation."],
+    ["10", "3.3.1", "B ✓", "B", "Programmatic SageMaker model cards in the pipeline."],
+    ["11", "3.3.2", "C ✓", "C", "Glue Data Catalog + lineage from Glue jobs."],
+    ["12", "3.3.4", "A, C, E ✓", "A, C, E", "Metric + alarm → EventBridge → automated rollback/flag off."],
+], [0.05, 0.08, 0.12, 0.1, 0.65])
+n.callout("Feedback", "8/12 after <b>self-study only</b> — below the 75% target, as expected without a taught lesson. "
+          "Two misses (Q8, Q9) contradict rules you stated correctly in the check questions → slow down and map each "
+          "option to the symptom in the stem. Re-read: caching types (exact vs semantic), cost-per-success arithmetic, "
+          "and decision logs vs model cards vs lineage.")
+
 n.h1("Glossary — new terms")
 n.table(["Term", "Meaning"], [
     ["Token usage / token counting", "Input/output token counts returned per call; estimating tokens before sending."],

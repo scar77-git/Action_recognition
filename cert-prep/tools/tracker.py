@@ -11,7 +11,7 @@ from reportlab.platypus import Paragraph  # noqa: E402
 H1_SPLIT = ParagraphStyle("h1split", parent=S["h1"], keepWithNext=0)
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "notes", "Progress_Tracker.pdf")
-LAST_UPDATED = "Friday 30 Oct 2026 (after Days 7–8 self-study PDF)"
+LAST_UPDATED = "Friday 30 Oct 2026 (Days 7–8 quiz graded)"
 
 # day, date, official tasks, added %, total %, status, score, lab, confidence (topic mastery for that day)
 DAYS = [
@@ -36,7 +36,7 @@ DAYS = [
     ("6. Guardrails + Responsible AI", "27–29 Oct", "3.1, 3.4", "+9%", "56%", "✓ Done", "Quiz <b>12/12</b>", "—",
      "90% — all hard questions correct"),
     ("7–8. Cost + performance + governance (self-study PDF)", "Fri 30 Oct", "4.1, 4.2, 3.3", "+10%", "66%", "✓ PDF",
-     "Quiz pending", "—", "— (offline study)"),
+     "Quiz <b>8/12</b> (67%)", "—", "70% — self-study; revise caching, cost math, decision logs"),
     ("9. Prompt engineering + design", "Sat 31 Oct", "1.6, 1.1, 2.1.2", "+10%", "76%", "Planned", "—", "—", "—"),
     ("10. Data pipelines + enterprise integration", "Sun 1 Nov", "1.3, 2.3", "+8%", "84%", "Planned", "—", "—", "—"),
     ("11. Dev tools + monitoring", "Mon 2 Nov", "2.5, 4.3", "+8%", "92%", "Planned", "—", "—", "—"),
@@ -59,6 +59,7 @@ ASSESSMENTS = [
     ("Practice Set 1 (Days 1–3, 30 Q)", "23 Oct", "26/30 = 87%", "≥ 75%", "✓ Above target"),
     ("Gap-lesson quiz (12 Q, exam-style options)", "26 Oct", "12/12 = 100%", "≥ 75%", "✓ Above target"),
     ("Day 6 quiz (12 Q, 7 hard)", "29 Oct", "12/12 = 100%", "≥ 75%", "✓ Above target"),
+    ("Days 7–8 quiz (self-study, 12 Q)", "30 Oct", "8/12 = 67%", "≥ 75%", "✗ Below — revise"),
     ("Practice Set 2 (Days 1–5 + gap, 45 Q, 60% hard)", "26 Oct", "41/45 = 91%", "≥ 75%", "✓ Above target"),
     ("Practice Set 3 (Days 6–12)", "2 Nov", "—", "≥ 75%", "Planned"),
     ("Full mock 1 (75 Q, 190 min, 1:30 PM)", "3 Nov", "—", "≥ 75%", "Planned"),

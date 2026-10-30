@@ -34,3 +34,4 @@ Story beats recorded as they happen. Add one or two lines after every session.
 | 26 Oct | Practice Set 2 (45 questions, 60% hard, official formats incl. Select THREE / Select ALL): **41/45 (91%)**. |
 | 29 Oct | Day 6 (guardrails, prompt injection, responsible AI) after a work break — quiz 12/12; coverage 56%. |
 | 30 Oct | No internet at the learner's end → combined Days 7–8 (cost, performance, governance) into an offline self-study PDF with check questions and a quiz; coverage 66%. |
+| 30 Oct | Days 7–8 self-study quiz: 8/12 (67%) — first score below target; self-study without a taught lesson showed. |
