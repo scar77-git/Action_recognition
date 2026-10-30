@@ -88,9 +88,17 @@ Coverage of exam guide ≈ 45%.
 Readiness rule: mocks ≥75% ready; 65–75% focus weak tasks; <65% by 3 Nov → discuss rescheduling.
 
 ## Next action
-Day 6 taught 27–29 Oct (PDF built; skills 3.1.x and 3.4.x marked covered → 56%). Day 6 quiz given in chat on 29 Oct
-(key in scratchpad `day06_quiz_key.txt`). Then Day 7 (1.6, 1.1, 2.1.2) and Day 8 (1.3, 2.3) — both on Thu 29 Oct, as the
-learner took 28 Oct off. Context window is ~75%+: plan a fresh session soon (see handoff prompt in chat history / below).
+30 Oct: learner went offline; sent `notes/Day_7-8_2026-10-30_Cost_Performance_Governance.pdf` (self-study: 4.1, 4.2,
+3.3 — skills marked covered → 66%). It ends with a 12-question quiz; when the learner sends answers, grade them
+(key in this session's scratchpad `day0708_quiz_key.txt`; if lost, re-solve from the PDF), add an answers section to
+`tools/day07_08.py`, update tracker/journey.
+Revised remaining plan (shifted one day):
+| Sat 31 Oct | Day 9 Prompt engineering + design (1.6, 1.1, 2.1.2) — biggest remaining topic, don't rush |
+| Sun 1 Nov | Day 10 Data pipelines + enterprise integration (1.3, 2.3) |
+| Mon 2 Nov | Day 11 Dev tools + monitoring (2.5, 4.3) |
+| Tue 3 Nov | Day 12 Troubleshooting + evaluation (5.2, 5.1) + Practice Set 3 |
+| Wed 4 / Fri 6 / Sat 7 Nov | Full mocks 1–3 (1:30 PM, 75 Q, 190 min), reviews between; Sun 8 light review; Mon 9 exam |
+This chat is near its context limit — continue in a new session using the handoff prompt.
 
 ## Quiz rules (learned the hard way)
 - Never bold or otherwise mark correct options; keep all options similar in length.

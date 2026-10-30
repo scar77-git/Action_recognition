@@ -12,7 +12,7 @@ from reportlab.lib.styles import ParagraphStyle  # noqa: E402
 from reportlab.platypus import Paragraph  # noqa: E402
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "notes", "Skill_Coverage_Matrix.pdf")
-LAST_UPDATED = "Monday 26 Oct 2026 (after Day 6)"
+LAST_UPDATED = "Monday 26 Oct 2026 (after Days 7–8 self-study PDF)"
 H1_SPLIT = ParagraphStyle("h1split", parent=S["h1"], keepWithNext=0)
 
 DOMAINS = OrderedDict([
@@ -109,28 +109,26 @@ SKILLS = [
     ("3.2.2", "Privacy (Comprehend, Macie, Bedrock privacy, Guardrails, S3 Lifecycle)", "Y", "D4", "—"),
     ("3.2.3", "Privacy with utility (masking, anonymisation, PII detection)", "Y", "D4", "—"),
     # ---- Task 3.3 Governance
-    ("3.3.1", "Compliance (model cards, Glue lineage, source tagging, decision logs)", "N", "—", "Day 9"),
-    ("3.3.2", "Data source tracking (Glue Data Catalog, attribution tags, CloudTrail)", "N", "D4 CloudTrail preview", "Day 9"),
-    ("3.3.3", "Organisational governance frameworks", "N", "—", "Day 9"),
-    ("3.3.4", "Continuous governance (misuse/drift/bias detection, alerting, redaction, logging)", "N", "—", "Day 9"),
+    ("3.3.1", "Compliance (model cards, Glue lineage, source tagging, decision logs)", "Y", "Days 7–8 PDF", "—"),
+    ("3.3.2", "Data source tracking (Glue Data Catalog, attribution tags, CloudTrail)", "Y", "D4 CloudTrail preview; Days 7–8 PDF", "—"),
+    ("3.3.3", "Organisational governance frameworks", "Y", "Days 7–8 PDF", "—"),
+    ("3.3.4", "Continuous governance (misuse/drift/bias detection, alerting, redaction, logging)", "Y", "Days 7–8 PDF", "—"),
     # ---- Task 3.4 Responsible AI
     ("3.4.1", "Transparency (reasoning displays, confidence metrics, source attribution, agent tracing)", "Y", "D1 citations; D2 trace; Day 6", "—"),
     ("3.4.2", "Fairness (fairness metrics, Prompt Management A/B, LLM-as-a-judge)", "Y", "Day 6", "—"),
     ("3.4.3", "Policy compliance (Guardrails, model cards, Lambda compliance checks)", "Y", "Day 6", "—"),
     # ---- Task 4.1 Cost
-    ("4.1.1", "Token efficiency (estimation, context pruning, response limits, compression)", "P",
-     "D5 max tokens, RAG to shrink input", "Day 10"),
-    ("4.1.2", "Cost-effective selection (tiered usage, price-performance)", "P", "D5; routing lesson", "Day 10"),
-    ("4.1.3", "Utilisation and throughput (batching, capacity planning, PT optimisation)", "P", "D5 Part 3", "Day 10"),
-    ("4.1.4", "Caching (semantic, fingerprinting, edge, request hashing, prompt caching)", "N", "—", "Day 10"),
+    ("4.1.1", "Token efficiency (estimation, context pruning, response limits, compression)", "Y", "D5 max tokens, RAG to shrink input; Days 7–8 PDF", "—"),
+    ("4.1.2", "Cost-effective selection (tiered usage, price-performance)", "Y", "D5; routing lesson; Days 7–8 PDF", "—"),
+    ("4.1.3", "Utilisation and throughput (batching, capacity planning, PT optimisation)", "Y", "D5 Part 3; Days 7–8 PDF", "—"),
+    ("4.1.4", "Caching (semantic, fingerprinting, edge, request hashing, prompt caching)", "Y", "Days 7–8 PDF", "—"),
     # ---- Task 4.2 Performance
-    ("4.2.1", "Responsiveness (pre-computation, latency-optimised models, parallel, streaming)", "P",
-     "D5 streaming; PS1 Q30", "Day 10"),
-    ("4.2.2", "Retrieval performance (index optimisation, query preprocessing, hybrid scoring)", "P", "D1 hybrid", "Day 10"),
-    ("4.2.3", "Throughput (token processing, batch inference, concurrency)", "P", "D5 batch", "Day 10"),
-    ("4.2.4", "Model-specific tuning (parameters, A/B tests, temperature/top-k/top-p)", "Y", "D5 Part 1", "—"),
-    ("4.2.5", "Resource allocation (capacity planning, utilisation monitoring, auto-scaling)", "N", "—", "Day 10"),
-    ("4.2.6", "System performance (API profiling, vector query optimisation, latency reduction)", "N", "—", "Day 10"),
+    ("4.2.1", "Responsiveness (pre-computation, latency-optimised models, parallel, streaming)", "Y", "D5 streaming; PS1 Q30; Days 7–8 PDF", "—"),
+    ("4.2.2", "Retrieval performance (index optimisation, query preprocessing, hybrid scoring)", "Y", "D1 hybrid; Days 7–8 PDF", "—"),
+    ("4.2.3", "Throughput (token processing, batch inference, concurrency)", "Y", "D5 batch; Days 7–8 PDF", "—"),
+    ("4.2.4", "Model-specific tuning (parameters, A/B tests, temperature/top-k/top-p)", "Y", "D5 Part 1; Days 7–8 PDF", "—"),
+    ("4.2.5", "Resource allocation (capacity planning, utilisation monitoring, auto-scaling)", "Y", "Days 7–8 PDF", "—"),
+    ("4.2.6", "System performance (API profiling, vector query optimisation, latency reduction)", "Y", "Days 7–8 PDF", "—"),
     # ---- Task 4.3 Monitoring
     ("4.3.1", "Holistic observability (operational, tracing, business dashboards)", "P", "D3 Observability", "Day 11"),
     ("4.3.2", "GenAI KPIs (token usage, hallucination rate, drift, invocation logs, cost anomalies)", "P",

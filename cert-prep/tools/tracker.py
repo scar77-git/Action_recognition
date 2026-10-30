@@ -11,7 +11,7 @@ from reportlab.platypus import Paragraph  # noqa: E402
 H1_SPLIT = ParagraphStyle("h1split", parent=S["h1"], keepWithNext=0)
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "notes", "Progress_Tracker.pdf")
-LAST_UPDATED = "Thursday 29 Oct 2026 (after Day 6)"
+LAST_UPDATED = "Friday 30 Oct 2026 (after Days 7–8 self-study PDF)"
 
 # day, date, official tasks, added %, total %, status, score, lab, confidence (topic mastery for that day)
 DAYS = [
@@ -35,14 +35,13 @@ DAYS = [
      "89% on hard questions; misses = partial-requirement options"),
     ("6. Guardrails + Responsible AI", "27–29 Oct", "3.1, 3.4", "+9%", "56%", "✓ Done", "Quiz <b>12/12</b>", "—",
      "90% — all hard questions correct"),
-    ("7. Prompt engineering + design", "Thu 29 Oct", "1.6, 1.1, 2.1.2 (+ 5.2.3, 5.2.5)", "+10%", "66%", "Planned",
-     "—", "—", "—"),
-    ("8. Data pipelines + enterprise integration", "Thu 29 Oct", "1.3, 2.3", "+8%", "74%", "Planned", "—", "—", "—"),
-    ("9. App patterns + dev tools + governance", "Fri 30 Oct", "2.5, 3.3", "+10%", "84%", "Planned", "—", "—", "—"),
-    ("10. Cost + performance", "Sat 31 Oct", "4.1, 4.2", "+5%", "89%", "Planned", "—", "—", "—"),
-    ("11. Monitoring + troubleshooting", "Sun 1 Nov", "4.3, 5.2", "+5%", "94%", "Planned", "—", "—", "—"),
-    ("12. Evaluation + Practice Set 2", "Mon 2 Nov", "5.1", "+6%", "100%", "Planned", "—", "—", "—"),
-    ("Mock 1 / review / Mock 2 / review / Mock 3", "3–7 Nov", "All", "—", "—", "Planned", "—", "—", "—"),
+    ("7–8. Cost + performance + governance (self-study PDF)", "Fri 30 Oct", "4.1, 4.2, 3.3", "+10%", "66%", "✓ PDF",
+     "Quiz pending", "—", "— (offline study)"),
+    ("9. Prompt engineering + design", "Sat 31 Oct", "1.6, 1.1, 2.1.2", "+10%", "76%", "Planned", "—", "—", "—"),
+    ("10. Data pipelines + enterprise integration", "Sun 1 Nov", "1.3, 2.3", "+8%", "84%", "Planned", "—", "—", "—"),
+    ("11. Dev tools + monitoring", "Mon 2 Nov", "2.5, 4.3", "+8%", "92%", "Planned", "—", "—", "—"),
+    ("12. Troubleshooting + evaluation + Practice Set 3", "Tue 3 Nov", "5.2, 5.1", "+8%", "100%", "Planned", "—", "—", "—"),
+    ("Mock 1 / review / Mock 2 / Mock 3", "4–8 Nov", "All", "—", "—", "Planned", "—", "—", "—"),
 ]
 
 # domain, weight, coverage so far, confidence on what's covered, note
@@ -75,8 +74,8 @@ LAB_BACKLOG = [
     "Day 5 — Console lab, start with Part B (request the TPM quota increase).",
 ]
 
-OVERALL = ("<b>Overall confidence on topics covered so far: ~87%</b> (Practice Set 2: 91%). Skill-level coverage of the exam guide: <b>56%</b> "
-           "(40 of 98 skills fully covered, 24 partly — see Skill_Coverage_Matrix.pdf). "
+OVERALL = ("<b>Overall confidence on topics covered so far: ~87%</b> (Practice Set 2: 91%). Skill-level coverage of the exam guide: <b>66%</b> "
+           "(53 of 98 skills fully covered, 18 partly — see Skill_Coverage_Matrix.pdf). "
            "Strongest: agents and tools (2.1), models and inference (1.2, 2.2, 2.4). Watch: exact service names and "
            "limits, and reading every option to the end. Biggest risk: no hands-on labs since Day 1.")
 
