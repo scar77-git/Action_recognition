@@ -12,7 +12,7 @@ from reportlab.lib.styles import ParagraphStyle  # noqa: E402
 from reportlab.platypus import Paragraph  # noqa: E402
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "notes", "Skill_Coverage_Matrix.pdf")
-LAST_UPDATED = "Sunday 8 Nov 2026 (after Day 9)"
+LAST_UPDATED = "Sunday 8 Nov 2026 (after End Game Day — all skills taught)"
 H1_SPLIT = ParagraphStyle("h1split", parent=S["h1"], keepWithNext=0)
 
 DOMAINS = OrderedDict([
@@ -37,12 +37,12 @@ SKILLS = [
     ("1.2.3", "Resilience: Step Functions circuit breaker, CRIS, cross-Region, graceful degradation", "Y", "D5 cross-region inference, fallbacks; Gap lesson 26 Oct", "—"),
     ("1.2.4", "Customisation lifecycle: SageMaker deploy, LoRA/adapters, Model Registry, pipelines, rollback, retire", "Y", "D5 Part 3 (fine-tuning, CPT, distillation, Custom Model Import); Gap lesson 26 Oct", "—"),
     # ---- Task 1.3 Data validation and processing pipelines
-    ("1.3.1", "Data validation (Glue Data Quality, Data Wrangler, Lambda, CloudWatch metrics)", "N", "—", "Day 8"),
-    ("1.3.2", "Multimodal processing (Bedrock multimodal, SageMaker Processing, Transcribe)", "P",
-     "D1 parsing (BDA, Textract); D5 multimodal models", "Day 8"),
-    ("1.3.3", "Format inputs per model (Bedrock JSON, SageMaker payloads, conversation format)", "P",
-     "D2 Converse messages; D5 InvokeModel vs Converse, batch JSONL", "Day 8"),
-    ("1.3.4", "Improve input quality (Bedrock reformatting, Comprehend entities, Lambda normalisation)", "N", "—", "Day 8"),
+    ("1.3.1", "Data validation (Glue Data Quality, Data Wrangler, Lambda, CloudWatch metrics)", "Y", "End Game Day Part 1 (quiz 20/20)", "—"),
+    ("1.3.2", "Multimodal processing (Bedrock multimodal, SageMaker Processing, Transcribe)", "Y",
+     "D1 parsing (BDA, Textract); D5 multimodal models; End Game Day Part 1 (quiz 20/20)", "—"),
+    ("1.3.3", "Format inputs per model (Bedrock JSON, SageMaker payloads, conversation format)", "Y",
+     "D2 Converse messages; D5 InvokeModel vs Converse, batch JSONL; End Game Day Part 1 (quiz 20/20)", "—"),
+    ("1.3.4", "Improve input quality (Bedrock reformatting, Comprehend entities, Lambda normalisation)", "Y", "End Game Day Part 1 (quiz 20/20)", "—"),
     # ---- Task 1.4 Vector stores
     ("1.4.1", "Vector architectures (KB hierarchical, OpenSearch Neural plugin, RDS+S3, DynamoDB for metadata)", "Y", "D1 KB + vector stores; Gap lesson 26 Oct", "—"),
     ("1.4.2", "Metadata frameworks (S3 metadata timestamps, authorship attributes, domain tags)", "Y", "D1 metadata filtering; PS1 Q3; Gap lesson 26 Oct", "—"),
@@ -79,11 +79,11 @@ SKILLS = [
     ("2.2.2", "LLM-specific deployment (containers, GPU memory, model loading)", "Y", "Gap lesson 26 Oct", "—"),
     ("2.2.3", "Optimised deployment (smaller models, cascading)", "Y", "D5 distillation; routing lesson", "—"),
     # ---- Task 2.3 Enterprise integration
-    ("2.3.1", "Enterprise connectivity (legacy APIs, event-driven, data sync)", "N", "—", "Day 8"),
-    ("2.3.2", "Add GenAI to apps (API Gateway microservices, Lambda webhooks, EventBridge)", "N", "—", "Day 8"),
-    ("2.3.3", "Secure access (identity federation, RBAC, least privilege)", "P", "D4 IAM/SCP; D3 Identity", "Day 8"),
-    ("2.3.4", "Cross-environment compliance (Outposts, Wavelength, secure routing)", "N", "—", "Day 8"),
-    ("2.3.5", "CI/CD + GenAI gateway (CodePipeline, CodeBuild, tests, rollback, central layer)", "N", "—", "Day 8"),
+    ("2.3.1", "Enterprise connectivity (legacy APIs, event-driven, data sync)", "Y", "End Game Day Part 2 (quiz 20/20)", "—"),
+    ("2.3.2", "Add GenAI to apps (API Gateway microservices, Lambda webhooks, EventBridge)", "Y", "End Game Day Part 2 (quiz 20/20)", "—"),
+    ("2.3.3", "Secure access (identity federation, RBAC, least privilege)", "Y", "D4 IAM/SCP; D3 Identity; End Game Day Part 2 (quiz 20/20)", "—"),
+    ("2.3.4", "Cross-environment compliance (Outposts, Wavelength, secure routing)", "Y", "End Game Day Part 2 (quiz 20/20)", "—"),
+    ("2.3.5", "CI/CD + GenAI gateway (CodePipeline, CodeBuild, tests, rollback, central layer)", "Y", "End Game Day Part 2 (quiz 20/20)", "—"),
     # ---- Task 2.4 FM API integrations
     ("2.4.1", "Sync/async interaction (Bedrock APIs, SDKs + SQS, API Gateway validation)", "Y", "D5 Part 2", "—"),
     ("2.4.2", "Real-time (streaming APIs, WebSockets / server-sent events, chunked transfer)", "Y", "D5 streaming; Gap lesson 26 Oct", "—"),
@@ -91,12 +91,12 @@ SKILLS = [
     ("2.4.4", "Model routing (static, Step Functions content-based, metrics, API Gateway)", "Y",
      "Routing mini-lesson (26 Oct)", "—"),
     # ---- Task 2.5 App integration and dev tools
-    ("2.5.1", "FM API interfaces (streaming via API Gateway, token limits, retries)", "P", "D5 Part 2", "Day 9"),
-    ("2.5.2", "Accessible interfaces (Amplify UI, OpenAPI-first, Prompt Flows no-code)", "N", "—", "Day 9"),
-    ("2.5.3", "Business enhancements (Lambda CRM, Step Functions doc processing, BDA)", "N", "—", "Day 9"),
-    ("2.5.4", "Developer productivity (Amazon Q Developer)", "N", "—", "Day 9"),
-    ("2.5.5", "Advanced apps (Strands, Agent Squad, Step Functions patterns, prompt chaining)", "P", "D3", "Day 9"),
-    ("2.5.6", "Troubleshooting (Logs Insights, X-Ray, Q Developer)", "N", "—", "Day 9 / Day 11"),
+    ("2.5.1", "FM API interfaces (streaming via API Gateway, token limits, retries)", "Y", "D5 Part 2; End Game Day Part 2 (quiz 20/20)", "—"),
+    ("2.5.2", "Accessible interfaces (Amplify UI, OpenAPI-first, Prompt Flows no-code)", "Y", "End Game Day Part 2 (quiz 20/20)", "—"),
+    ("2.5.3", "Business enhancements (Lambda CRM, Step Functions doc processing, BDA)", "Y", "End Game Day Part 2 (quiz 20/20)", "—"),
+    ("2.5.4", "Developer productivity (Amazon Q Developer)", "Y", "End Game Day Part 2 (quiz 20/20)", "—"),
+    ("2.5.5", "Advanced apps (Strands, Agent Squad, Step Functions patterns, prompt chaining)", "Y", "D3; End Game Day Part 2 (quiz 20/20)", "—"),
+    ("2.5.6", "Troubleshooting (Logs Insights, X-Ray, Q Developer)", "Y", "End Game Day Part 2 (quiz 20/20)", "—"),
     # ---- Task 3.1 Safety controls
     ("3.1.1", "Input safety (Guardrails, custom moderation with Step Functions/Lambda)", "Y", "Day 6", "—"),
     ("3.1.2", "Output safety (Guardrails, toxicity evaluations, text-to-SQL determinism)", "Y", "Day 6", "—"),
@@ -129,33 +129,33 @@ SKILLS = [
     ("4.2.5", "Resource allocation (capacity planning, utilisation monitoring, auto-scaling)", "Y", "Days 7–8 PDF", "—"),
     ("4.2.6", "System performance (API profiling, vector query optimisation, latency reduction)", "Y", "Days 7–8 PDF", "—"),
     # ---- Task 4.3 Monitoring
-    ("4.3.1", "Holistic observability (operational, tracing, business dashboards)", "P", "D3 Observability", "Day 11"),
-    ("4.3.2", "GenAI KPIs (token usage, hallucination rate, drift, invocation logs, cost anomalies)", "P",
-     "D4 invocation logging", "Day 11"),
-    ("4.3.3", "Actionable insights (dashboards, compliance monitoring, forensic audit)", "N", "—", "Day 11"),
-    ("4.3.4", "Tool performance (call patterns, tool-calling observability, baselines)", "P", "D3 Observability", "Day 11"),
-    ("4.3.5", "Vector store operations (monitoring, index optimisation, data quality)", "N", "—", "Day 11"),
-    ("4.3.6", "GenAI failure modes (golden datasets, output diffing, reasoning path tracing)", "N", "—", "Day 11"),
+    ("4.3.1", "Holistic observability (operational, tracing, business dashboards)", "Y", "D3 Observability; End Game Day Part 3 (quiz 20/20)", "—"),
+    ("4.3.2", "GenAI KPIs (token usage, hallucination rate, drift, invocation logs, cost anomalies)", "Y",
+     "D4 invocation logging; End Game Day Part 3 (quiz 20/20)", "—"),
+    ("4.3.3", "Actionable insights (dashboards, compliance monitoring, forensic audit)", "Y", "End Game Day Part 3 (quiz 20/20)", "—"),
+    ("4.3.4", "Tool performance (call patterns, tool-calling observability, baselines)", "Y", "D3 Observability; End Game Day Part 3 (quiz 20/20)", "—"),
+    ("4.3.5", "Vector store operations (monitoring, index optimisation, data quality)", "Y", "End Game Day Part 3 (quiz 20/20)", "—"),
+    ("4.3.6", "GenAI failure modes (golden datasets, output diffing, reasoning path tracing)", "Y", "End Game Day Part 3 (quiz 20/20)", "—"),
     # ---- Task 5.1 Evaluation
-    ("5.1.1", "Quality metrics (relevance, factual accuracy, consistency, fluency)", "P", "D1 RAG metrics", "Day 12"),
-    ("5.1.2", "Systematic evaluation (Bedrock evaluations, A/B, canary, cost-performance)", "P",
-     "D5 model evaluation", "Day 12"),
-    ("5.1.3", "User-centred evaluation (feedback, ratings, annotation)", "N", "—", "Day 12"),
-    ("5.1.4", "QA processes (continuous evaluation, regression tests, quality gates)", "N", "—", "Day 12"),
-    ("5.1.5", "Multi-perspective assessment (RAG eval, LLM-as-a-judge, human feedback)", "P",
-     "D1; D5; PS1 Q19", "Day 12"),
-    ("5.1.6", "Retrieval quality testing (relevance scoring, context matching, latency)", "P", "D1 metrics", "Day 12"),
-    ("5.1.7", "Agent performance (task completion, tool effectiveness, agent evaluations)", "N", "—", "Day 12"),
-    ("5.1.8", "Reporting to stakeholders (visualisations, automated reports)", "N", "—", "Day 12"),
-    ("5.1.9", "Deployment validation (synthetic workflows, hallucination/semantic drift checks)", "N", "—", "Day 12"),
+    ("5.1.1", "Quality metrics (relevance, factual accuracy, consistency, fluency)", "Y", "D1 RAG metrics; End Game Day Part 4 (quiz 20/20)", "—"),
+    ("5.1.2", "Systematic evaluation (Bedrock evaluations, A/B, canary, cost-performance)", "Y",
+     "D5 model evaluation; End Game Day Part 4 (quiz 20/20)", "—"),
+    ("5.1.3", "User-centred evaluation (feedback, ratings, annotation)", "Y", "End Game Day Part 4 (quiz 20/20)", "—"),
+    ("5.1.4", "QA processes (continuous evaluation, regression tests, quality gates)", "Y", "End Game Day Part 4 (quiz 20/20)", "—"),
+    ("5.1.5", "Multi-perspective assessment (RAG eval, LLM-as-a-judge, human feedback)", "Y",
+     "D1; D5; PS1 Q19; End Game Day Part 4 (quiz 20/20)", "—"),
+    ("5.1.6", "Retrieval quality testing (relevance scoring, context matching, latency)", "Y", "D1 metrics; End Game Day Part 4 (quiz 20/20)", "—"),
+    ("5.1.7", "Agent performance (task completion, tool effectiveness, agent evaluations)", "Y", "End Game Day Part 4 (quiz 20/20)", "—"),
+    ("5.1.8", "Reporting to stakeholders (visualisations, automated reports)", "Y", "End Game Day Part 4 (quiz 20/20)", "—"),
+    ("5.1.9", "Deployment validation (synthetic workflows, hallucination/semantic drift checks)", "Y", "End Game Day Part 4 (quiz 20/20)", "—"),
     # ---- Task 5.2 Troubleshooting
-    ("5.2.1", "Content handling (context overflow, dynamic chunking, truncation analysis)", "P",
-     "D5 ValidationException, max_tokens", "Day 11"),
-    ("5.2.2", "Integration issues (error logging, request validation, response analysis)", "P",
-     "D5 error table; D4 KMS/IAM errors", "Day 11"),
+    ("5.2.1", "Content handling (context overflow, dynamic chunking, truncation analysis)", "Y",
+     "D5 ValidationException, max_tokens; End Game Day Part 1 (quiz 20/20)", "—"),
+    ("5.2.2", "Integration issues (error logging, request validation, response analysis)", "Y",
+     "D5 error table; D4 KMS/IAM errors; End Game Day Part 1 (quiz 20/20)", "—"),
     ("5.2.3", "Prompt problems (testing frameworks, version comparison, refinement)", "Y", "D9 Part 2 (version comparison, one change at a time)", "—"),
-    ("5.2.4", "Retrieval issues (relevance, embedding diagnostics, drift, chunking fixes)", "P",
-     "D1; PS1 Q20 embedding mismatch", "Day 11"),
+    ("5.2.4", "Retrieval issues (relevance, embedding diagnostics, drift, chunking fixes)", "Y",
+     "D1; PS1 Q20 embedding mismatch; End Game Day Part 1 (quiz 20/20)", "—"),
     ("5.2.5", "Prompt maintenance (template testing, Logs, X-Ray, schema validation)", "Y", "D9 Part 2 (Logs Insights, X-Ray, schema metric); quiz Q8 missed", "—"),
 ]
 

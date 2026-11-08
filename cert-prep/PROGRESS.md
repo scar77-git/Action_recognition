@@ -41,8 +41,9 @@ Repo: `scar77-git/Action_recognition`, branch `claude/aws-ai-cert-prep-rpargp`, 
 | Glossary Days 1–4 | 24 Oct | — | 137 terms |
 | 5 Models and inference (new teaching style, 3 parts) | 25 Oct | 1.2, 2.4, 2.2 | Quiz **8/8**; lab pending (console-only steps in PDF) |
 | 9 Prompt engineering + design (Theo prof 2, 3 parts) | 30 Oct – 8 Nov | 1.6, 1.1, 2.1.2, 5.2.3, 5.2.5 | Quiz **8/10**; lab skipped (exam eve) |
+| End Game Day (Theo prof 2, 4 parts) | 8 Nov | 1.3, 2.3, 2.5, 4.3, 5.1, 5.2.1/5.2.2/5.2.4 | Quiz **20/20**; all 98 skills taught |
 
-Coverage of exam guide (skill level) = **77%** after Day 9 (65 covered, 15 partly, 18 not yet).
+Coverage of exam guide (skill level) = **100%** after End Game Day (all 98 skills covered).
 
 ## Mistakes log (review every morning)
 - DynamoDB is NOT a KB vector store (OpenSearch Serverless, Aurora pgvector, Neptune Analytics, S3 Vectors, Pinecone, MongoDB Atlas, Redis).
@@ -96,9 +97,11 @@ Coverage of exam guide (skill level) = **77%** after Day 9 (65 covered, 15 partl
 Readiness rule: mocks ≥75% ready; 65–75% focus weak tasks; <65% by 3 Nov → discuss rescheduling.
 
 ## Next action
-8 Nov (exam eve): Day 9 taught in this session by "Theo prof 2" (Parts 1–3 + lens follow-up), quiz 8/10, PDF
-`notes/Day_9_2026-11-08_Prompt_Engineering_and_Design.pdf` built by `tools/day09.py`; skill matrix → 77%.
-Days 10–12, Practice Set 3 and the full mocks were not done before the exam. Exam Mon 9 Nov 1:30 PM IST.
+8 Nov (exam eve), by "Theo prof 2": Day 9 (quiz 8/10) and End Game Day (all remaining 33 skills, quiz 20/20) → 100%
+skill coverage. Built `notes/End_Game_Day_2026-11-08_All_Remaining_Skills.pdf` (`tools/endgame.py`) and
+`notes/Final_Exam_Cheat_Sheet_2026-11-08.pdf` (`tools/cheatsheet.py`; reads the mistakes log above and merges every
+glossary — rebuild it after editing either). Learner's plan to 12:30 PM on 9 Nov: review PDFs → cheat sheet + glossary →
+AWS Skill Builder / Tutorials Dojo practice questions and our own practice sets. Exam Mon 9 Nov 1:30 PM IST.
 After the exam: record the result here and in JOURNEY.md, then plan Microsoft AI-103 (Sat 28 Nov).
 
 ## Quiz rules (learned the hard way)

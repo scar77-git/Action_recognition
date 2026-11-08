@@ -11,7 +11,7 @@ from reportlab.platypus import Paragraph  # noqa: E402
 H1_SPLIT = ParagraphStyle("h1split", parent=S["h1"], keepWithNext=0)
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "notes", "Progress_Tracker.pdf")
-LAST_UPDATED = "Sunday 8 Nov 2026 (Day 9 done, exam tomorrow)"
+LAST_UPDATED = "Sunday 8 Nov 2026 (End Game Day — all 98 skills taught)"
 
 # day, date, official tasks, added %, total %, status, score, lab, confidence (topic mastery for that day)
 DAYS = [
@@ -40,25 +40,22 @@ DAYS = [
     ("9. Prompt engineering + design (Theo prof 2)", "30 Oct – 8 Nov", "1.6, 1.1, 2.1.2, 5.2.3, 5.2.5", "+11%",
      "77%", "✓ Done", "Quiz <b>8/10</b> (80%)", "Skipped (exam eve)",
      "80% — revise X-Ray vs invocation logs; map every finding in multi-fix stems"),
-    ("10. Data pipelines + enterprise integration", "—", "1.3, 2.3", "—", "—", "Not taught before exam", "—", "—",
-     "Partly covered earlier (D1, D4)"),
-    ("11. Dev tools + monitoring", "—", "2.5, 4.3", "—", "—", "Not taught before exam", "—", "—", "4.3 partly (Days 3, 7–8)"),
-    ("12. Troubleshooting + evaluation + Practice Set 3", "—", "5.2, 5.1", "—", "—", "Not taught before exam", "—",
-     "—", "5.2.3 / 5.2.5 covered on Day 9"),
+    ("End Game Day (Theo prof 2): data pipelines, integration, CI/CD, dev tools, monitoring, evaluation, troubleshooting",
+     "Sun 8 Nov", "1.3, 2.3, 2.5, 4.3, 5.1, 5.2.1/5.2.2/5.2.4", "+23%", "100%", "✓ Done", "Quiz <b>20/20</b>",
+     "—", "88% — taught fast on exam eve; strong quiz, little time to consolidate"),
     ("Mocks 1–3", "—", "All", "—", "—", "Not taken", "—", "—", "—"),
 ]
 
 # domain, weight, coverage so far, confidence on what's covered, note
 DOMAINS = [
-    ("1. FM integration, data management, compliance", "31%", "89% (24 ✓ 2 ½ 2 ✗ of 28 skills)", "83%",
-     "1.1 and 1.6 done Day 9; gaps in 1.3 (data pipelines)"),
-    ("2. Implementation and integration", "26%", "62% (14 ✓ 3 ½ 8 ✗ of 25)", "83%",
-     "2.1.2 done Day 9; 2.3 / 2.5 not taught"),
+    ("1. FM integration, data management, compliance", "31%", "100% (28 of 28 skills)", "85%",
+     "1.3 on End Game Day"),
+    ("2. Implementation and integration", "26%", "100% (25 of 25)", "85%", "2.3 / 2.5 on End Game Day"),
     ("3. AI safety, security, governance", "20%", "100% (15 ✓ of 15)", "85%", "Complete"),
-    ("4. Operational efficiency and optimisation", "12%", "72% (10 ✓ 3 ½ 3 ✗ of 16)", "70%",
-     "Days 7–8 quiz 67% — revise"),
-    ("5. Testing, validation, troubleshooting", "11%", "39% (2 ✓ 7 ½ 5 ✗ of 14)", "75%",
-     "5.2.3 / 5.2.5 Day 9; 5.1 evaluation thin"),
+    ("4. Operational efficiency and optimisation", "12%", "100% (16 of 16)", "78%",
+     "Days 7–8 quiz 67%; 4.3 monitoring End Game 100%"),
+    ("5. Testing, validation, troubleshooting", "11%", "100% (14 of 14)", "85%",
+     "5.1 / 5.2 End Game Day"),
 ]
 
 # assessment, date, score, target
@@ -69,7 +66,8 @@ ASSESSMENTS = [
     ("Days 7–8 quiz (self-study, 12 Q)", "30 Oct", "8/12 = 67%", "≥ 75%", "✗ Below — revise"),
     ("Practice Set 2 (Days 1–5 + gap, 45 Q, 60% hard)", "26 Oct", "41/45 = 91%", "≥ 75%", "✓ Above target"),
     ("Day 9 quiz (10 Q, 6 hard, incl. Select ALL)", "8 Nov", "8/10 = 80%", "≥ 75%", "✓ Above target"),
-    ("Practice Set 3 / full mocks 1–3", "—", "—", "≥ 75%", "Not taken before exam"),
+    ("End Game quiz (20 Q, 12 hard, incl. Select ALL)", "8 Nov", "20/20 = 100%", "≥ 75%", "✓ Above target"),
+    ("Full mocks 1–3", "—", "—", "≥ 75%", "Not taken; learner doing external practice papers 8–9 Nov"),
 ]
 
 LAB_BACKLOG = [
@@ -79,12 +77,10 @@ LAB_BACKLOG = [
     "Day 5 — Console lab, start with Part B (request the TPM quota increase).",
 ]
 
-OVERALL = ("<b>Overall confidence on topics covered so far: ~85%</b> (Practice Set 2: 91%, Day 9: 80%). Skill-level "
-           "coverage of the exam guide: <b>77%</b> (65 of 98 skills fully covered, 15 partly — see "
-           "Skill_Coverage_Matrix.pdf). Strongest: safety and governance (Domain 3, complete), agents and tools (2.1), "
-           "prompt engineering (1.6). Untaught before the exam: data pipelines (1.3), enterprise integration (2.3), "
-           "dev tools (2.5), evaluation (5.1). No full mock was taken. Watch: reading every option to the end and "
-           "mapping every requirement in the stem.")
+OVERALL = ("<b>All 98 official skills taught (100% skill coverage).</b> Assessments: Practice Set 1 87%, Practice "
+           "Set 2 91%, Day 6 100%, Days 7–8 67%, Day 9 80%, End Game 100%. Estimated confidence ~85%. Risks: no full "
+           "timed mock, few hands-on labs, End Game topics learned on exam eve. Final review material: "
+           "Final_Exam_Cheat_Sheet_2026-11-08.pdf (decision rules, look-alike pairs, trick cues, mistakes, glossary).")
 
 n = Note(OUT, "Progress Tracker — AWS AIP-C01",
          f"Last updated: <b>{LAST_UPDATED}</b> &nbsp;·&nbsp; Exam: <b>Mon 9 Nov 2026, 1:30 PM IST</b> "
@@ -111,9 +107,9 @@ n.h1("4. Lab backlog")
 n.bullets(LAB_BACKLOG)
 
 n.h1("5. Next session")
-n.p("<b>Exam: Mon 9 Nov, 1:30 PM IST.</b> Tonight: mistakes log + Day 9 symptom tables, then sleep. Morning until "
-    "10 AM: skim cheat-sheet tables only. In the exam: answer every question (no penalty for guessing), flag and "
-    "return, list each requirement and strike options that fail any one.")
+n.p("<b>Exam: Mon 9 Nov, 1:30 PM IST.</b> Learner's plan: review all PDFs (2 h) → cheat sheet + glossary (1 h) → "
+    "AWS Skill Builder / Tutorials Dojo practice questions and our practice sets until 12:30 PM. In the exam: answer "
+    "every question, flag and return, list each requirement and strike options that fail any one.")
 
 n.build()
 print(os.path.abspath(OUT))
