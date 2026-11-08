@@ -40,8 +40,9 @@ Repo: `scar77-git/Action_recognition`, branch `claude/aws-ai-cert-prep-rpargp`, 
 | 4 Security and data privacy | 24 Oct | 3.2 | Quiz 4.25/5; lab studied, not run |
 | Glossary Days 1–4 | 24 Oct | — | 137 terms |
 | 5 Models and inference (new teaching style, 3 parts) | 25 Oct | 1.2, 2.4, 2.2 | Quiz **8/8**; lab pending (console-only steps in PDF) |
+| 9 Prompt engineering + design (Theo prof 2, 3 parts) | 30 Oct – 8 Nov | 1.6, 1.1, 2.1.2, 5.2.3, 5.2.5 | Quiz **8/10**; lab skipped (exam eve) |
 
-Coverage of exam guide ≈ 45%.
+Coverage of exam guide (skill level) = **77%** after Day 9 (65 covered, 15 partly, 18 not yet).
 
 ## Mistakes log (review every morning)
 - DynamoDB is NOT a KB vector store (OpenSearch Serverless, Aurora pgvector, Neptune Analytics, S3 Vectors, Pinecone, MongoDB Atlas, Redis).
@@ -62,6 +63,8 @@ Coverage of exam guide ≈ 45%.
 - Latency dominated by long generation → cap output length first.
 - Per-answer audit (sources, model + guardrail versions, decision) → decision logs in CloudWatch Logs; model cards =
   model-level docs; Glue lineage = dataset origins.
+- Wrong behaviour with normal latency → rendered prompt in invocation logs (Logs Insights); X-Ray = where time/errors occur.
+- Multi-finding stems (Select ALL): map each finding to its fix (hard-coded prompts → Prompt Management templates, IAM-gated versions).
 - Habit: list every requirement in the stem and strike options that fail any one.
 - Habit: read every option to the last word; flag look-alike options.
 
@@ -93,17 +96,10 @@ Coverage of exam guide ≈ 45%.
 Readiness rule: mocks ≥75% ready; 65–75% focus weak tasks; <65% by 3 Nov → discuss rescheduling.
 
 ## Next action
-30 Oct: Days 7–8 quiz graded 8/12 (self-study; revise caching, cost maths, decision logs) — consider a 20-min recap before Day 9. Earlier: learner went offline; sent `notes/Day_7-8_2026-10-30_Cost_Performance_Governance.pdf` (self-study: 4.1, 4.2,
-3.3 — skills marked covered → 66%). It ends with a 12-question quiz; when the learner sends answers, grade them
-(key in this session's scratchpad `day0708_quiz_key.txt`; if lost, re-solve from the PDF), add an answers section to
-`tools/day07_08.py`, update tracker/journey.
-Revised remaining plan (shifted one day):
-| Sat 31 Oct | Day 9 Prompt engineering + design (1.6, 1.1, 2.1.2) — biggest remaining topic, don't rush |
-| Sun 1 Nov | Day 10 Data pipelines + enterprise integration (1.3, 2.3) |
-| Mon 2 Nov | Day 11 Dev tools + monitoring (2.5, 4.3) |
-| Tue 3 Nov | Day 12 Troubleshooting + evaluation (5.2, 5.1) + Practice Set 3 |
-| Wed 4 / Fri 6 / Sat 7 Nov | Full mocks 1–3 (1:30 PM, 75 Q, 190 min), reviews between; Sun 8 light review; Mon 9 exam |
-This chat is near its context limit — continue in a new session using the handoff prompt.
+8 Nov (exam eve): Day 9 taught in this session by "Theo prof 2" (Parts 1–3 + lens follow-up), quiz 8/10, PDF
+`notes/Day_9_2026-11-08_Prompt_Engineering_and_Design.pdf` built by `tools/day09.py`; skill matrix → 77%.
+Days 10–12, Practice Set 3 and the full mocks were not done before the exam. Exam Mon 9 Nov 1:30 PM IST.
+After the exam: record the result here and in JOURNEY.md, then plan Microsoft AI-103 (Sat 28 Nov).
 
 ## Quiz rules (learned the hard way)
 - Never bold or otherwise mark correct options; keep all options similar in length.

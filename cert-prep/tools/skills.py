@@ -12,7 +12,7 @@ from reportlab.lib.styles import ParagraphStyle  # noqa: E402
 from reportlab.platypus import Paragraph  # noqa: E402
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "notes", "Skill_Coverage_Matrix.pdf")
-LAST_UPDATED = "Monday 26 Oct 2026 (after Days 7–8 self-study PDF)"
+LAST_UPDATED = "Sunday 8 Nov 2026 (after Day 9)"
 H1_SPLIT = ParagraphStyle("h1split", parent=S["h1"], keepWithNext=0)
 
 DOMAINS = OrderedDict([
@@ -26,10 +26,10 @@ DOMAINS = OrderedDict([
 # (skill, what it asks for, status, where taught, gap / plan)
 SKILLS = [
     # ---- Task 1.1 Analyze requirements and design GenAI solutions
-    ("1.1.1", "Architectures aligned to business needs (FMs, integration patterns, deployment)", "P",
-     "D1 RAG vs fine-tuning; D2 agent vs workflow; D5 deployment options", "End-to-end design method → Day 7"),
-    ("1.1.2", "Proofs of concept on Bedrock to validate feasibility, performance, value", "N", "—", "Day 7"),
-    ("1.1.3", "Standard components; Well-Architected Framework + Generative AI Lens", "N", "—", "Day 7"),
+    ("1.1.1", "Architectures aligned to business needs (FMs, integration patterns, deployment)", "Y",
+     "D1, D2, D5; D9 Part 3 (four-decision design method)", "—"),
+    ("1.1.2", "Proofs of concept on Bedrock to validate feasibility, performance, value", "Y", "D9 Part 3 (PoC criteria, eval jobs); quiz Q9", "—"),
+    ("1.1.3", "Standard components; Well-Architected Framework + Generative AI Lens", "Y", "D9 Part 3 + lens follow-up (WA Tool, GenAI Lens, CDK/Service Catalog); quiz Q10", "—"),
     # ---- Task 1.2 Select and configure FMs
     ("1.2.1", "Assess and choose FMs (benchmarks, capabilities, limitations)", "Y",
      "D5 Part 1 (criteria, model evaluation)", "—"),
@@ -59,17 +59,16 @@ SKILLS = [
     ("1.5.6", "Consistent access (function calling for vector search, MCP clients, standard APIs)", "Y",
      "D2 tools; D3 MCP; PS1 Q17", "—"),
     # ---- Task 1.6 Prompt engineering and governance
-    ("1.6.1", "Instruction frameworks (Prompt Management roles, Guardrails, templates)", "P",
-     "D5 system prompts", "Day 7"),
-    ("1.6.2", "Interactive systems (Step Functions clarification, Comprehend intent, DynamoDB history)", "N", "—", "Day 7"),
-    ("1.6.3", "Prompt governance (parameterised templates, approvals, S3 repos, CloudTrail, Logs)", "N", "—", "Day 7"),
-    ("1.6.4", "Prompt QA (Lambda output checks, Step Functions edge cases, CloudWatch regression)", "N", "—", "Day 7"),
-    ("1.6.5", "Iterative refinement (structured inputs, output specs, chain-of-thought, feedback loops)", "N", "—", "Day 7"),
-    ("1.6.6", "Complex prompt systems (Prompt Flows chains, branching, reusable components)", "N", "—", "Day 7"),
+    ("1.6.1", "Instruction frameworks (Prompt Management roles, Guardrails, templates)", "Y",
+     "D5; D9 Part 1 (Prompt Management + Guardrails layers); quiz Q1", "—"),
+    ("1.6.2", "Interactive systems (Step Functions clarification, Comprehend intent, DynamoDB history)", "Y", "D9 Part 2 (DynamoDB history, Comprehend, task token); quiz Q6", "—"),
+    ("1.6.3", "Prompt governance (parameterised templates, approvals, S3 repos, CloudTrail, Logs)", "Y", "D9 Part 2 (approval gate, CloudTrail vs invocation logs); quiz Q4", "—"),
+    ("1.6.4", "Prompt QA (Lambda output checks, Step Functions edge cases, CloudWatch regression)", "Y", "D9 Part 2 (golden set, Map, Lambda, PassRate alarm); quiz Q5", "—"),
+    ("1.6.5", "Iterative refinement (structured inputs, output specs, chain-of-thought, feedback loops)", "Y", "D9 Part 1 (XML tags, tool schema, few-shot, CoT, feedback); quiz Q2", "—"),
+    ("1.6.6", "Complex prompt systems (Prompt Flows chains, branching, reusable components)", "Y", "D9 Part 2 (Bedrock Flows nodes, aliases, InvokeFlow); quiz Q7", "—"),
     # ---- Task 2.1 Agentic AI
     ("2.1.1", "Autonomous systems with memory/state (Strands, Agent Squad, MCP)", "Y", "D2, D3; PS1", "—"),
-    ("2.1.2", "Structured reasoning (Step Functions ReAct, chain-of-thought)", "P", "D2 ReAct; D3 Step Functions",
-     "Day 7 (chain-of-thought)"),
+    ("2.1.2", "Structured reasoning (Step Functions ReAct, chain-of-thought)", "Y", "D2 ReAct; D9 Part 1 (Step Functions ReAct vs chaining); quiz Q3", "—"),
     ("2.1.3", "Safeguarded workflows (stopping conditions, Lambda timeouts, IAM boundaries, circuit breakers)", "Y", "D3 Step Functions; PS1 Q29; Gap lesson 26 Oct", "—"),
     ("2.1.4", "Model coordination (specialised FMs, ensembles, selection frameworks)", "Y", "D3 supervisor/router; routing lesson; Gap lesson 26 Oct", "—"),
     ("2.1.5", "Human collaboration (Step Functions approvals, API Gateway feedback)", "Y", "D3 waitForTaskToken; PS1 Q10, Q29; Gap lesson 26 Oct", "—"),
@@ -154,10 +153,10 @@ SKILLS = [
      "D5 ValidationException, max_tokens", "Day 11"),
     ("5.2.2", "Integration issues (error logging, request validation, response analysis)", "P",
      "D5 error table; D4 KMS/IAM errors", "Day 11"),
-    ("5.2.3", "Prompt problems (testing frameworks, version comparison, refinement)", "N", "—", "Day 7 / Day 11"),
+    ("5.2.3", "Prompt problems (testing frameworks, version comparison, refinement)", "Y", "D9 Part 2 (version comparison, one change at a time)", "—"),
     ("5.2.4", "Retrieval issues (relevance, embedding diagnostics, drift, chunking fixes)", "P",
      "D1; PS1 Q20 embedding mismatch", "Day 11"),
-    ("5.2.5", "Prompt maintenance (template testing, Logs, X-Ray, schema validation)", "N", "—", "Day 7 / Day 11"),
+    ("5.2.5", "Prompt maintenance (template testing, Logs, X-Ray, schema validation)", "Y", "D9 Part 2 (Logs Insights, X-Ray, schema metric); quiz Q8 missed", "—"),
 ]
 
 MARK = {"Y": "✓ Covered", "P": "½ Partly", "N": "✗ Not yet"}

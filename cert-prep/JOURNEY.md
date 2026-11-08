@@ -35,3 +35,4 @@ Story beats recorded as they happen. Add one or two lines after every session.
 | 29 Oct | Day 6 (guardrails, prompt injection, responsible AI) after a work break — quiz 12/12; coverage 56%. |
 | 30 Oct | No internet at the learner's end → combined Days 7–8 (cost, performance, governance) into an offline self-study PDF with check questions and a quiz; coverage 66%. |
 | 30 Oct | Days 7–8 self-study quiz: 8/12 (67%) — first score below target; self-study without a taught lesson showed. |
+| 8 Nov | Day 9 (prompt engineering, prompt governance, solution design) with a new professor session ("Theo prof 2") on the eve of the exam — quiz 8/10 (80%); coverage 77%. Learner asked how the Well-Architected GenAI Lens relates to standard components — answered with a Java/SonarQube vs shared-library analogy. |
