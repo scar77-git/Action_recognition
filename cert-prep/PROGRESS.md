@@ -104,7 +104,9 @@ glossary — rebuild it after editing either). Learner's plan to 12:30 PM on 9 N
 AWS Skill Builder / Tutorials Dojo practice questions and our own practice sets. Exam Mon 9 Nov 1:30 PM IST.
 9 Nov morning: Full Mock 1 (65 Q, whole syllabus, answers + why-wrong under each question, as the learner asked) built by
 `tools/mock01.py` from `tools/mock_q1..5.py` → `notes/Full_Mock_1_2026-11-09_65Q_{Questions,With_Answers}.pdf`.
-After the exam: record the result here and in JOURNEY.md, then plan Microsoft AI-103 (Sat 28 Nov).
+9 Nov: **AIP-C01 exam taken.** Result pending — AWS says it will appear in the AWS Certification account within 5
+business days (by about Mon 16 Nov). When it arrives: record score + per-domain feedback here and in JOURNEY.md.
+Next: plan Microsoft AI-103 (Sat 28 Nov).
 
 ## Quiz rules (learned the hard way)
 - Never bold or otherwise mark correct options; keep all options similar in length.
