@@ -102,6 +102,8 @@ skill coverage. Built `notes/End_Game_Day_2026-11-08_All_Remaining_Skills.pdf` (
 `notes/Final_Exam_Cheat_Sheet_2026-11-08.pdf` (`tools/cheatsheet.py`; reads the mistakes log above and merges every
 glossary — rebuild it after editing either). Learner's plan to 12:30 PM on 9 Nov: review PDFs → cheat sheet + glossary →
 AWS Skill Builder / Tutorials Dojo practice questions and our own practice sets. Exam Mon 9 Nov 1:30 PM IST.
+9 Nov morning: Full Mock 1 (65 Q, whole syllabus, answers + why-wrong under each question, as the learner asked) built by
+`tools/mock01.py` from `tools/mock_q1..5.py` → `notes/Full_Mock_1_2026-11-09_65Q_{Questions,With_Answers}.pdf`.
 After the exam: record the result here and in JOURNEY.md, then plan Microsoft AI-103 (Sat 28 Nov).
 
 ## Quiz rules (learned the hard way)
