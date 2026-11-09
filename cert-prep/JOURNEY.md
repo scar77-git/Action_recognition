@@ -41,3 +41,4 @@ Story beats recorded as they happen. Add one or two lines after every session.
 | 9 Nov | **Sat the AIP-C01 exam** (1:30 PM IST) — 27 days after Day 1. Result pending: available in the AWS Certification account within 5 business days. |
 | Nov | 🏆 **PASSED AIP-C01 — AWS Certified Generative AI Developer – Professional, scaled score 791 / 1000** (pass mark 750). From zero AI work experience to a Professional-level AWS GenAI certification in 28 days. |
 | Nov | Learner's reflection: "The exam was hard — no question was straightforward. For someone who learnt all these concepts new, answering them under time pressure... I am so happy." |
+| Nov | Learner's verdict on practice material: our quiz and practice-set questions felt closer to the real exam than a third-party set, which leaned too heavily on SageMaker and caused some last-minute confusion. Thanks to both professors (Theo prof 1 and Theo prof 2). |

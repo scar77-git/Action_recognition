@@ -108,6 +108,12 @@ AWS Skill Builder / Tutorials Dojo practice questions and our own practice sets.
 Per-domain feedback from the score report: to be added when the learner shares it.
 Next: plan Microsoft AI-103 (Sat 28 Nov).
 
+## Lessons for the next exam (AI-103)
+- Learner found our own exam-style questions closest to the real exam; a third-party set that over-weighted
+  SageMaker confused them at the last minute. Build practice from the official skill list; use third-party sets
+  early (not on the last day), and check each one's topic balance against the official domain weights first.
+- Finishing every skill the night before (End Game Day) paid off — keep a skill-coverage matrix from day one.
+
 ## Quiz rules (learned the hard way)
 - Never bold or otherwise mark correct options; keep all options similar in length.
 - Every wrong option must be a real, plausible AWS approach that fails one stated requirement.
