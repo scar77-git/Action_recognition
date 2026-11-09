@@ -35,3 +35,4 @@ Story beats recorded as they happen. Add one or two lines after every session.
 | 29 Oct | Day 6 (guardrails, prompt injection, responsible AI) after a work break — quiz 12/12; coverage 56%. |
 | 30 Oct | No internet at the learner's end → combined Days 7–8 (cost, performance, governance) into an offline self-study PDF with check questions and a quiz; coverage 66%. |
 | 30 Oct | Days 7–8 self-study quiz: 8/12 (67%) — first score below target; self-study without a taught lesson showed. |
+| 9 Nov | 🎉 **PASSED AWS Certified Generative AI Developer – Professional (AIP-C01) with 791/1000** (pass mark 750) — 27 days after starting, alongside a full-time job. |
