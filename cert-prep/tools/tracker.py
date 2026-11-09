@@ -11,7 +11,7 @@ from reportlab.platypus import Paragraph  # noqa: E402
 H1_SPLIT = ParagraphStyle("h1split", parent=S["h1"], keepWithNext=0)
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "notes", "Progress_Tracker.pdf")
-LAST_UPDATED = "Sunday 8 Nov 2026 (End Game Day — all 98 skills taught)"
+LAST_UPDATED = "November 2026 — AIP-C01 PASSED (791 / 1000)"
 
 # day, date, official tasks, added %, total %, status, score, lab, confidence (topic mastery for that day)
 DAYS = [
@@ -67,7 +67,8 @@ ASSESSMENTS = [
     ("Practice Set 2 (Days 1–5 + gap, 45 Q, 60% hard)", "26 Oct", "41/45 = 91%", "≥ 75%", "✓ Above target"),
     ("Day 9 quiz (10 Q, 6 hard, incl. Select ALL)", "8 Nov", "8/10 = 80%", "≥ 75%", "✓ Above target"),
     ("End Game quiz (20 Q, 12 hard, incl. Select ALL)", "8 Nov", "20/20 = 100%", "≥ 75%", "✓ Above target"),
-    ("Full mocks 1–3", "—", "—", "≥ 75%", "Not taken; learner doing external practice papers 8–9 Nov"),
+    ("Full Mock 1 (65 Q, self-study with answers)", "9 Nov", "—", "≥ 75%", "Used for review on exam morning"),
+    ("<b>AIP-C01 REAL EXAM</b>", "9 Nov", "<b>791 / 1000</b>", "750", "<b>✅ PASSED — CERTIFIED</b>"),
 ]
 
 LAB_BACKLOG = [
@@ -77,10 +78,9 @@ LAB_BACKLOG = [
     "Day 5 — Console lab, start with Part B (request the TPM quota increase).",
 ]
 
-OVERALL = ("<b>All 98 official skills taught (100% skill coverage).</b> Assessments: Practice Set 1 87%, Practice "
-           "Set 2 91%, Day 6 100%, Days 7–8 67%, Day 9 80%, End Game 100%. Estimated confidence ~85%. Risks: no full "
-           "timed mock, few hands-on labs, End Game topics learned on exam eve. Final review material: "
-           "Final_Exam_Cheat_Sheet_2026-11-08.pdf (decision rules, look-alike pairs, trick cues, mistakes, glossary).")
+OVERALL = ("<b>✅ AWS Certified Generative AI Developer – Professional (AIP-C01) — PASSED with 791 / 1000</b> "
+           "(pass mark 750) on Mon 9 Nov 2026, 28 days after Day 1. All 98 official skills taught; practice scores 87%, "
+           "91%, 100%, 67%, 80%, 100%. Next: Microsoft AI-103 on Sat 28 Nov.")
 
 n = Note(OUT, "Progress Tracker — AWS AIP-C01",
          f"Last updated: <b>{LAST_UPDATED}</b> &nbsp;·&nbsp; Exam: <b>Mon 9 Nov 2026, 1:30 PM IST</b> "

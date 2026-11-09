@@ -11,7 +11,7 @@ Repo: `scar77-git/Action_recognition`, branch `claude/aws-ai-cert-prep-rpargp`, 
 ## Exams
 | Exam | Date | Notes |
 |---|---|---|
-| AWS Certified Generative AI Developer – Professional (AIP-C01) | **Mon 9 Nov 2026, 1:30–4:40 PM IST** (190 min) | Study until 10 AM on exam day. ESL +30 declined. |
+| AWS Certified Generative AI Developer – Professional (AIP-C01) | **Mon 9 Nov 2026, 1:30–4:40 PM IST** (190 min) | ✅ **PASSED — 791 / 1000** (pass 750). Certified. |
 | Microsoft AI-103 (Azure AI Apps and Agents Developer Associate) | Sat 28 Nov 2026 | Live (not beta). Plan after 9 Nov. |
 | Microsoft AI-500 (Multi-Agent AI Solutions Expert) | December 2026 | After AI-103 (prerequisite path). |
 
@@ -104,8 +104,8 @@ glossary — rebuild it after editing either). Learner's plan to 12:30 PM on 9 N
 AWS Skill Builder / Tutorials Dojo practice questions and our own practice sets. Exam Mon 9 Nov 1:30 PM IST.
 9 Nov morning: Full Mock 1 (65 Q, whole syllabus, answers + why-wrong under each question, as the learner asked) built by
 `tools/mock01.py` from `tools/mock_q1..5.py` → `notes/Full_Mock_1_2026-11-09_65Q_{Questions,With_Answers}.pdf`.
-9 Nov: **AIP-C01 exam taken.** Result pending — AWS says it will appear in the AWS Certification account within 5
-business days (by about Mon 16 Nov). When it arrives: record score + per-domain feedback here and in JOURNEY.md.
+9 Nov: AIP-C01 exam taken. **RESULT: PASSED — scaled score 791 / 1000 (pass mark 750). Certified!**
+Per-domain feedback from the score report: to be added when the learner shares it.
 Next: plan Microsoft AI-103 (Sat 28 Nov).
 
 ## Quiz rules (learned the hard way)
