@@ -1,6 +1,7 @@
 # Exam prep — progress and handoff
 
 > **9 Nov 2026: AWS AIP-C01 PASSED — 791/1000.** Next: Microsoft AI-103 on Sat 28 Nov 2026, then AI-500.
+> Section results: Meets Competencies in D1, D2, D3, D5; Needs Improvement in D4 (cost, performance, monitoring) — the self-study-only area. Lesson: teach every topic live with checks; revisit cost/performance/monitoring before building projects.
 
 Read this file and `TEACHING_STYLE.md` first when resuming in a new session.
 Repo: `scar77-git/Action_recognition`, branch `claude/aws-ai-cert-prep-rpargp`, folder `cert-prep/`.
