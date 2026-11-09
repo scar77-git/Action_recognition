@@ -11,7 +11,7 @@ from reportlab.platypus import Paragraph  # noqa: E402
 H1_SPLIT = ParagraphStyle("h1split", parent=S["h1"], keepWithNext=0)
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "notes", "Progress_Tracker.pdf")
-LAST_UPDATED = "Friday 30 Oct 2026 (Days 7–8 quiz graded)"
+LAST_UPDATED = "November 2026 — AIP-C01 PASSED (791 / 1000)"
 
 # day, date, official tasks, added %, total %, status, score, lab, confidence (topic mastery for that day)
 DAYS = [
@@ -37,21 +37,25 @@ DAYS = [
      "90% — all hard questions correct"),
     ("7–8. Cost + performance + governance (self-study PDF)", "Fri 30 Oct", "4.1, 4.2, 3.3", "+10%", "66%", "✓ PDF",
      "Quiz <b>8/12</b> (67%)", "—", "70% — self-study; revise caching, cost math, decision logs"),
-    ("9. Prompt engineering + design", "Sat 31 Oct", "1.6, 1.1, 2.1.2", "+10%", "76%", "Planned", "—", "—", "—"),
-    ("10. Data pipelines + enterprise integration", "Sun 1 Nov", "1.3, 2.3", "+8%", "84%", "Planned", "—", "—", "—"),
-    ("11. Dev tools + monitoring", "Mon 2 Nov", "2.5, 4.3", "+8%", "92%", "Planned", "—", "—", "—"),
-    ("12. Troubleshooting + evaluation + Practice Set 3", "Tue 3 Nov", "5.2, 5.1", "+8%", "100%", "Planned", "—", "—", "—"),
-    ("Mock 1 / review / Mock 2 / Mock 3", "4–8 Nov", "All", "—", "—", "Planned", "—", "—", "—"),
+    ("9. Prompt engineering + design (Theo prof 2)", "30 Oct – 8 Nov", "1.6, 1.1, 2.1.2, 5.2.3, 5.2.5", "+11%",
+     "77%", "✓ Done", "Quiz <b>8/10</b> (80%)", "Skipped (exam eve)",
+     "80% — revise X-Ray vs invocation logs; map every finding in multi-fix stems"),
+    ("End Game Day (Theo prof 2): data pipelines, integration, CI/CD, dev tools, monitoring, evaluation, troubleshooting",
+     "Sun 8 Nov", "1.3, 2.3, 2.5, 4.3, 5.1, 5.2.1/5.2.2/5.2.4", "+23%", "100%", "✓ Done", "Quiz <b>20/20</b>",
+     "—", "88% — taught fast on exam eve; strong quiz, little time to consolidate"),
+    ("Mocks 1–3", "—", "All", "—", "—", "Not taken", "—", "—", "—"),
 ]
 
 # domain, weight, coverage so far, confidence on what's covered, note
 DOMAINS = [
-    ("1. FM integration, data management, compliance", "31%", "61% (15 ✓ 4 ½ 9 ✗ of 28 skills)", "80%",
-     "1.1, 1.6 Day 7; 1.3 Day 8"),
-    ("2. Implementation and integration", "26%", "60% (13 ✓ 4 ½ 8 ✗ of 25)", "83%", "2.3 Day 8; 2.5 Day 9"),
-    ("3. AI safety, security, governance", "20%", "73% (11 ✓ 0 ½ 4 ✗ of 15)", "85%", "3.3 Day 9"),
-    ("4. Operational efficiency and optimisation", "12%", "34% (1 ✓ 9 ½ 6 ✗ of 16)", "—", "Days 10–11"),
-    ("5. Testing, validation, troubleshooting", "11%", "25% (0 ✓ 7 ½ 7 ✗ of 14)", "75%", "Days 11–12"),
+    ("1. FM integration, data management, compliance", "31%", "100% (28 of 28 skills)", "85%",
+     "1.3 on End Game Day"),
+    ("2. Implementation and integration", "26%", "100% (25 of 25)", "85%", "2.3 / 2.5 on End Game Day"),
+    ("3. AI safety, security, governance", "20%", "100% (15 ✓ of 15)", "85%", "Complete"),
+    ("4. Operational efficiency and optimisation", "12%", "100% (16 of 16)", "78%",
+     "Days 7–8 quiz 67%; 4.3 monitoring End Game 100%"),
+    ("5. Testing, validation, troubleshooting", "11%", "100% (14 of 14)", "85%",
+     "5.1 / 5.2 End Game Day"),
 ]
 
 # assessment, date, score, target
@@ -61,11 +65,10 @@ ASSESSMENTS = [
     ("Day 6 quiz (12 Q, 7 hard)", "29 Oct", "12/12 = 100%", "≥ 75%", "✓ Above target"),
     ("Days 7–8 quiz (self-study, 12 Q)", "30 Oct", "8/12 = 67%", "≥ 75%", "✗ Below — revise"),
     ("Practice Set 2 (Days 1–5 + gap, 45 Q, 60% hard)", "26 Oct", "41/45 = 91%", "≥ 75%", "✓ Above target"),
-    ("Practice Set 3 (Days 6–12)", "2 Nov", "—", "≥ 75%", "Planned"),
-    ("Full mock 1 (75 Q, 190 min, 1:30 PM)", "3 Nov", "—", "≥ 75%", "Planned"),
-    ("Full mock 2", "5 Nov", "—", "≥ 75%", "Planned"),
-    ("Practice Set 4 (weakest tasks)", "6 Nov", "—", "≥ 75%", "Planned"),
-    ("Full mock 3", "7 Nov", "—", "≥ 75%", "Planned"),
+    ("Day 9 quiz (10 Q, 6 hard, incl. Select ALL)", "8 Nov", "8/10 = 80%", "≥ 75%", "✓ Above target"),
+    ("End Game quiz (20 Q, 12 hard, incl. Select ALL)", "8 Nov", "20/20 = 100%", "≥ 75%", "✓ Above target"),
+    ("Full Mock 1 (65 Q, self-study with answers)", "9 Nov", "—", "≥ 75%", "Used for review on exam morning"),
+    ("<b>AIP-C01 REAL EXAM</b>", "9 Nov", "<b>791 / 1000</b>", "750", "<b>✅ PASSED — CERTIFIED</b>"),
 ]
 
 LAB_BACKLOG = [
@@ -75,10 +78,9 @@ LAB_BACKLOG = [
     "Day 5 — Console lab, start with Part B (request the TPM quota increase).",
 ]
 
-OVERALL = ("<b>Overall confidence on topics covered so far: ~87%</b> (Practice Set 2: 91%). Skill-level coverage of the exam guide: <b>66%</b> "
-           "(53 of 98 skills fully covered, 18 partly — see Skill_Coverage_Matrix.pdf). "
-           "Strongest: agents and tools (2.1), models and inference (1.2, 2.2, 2.4). Watch: exact service names and "
-           "limits, and reading every option to the end. Biggest risk: no hands-on labs since Day 1.")
+OVERALL = ("<b>✅ AWS Certified Generative AI Developer – Professional (AIP-C01) — PASSED with 791 / 1000</b> "
+           "(pass mark 750) on Mon 9 Nov 2026, 28 days after Day 1. All 98 official skills taught; practice scores 87%, "
+           "91%, 100%, 67%, 80%, 100%. Next: Microsoft AI-103 on Sat 28 Nov.")
 
 n = Note(OUT, "Progress Tracker — AWS AIP-C01",
          f"Last updated: <b>{LAST_UPDATED}</b> &nbsp;·&nbsp; Exam: <b>Mon 9 Nov 2026, 1:30 PM IST</b> "
@@ -105,8 +107,9 @@ n.h1("4. Lab backlog")
 n.bullets(LAB_BACKLOG)
 
 n.h1("5. Next session")
-n.p("Day 6 quiz, then <b>Day 7</b> (prompt engineering + design) and <b>Day 8</b> (data pipelines + enterprise "
-    "integration) on Thu 29 Oct to get back on schedule.")
+n.p("<b>Exam: Mon 9 Nov, 1:30 PM IST.</b> Learner's plan: review all PDFs (2 h) → cheat sheet + glossary (1 h) → "
+    "AWS Skill Builder / Tutorials Dojo practice questions and our practice sets until 12:30 PM. In the exam: answer "
+    "every question, flag and return, list each requirement and strike options that fail any one.")
 
 n.build()
 print(os.path.abspath(OUT))

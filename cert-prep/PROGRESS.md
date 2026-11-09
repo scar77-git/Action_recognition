@@ -13,7 +13,7 @@ Repo: `scar77-git/Action_recognition`, branch `claude/aws-ai-cert-prep-rpargp`, 
 ## Exams
 | Exam | Date | Notes |
 |---|---|---|
-| AWS Certified Generative AI Developer – Professional (AIP-C01) | **Mon 9 Nov 2026, 1:30–4:40 PM IST** (190 min) | Study until 10 AM on exam day. ESL +30 declined. |
+| AWS Certified Generative AI Developer – Professional (AIP-C01) | **Mon 9 Nov 2026, 1:30–4:40 PM IST** (190 min) | ✅ **PASSED — 791 / 1000** (pass 750). Certified. |
 | Microsoft AI-103 (Azure AI Apps and Agents Developer Associate) | Sat 28 Nov 2026 | Live (not beta). Plan after 9 Nov. |
 | Microsoft AI-500 (Multi-Agent AI Solutions Expert) | December 2026 | After AI-103 (prerequisite path). |
 
@@ -42,8 +42,10 @@ Repo: `scar77-git/Action_recognition`, branch `claude/aws-ai-cert-prep-rpargp`, 
 | 4 Security and data privacy | 24 Oct | 3.2 | Quiz 4.25/5; lab studied, not run |
 | Glossary Days 1–4 | 24 Oct | — | 137 terms |
 | 5 Models and inference (new teaching style, 3 parts) | 25 Oct | 1.2, 2.4, 2.2 | Quiz **8/8**; lab pending (console-only steps in PDF) |
+| 9 Prompt engineering + design (Theo prof 2, 3 parts) | 30 Oct – 8 Nov | 1.6, 1.1, 2.1.2, 5.2.3, 5.2.5 | Quiz **8/10**; lab skipped (exam eve) |
+| End Game Day (Theo prof 2, 4 parts) | 8 Nov | 1.3, 2.3, 2.5, 4.3, 5.1, 5.2.1/5.2.2/5.2.4 | Quiz **20/20**; all 98 skills taught |
 
-Coverage of exam guide ≈ 45%.
+Coverage of exam guide (skill level) = **100%** after End Game Day (all 98 skills covered).
 
 ## Mistakes log (review every morning)
 - DynamoDB is NOT a KB vector store (OpenSearch Serverless, Aurora pgvector, Neptune Analytics, S3 Vectors, Pinecone, MongoDB Atlas, Redis).
@@ -64,6 +66,8 @@ Coverage of exam guide ≈ 45%.
 - Latency dominated by long generation → cap output length first.
 - Per-answer audit (sources, model + guardrail versions, decision) → decision logs in CloudWatch Logs; model cards =
   model-level docs; Glue lineage = dataset origins.
+- Wrong behaviour with normal latency → rendered prompt in invocation logs (Logs Insights); X-Ray = where time/errors occur.
+- Multi-finding stems (Select ALL): map each finding to its fix (hard-coded prompts → Prompt Management templates, IAM-gated versions).
 - Habit: list every requirement in the stem and strike options that fail any one.
 - Habit: read every option to the last word; flag look-alike options.
 
@@ -95,17 +99,22 @@ Coverage of exam guide ≈ 45%.
 Readiness rule: mocks ≥75% ready; 65–75% focus weak tasks; <65% by 3 Nov → discuss rescheduling.
 
 ## Next action
-30 Oct: Days 7–8 quiz graded 8/12 (self-study; revise caching, cost maths, decision logs) — consider a 20-min recap before Day 9. Earlier: learner went offline; sent `notes/Day_7-8_2026-10-30_Cost_Performance_Governance.pdf` (self-study: 4.1, 4.2,
-3.3 — skills marked covered → 66%). It ends with a 12-question quiz; when the learner sends answers, grade them
-(key in this session's scratchpad `day0708_quiz_key.txt`; if lost, re-solve from the PDF), add an answers section to
-`tools/day07_08.py`, update tracker/journey.
-Revised remaining plan (shifted one day):
-| Sat 31 Oct | Day 9 Prompt engineering + design (1.6, 1.1, 2.1.2) — biggest remaining topic, don't rush |
-| Sun 1 Nov | Day 10 Data pipelines + enterprise integration (1.3, 2.3) |
-| Mon 2 Nov | Day 11 Dev tools + monitoring (2.5, 4.3) |
-| Tue 3 Nov | Day 12 Troubleshooting + evaluation (5.2, 5.1) + Practice Set 3 |
-| Wed 4 / Fri 6 / Sat 7 Nov | Full mocks 1–3 (1:30 PM, 75 Q, 190 min), reviews between; Sun 8 light review; Mon 9 exam |
-This chat is near its context limit — continue in a new session using the handoff prompt.
+8 Nov (exam eve), by "Theo prof 2": Day 9 (quiz 8/10) and End Game Day (all remaining 33 skills, quiz 20/20) → 100%
+skill coverage. Built `notes/End_Game_Day_2026-11-08_All_Remaining_Skills.pdf` (`tools/endgame.py`) and
+`notes/Final_Exam_Cheat_Sheet_2026-11-08.pdf` (`tools/cheatsheet.py`; reads the mistakes log above and merges every
+glossary — rebuild it after editing either). Learner's plan to 12:30 PM on 9 Nov: review PDFs → cheat sheet + glossary →
+AWS Skill Builder / Tutorials Dojo practice questions and our own practice sets. Exam Mon 9 Nov 1:30 PM IST.
+9 Nov morning: Full Mock 1 (65 Q, whole syllabus, answers + why-wrong under each question, as the learner asked) built by
+`tools/mock01.py` from `tools/mock_q1..5.py` → `notes/Full_Mock_1_2026-11-09_65Q_{Questions,With_Answers}.pdf`.
+9 Nov: AIP-C01 exam taken. **RESULT: PASSED — scaled score 791 / 1000 (pass mark 750). Certified!**
+Per-domain feedback from the score report: to be added when the learner shares it.
+Next: plan Microsoft AI-103 (Sat 28 Nov).
+
+## Lessons for the next exam (AI-103)
+- Learner found our own exam-style questions closest to the real exam; a third-party set that over-weighted
+  SageMaker confused them at the last minute. Build practice from the official skill list; use third-party sets
+  early (not on the last day), and check each one's topic balance against the official domain weights first.
+- Finishing every skill the night before (End Game Day) paid off — keep a skill-coverage matrix from day one.
 
 ## Quiz rules (learned the hard way)
 - Never bold or otherwise mark correct options; keep all options similar in length.

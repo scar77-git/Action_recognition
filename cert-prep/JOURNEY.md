@@ -35,4 +35,10 @@ Story beats recorded as they happen. Add one or two lines after every session.
 | 29 Oct | Day 6 (guardrails, prompt injection, responsible AI) after a work break — quiz 12/12; coverage 56%. |
 | 30 Oct | No internet at the learner's end → combined Days 7–8 (cost, performance, governance) into an offline self-study PDF with check questions and a quiz; coverage 66%. |
 | 30 Oct | Days 7–8 self-study quiz: 8/12 (67%) — first score below target; self-study without a taught lesson showed. |
-| 9 Nov | 🎉 **PASSED AWS Certified Generative AI Developer – Professional (AIP-C01) with 791/1000** (pass mark 750) — 27 days after starting, alongside a full-time job. |
+| 8 Nov | Day 9 (prompt engineering, prompt governance, solution design) with a new professor session ("Theo prof 2") on the eve of the exam — quiz 8/10 (80%); coverage 77%. Learner asked how the Well-Architected GenAI Lens relates to standard components — answered with a Java/SonarQube vs shared-library analogy. |
+| 8 Nov | **End Game Day**: the learner refused to stop at 77% the evening before the exam — 33 remaining skills in four parts, then a 20-question quiz scored **20/20**. All 98 official skills taught; a final cheat sheet (decision rules, look-alike pairs, trick cues, mistakes, 353-term glossary) built for the last review. |
+| 9 Nov | Exam morning: learner asked for a 65-question whole-syllabus mock (Hard / Very hard, Select ONE / TWO / THREE / ALL) with explanations and why every other option is wrong under each question. |
+| 9 Nov | **Sat the AIP-C01 exam** (1:30 PM IST) — 27 days after Day 1. Result pending: available in the AWS Certification account within 5 business days. |
+| Nov | 🏆 **PASSED AIP-C01 — AWS Certified Generative AI Developer – Professional, scaled score 791 / 1000** (pass mark 750). From zero AI work experience to a Professional-level AWS GenAI certification in 28 days. |
+| Nov | Learner's reflection: "The exam was hard — no question was straightforward. For someone who learnt all these concepts new, answering them under time pressure... I am so happy." |
+| Nov | Learner's verdict on practice material: our quiz and practice-set questions felt closer to the real exam than a third-party set, which leaned too heavily on SageMaker and caused some last-minute confusion. Thanks to both professors (Theo prof 1 and Theo prof 2). |
